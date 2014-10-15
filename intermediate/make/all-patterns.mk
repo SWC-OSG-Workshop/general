@@ -1,13 +1,13 @@
 # all-patterns.mk
 
-paper.pdf : paper.tex figure-1.svg figure-2.svg
-	cat $^ > $@
+paper.pdf : paper.wdp figure-1.svg figure-2.svg
+	wdp2pdf $<
 
 figure-%.svg : summary-%.dat
-	python create_figure.py $@ $^
+	sgr -N -r $@ $^
 
 summary-%.dat : data-%-*.dat
-	python stats.py $@ $^
+	stats.py $@ $^
 
 summary-1.dat : stats.py
 summary-2.dat : stats.py

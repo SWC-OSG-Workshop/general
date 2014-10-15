@@ -5,18 +5,22 @@ root: ../..
 {% extends 'markdown.tpl' %}
 
 {% block input %}
-<pre class="in"><code>{{ cell.input | escape }}</code></pre>
+<div class="in">
+<pre>{{ cell.input | escape }}</pre>
+</div>
 {% endblock input %}
 
 {% block output_group %}
-<div class="out">{{- super() -}}</div>
+<div class="out">
+<pre>{{- super() -}}</pre>
+</div>
 {% endblock output_group %}
 
-{%- block stream -%}<pre class='out'><code>{{- output.text | escape -}}</code></pre>{%- endblock stream -%}
+{%- block stream -%}{{- output.text | escape -}}{%- endblock stream -%}
 
-{%- block pyout -%}<pre class='out'><code>{{- output.text | escape -}}</code></pre>{%- endblock pyout -%}
+{%- block pyout -%}{{- output.text | escape -}}{%- endblock pyout -%}
 
-{%- block pyerr -%}<pre class='err'><code>{{- output.traceback | join('\n') | strip_ansi | escape -}}</code></pre>{%- endblock pyerr -%}
+{%- block pyerr -%}{{- output.traceback | join('\n') | strip_ansi | escape -}}{%- endblock pyerr -%}
 
 {%- block data_svg -%}<img src="../../{{ output.svg_filename | path2url }}">{%- endblock data_svg -%}
 
@@ -35,11 +39,13 @@ root: ../..
 {%- endblock display_data -%}
 
 {% block markdowncell %}
-{% if 'cell_tags' in cell.metadata and cell.metadata['cell_tags'] %}
-<div class="{{ cell.metadata['cell_tags'][0] }}" markdown="1">
-{{ cell.source | strip_files_prefix }}
+{% if 'cell_tags' in cell.metadata %}
+<div class="{{ cell.metadata['cell_tags'][0] }}">
+{{ cell.source  | markdown2html | strip_files_prefix }}
 </div>
 {% else %}
-{{ cell.source | strip_files_prefix }}
+<div>
+{{ cell.source  | markdown2html | strip_files_prefix }}
+</div>
 {% endif %}
 {%- endblock markdowncell %}

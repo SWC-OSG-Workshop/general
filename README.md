@@ -1,20 +1,20 @@
 <<<<<<< HEAD
-SWC-OSG
+2014-09-29-UC-Test
+==================
+
+Workshop at UC: Testing
 =======
-=======
-Software Carpentry Workshops
+Software Carpentry Bootcamps
 ============================
 
-The `bc` repository is the starting point for creating your own workshop website:
-it contains a template for your workshop's home page,
-and also hosts the shared lesson materials we have developed.
-Most material is written in Markdown,
-but our Python and SQL lessons are written as IPython Notebooks.
+This repository's `gh-pages` branch is the starting point for a bootcamp website:
+it contains a template for your bootcamp's home page
+and the shared lesson materials we have developed.
 The sections below explain:
 
 *   how GitHub turns a repository into a web site,
-*   how you can build a website for your workshop using this repo as a starting point,
-*   what lessons we have,
+*   how you can build a website for your bootcamp using this repo as a starting point,
+*   which lessons we have,
 *   where they're located, and
 *   how to add new lessons.
 
@@ -22,32 +22,19 @@ To contribute corrections or additions to this repository, see the
 [contribution guidelines](CONTRIBUTING.md).
 You may also want to view these videos:
 
-*   [Setting Up a Software Carpentry Workshop Repository](https://vimeo.com/87241285)
-*   [Adding Lesson Material to the Software Carpentry Workshop Repository](https://vimeo.com/92273942)
+*   [Setting Up a Software Carpentry Bootcamp Repository](https://vimeo.com/87241285)
+*   [Adding Lesson Material to the Software Carpentry Bootcamp Repository](https://vimeo.com/92273942)
 
 **Note:**
-If you are teaching Git in your workshop,
+If you are teaching Git in your bootcamp,
 you should create *two* repositories:
-one for your workshop's website,
+one for your bootcamp's website,
 and one for learners to clone and update during your lessons.
 You should not try to use the same repo for both purposes because:
 
 1.  your website repo is probably going to be fairly large, and
 2.  you don't want a learner accidentally overwriting your lessons
     while you're trying to teach.
-
-You should also run `make check` before pushing changes to your `index.html` home page
-to your repository.
-If you don't have Make installed,
-you can run the same checks using:
-
-~~~
-python bin/swc_index_validator.py ./index.html
-~~~
-
-This checks that the workshop's instructors are listed,
-that a contact email address has been set up,
-and so on.
 
 **Table of Contents**
 
@@ -82,7 +69,7 @@ rather than Git itself.
 
 2.  A user on GitHub can only have one fork of a particular repo.
     This is a problem for us because
-    an instructor may be involved in several workshops,
+    an instructor may be involved in several bootcamps,
     each of which has its own website repo.
     Those website repositories ought to be forks of this one,
     but since GitHub doesn't allow that,
@@ -116,8 +103,8 @@ rather than Git itself.
     that looks for specially-formatted commands embedded in the file.
 
 6.  Commands can be embedded in the body of a page.
-    One is {% raw %}{% include something.html %}{% endraw %},
-    which tells Jekyll to copy the contents of `something.html` into the file being translated;
+    One is `{% include somefile.html %}`,
+    which tells Jekyll to copy the contents of `somefile.html` into the file being translated;
     this is used to create standard headers and footers for pages.
     Another is `{{variable}}`:
     when Jekyll sees this,
@@ -136,7 +123,7 @@ rather than Git itself.
     `{{page.venue}}` is replaced by "Euphoric State University"
     (or whatever value the variable has).
 
-8.  If a page uses {% raw %}{% include something.html %}{% endraw %} to include a snippet of HTML,
+8.  If a page uses `{% include something.html %}` to include a snippet of HTML,
     Jekyll looks in a directory called `_includes` to find `something.html`.
     It always looks there,
     and nowhere else,
@@ -151,13 +138,13 @@ rather than Git itself.
     then expands the result.
     This is used to give the pages in a site a uniform appearance.
 
-We have created three standard layouts for workshop pages:
+We have created three standard layouts for bootcamp pages:
 
-*   `workshop.html` is used for workshops' home pages,
+*   `bootcamp.html` is used for bootcamps' home pages,
     and is the layout for the `index.html` page in your repo's root directory.
     That `index.html` page's header must
     [define several variables](#variables)
-    in order for your workshop to be included in our main website.
+    in order for your bootcamp to be included in our main website.
 
 *   `lesson.html` is used to lay out pages for individual lessons.
     All of the lessons in this repository use it
@@ -169,18 +156,18 @@ We have created three standard layouts for workshop pages:
 Getting Started
 ---------------
 
-To create a website for a new workshop:
+To create a website for a new bootcamp:
 
 1.  Create a [new repository on GitHub](https://github.com/new)
     with a name like YYYY-MM-DD-site, e.g., `2014-03-31-esu`.
     This repository must *not* be a fork of an existing repository
     because as mentioned earlier,
     GitHub only allows a user to fork a repository once,
-    but many instructors are involved in several workshops.
-    Please use the same ID for your workshop
+    but many instructors are involved in several bootcamps.
+    Please use the same ID for your bootcamp
     that the Software Carpentry admins are using to identify it
     (i.e.,
-    if the admins called the workshop `2014-03-31-esu`,
+    if the admins called the bootcamp `2014-03-31-esu`,
     please *don't* call your repo `euphoric-march-2014`),
     and please use all lower-case
     (i.e., '2014-03-31-esu' instead of '2014-03-31-ESU').
@@ -220,7 +207,7 @@ To create a website for a new workshop:
     $ git remote rm swc
     ~~~
 
-7.  Edit `index.html` to create the workshop home page.
+7.  Edit `index.html` to create the bootcamp home page.
     In particular,
     double-check
     [the variables in the page's header](#variables),
@@ -230,16 +217,12 @@ To create a website for a new workshop:
     to check `index.html` for problems
     by running the command `make check`.
 
-8.  Change `lessons` variable in `index.html` so that it reflects the lessons that the workshop will cover.
-    This controls which setup instructions are displayed,
-    and described in more detail in the section on [variables](#variables).
-
-8.  Edit `_includes/setup.html` to provide software installation instructions for workshop attendees.
+8.  Edit `_includes/setup.html` to provide software installation instructions for bootcamp attendees.
     This is described in more detail in the section on [website content](#website-content).
 
 9.  [Preview your changes](#previewing-the-site).
 
-10. Replace the content of this `README.md` file with a line or two describing your workshop.
+10. Replace the content of this `README.md` file with a line or two describing your bootcamp.
 
 11. Push content to your YYYY-MM-DD-site repository:
 
@@ -254,12 +237,12 @@ at the url:
 http://{your-github-username}.github.io/YYYY-MM-DD-site/
 ~~~
 
-You may update your workshop's website whenever you want.
+You may update your bootcamp's website whenever you want.
 
 Previewing the Site
 -------------------
 
-To preview your workshop's page(s),
+To preview your bootcamp's page(s),
 go into its root directory and run:
 
 ~~~
@@ -270,7 +253,7 @@ This will run `jekyll` to create the directory `./_site`.
 The `index.html` page in this directory,
 `./_site/index.html`,
 should have the Software Carpentry look and feel
-and the information about your workshop.
+and the information about your bootcamp.
 
 **Note:**
 you will need to install Jekyll 1.0.3 or later in order to preview things locally.
@@ -311,12 +294,11 @@ $ jekyll -t build -d _site
 Variables
 ---------
 
-Your workshop's `index.html` page
-(which uses the `workshop.html` layout from the `_layouts` directory)
+Your bootcamp's `index.html` page
+(which uses the `bootcamp.html` layout from the `_layouts` directory)
 *must* define the following values in its YAML header:
 
-*   `layout` must be `workshop`.
-
+*   `layout` must be `bootcamp`.
 *   `root` is the path to the repository's root directory.
     This is '.' if the page is in the root directory
     (which `index.html` is).
@@ -324,50 +306,32 @@ Your workshop's `index.html` page
     `root` is '..' if the page is one directory down,
     '../..' if it is two levels down,
     and so on.
-
-*   `venue` is the name of the institution or group hosting the workshop.
-
-*   `address` is the workshop's street address.
-
+*   `venue` is the name of the institution or group hosting the bootcamp.
+*   `address` is the bootcamp's street address.
 *   `country` must be a hyphenated country name like 'United-States'.
     This is used to look up flags for display in the main web site;
     see the `assets/flags` directory in the `site` repo for a full list of valid names.
-
-*   `latlng` is the latitude and longitude of the workshop site
+*   `latlng` is the latitude and longitude of the bootcamp site
     (so we can put a pin on our map).
-
-*   `humandate` is the human-friendly dates for the workshop (e.g., Jul 3-4, 2015).
+*   `humandate` is the human-friendly dates for the bootcamp (e.g., Jul 3-4, 2015).
     Please use three- or four-letter month names and abbreviations
     (e.g., `Dec` instead of `December`).
-
-*   `startdate` is the workshop's starting date in YYYY-MM-DD format.
-
-*   `enddate` is the workshop's ending date in the same format.
-    If your workshop is only one day long,
+*   `startdate` is the bootcamp's starting date in YYYY-MM-DD format.
+*   `enddate` is the bootcamp's ending date in the same format.
+    If your bootcamp is only one day long,
     the `enddate` field can be deleted.
-
 *   `registration` is `open` (if anyone is allowed to sign up)
     or `restricted` (if only some people are allowed to take part).
     Please do *not* put HTML or links in here to explain
     who's allowed to enrol or how to go about doing it;
     that should go in the main body of your page.
-
 *   `instructor` is a comma-separated list of instructor names.
     This must be enclosed in square brackets,
     as in `["Alan Turing","Grace Hopper"]`
-
 *   `helper` is a comma-separated list of helper names.
     This must be enclosed in square brackets,
     as in `["John von Neumann"]`
-
-*   `contact` is the contact email address to use for your workshop.
-
-*   `lessons` is a list of the lessons actually being taught.
-    The values in this list control which sections of the setup instructions are displayed:
-    if `'Python'` is in the list,
-    for example,
-    the Python setup instructions are displayed for all three platforms,
-    while they are omitted if it is not.
+*   `contact` is the contact email address to use for your bootcamp.
 
 The header may optionally define the following:
 
@@ -381,7 +345,7 @@ Website Content
 ---------------
 
 The body of `index.html` contains
-an explanation of what a workshop is and how it runs,
+an explanation of what a bootcamp is and how it runs,
 followed by setup instructions for our standard software.
 There is an explanatory comment for each section of this page;
 reorganize, rewrite, or delete the material as you think best.
@@ -394,8 +358,13 @@ reorganize, rewrite, or delete the material as you think best.
 *   `javascript.html`: JQuery and Bootstrap Javascript.
 *   `setup.html`: common setup instructions.
 
-You normally won't need to edit these,
-as they're included in the right places by our standard layouts.
+You normally won't need to worry about the first four ---
+they're included in the right places by our standard layouts ---
+but you will probably want to edit the fifth.
+In particular,
+if you are teaching a Python bootcamp,
+you should delete the instructions for installing R,
+and vice versa.
 
 Lesson Material
 ---------------
@@ -466,10 +435,10 @@ The most important files and directories are **highlighted**.
 *   contents.md - site map used in place of `index.html` on the main web site.
 *   css/ - CSS files for this site.
 *   data/ - miscellaneous data files used by examples.
-*   etherpad.txt - starter text for the workshop's Etherpad.
+*   etherpad.txt - starter text for the bootcamp's Etherpad.
 *   gloss.md - glossary of terms.
 *   img/ - images used throughout this site.
-*   **index.html** - template for workshop home pages.
+*   **index.html** - template for bootcamp home pages.
 *   intermediate/ - intermediate lesson material (under development).
 *   intro.md - introduction to book version of this site.
 *   ipynb.mk - Makefile for turning IPython Notebooks into Markdown.
@@ -477,8 +446,8 @@ The most important files and directories are **highlighted**.
 *   lessons/ - old lesson material.
 *   novice/ - novice lesson material.
 *   rules.md - the rules of programming (used in the book version of this site).
-*   setup.md - placeholder for workshop setup instructions.
-*   setup/ - setup tools for installing workshop software.
+*   setup.md - placeholder for bootcamp setup instructions.
+*   setup/ - setup tools for installing bootcamp software.
 *   slides/ - slideshows (under construction).
 *   team.md - who we are.
 
@@ -488,13 +457,14 @@ FAQ
 *   *Where can I get help?*
     <br/>
     Mail us at [admin@software-carpentry.org](mailto:admin@software-carpentry.org),
+    come chat with us on [our IRC channel](irc://moznet/sciencelab),
     or join our [discussion list](http://software-carpentry.org/contrib/discuss.html)
     and ask for help there.
 
-*   *Why does the workshop repository have to be created from scratch? Why not fork `bc` on GitHub?*
+*   *Why does the bootcamp repository have to be created from scratch? Why not fork `bc` on GitHub?*
     <br/>
     Because any particular user can only have one fork of a repository,
-    but instructors frequently need to work on several workshops at once.
+    but instructors frequently need to work on several bootcamps at once.
 
 *   *Why use Jekyll?  Why not some other markup language and some other converter?*
     <br/>
@@ -575,20 +545,9 @@ FAQ
     $ sudo apt-get install pandoc
     ~~~
 
-*   *Where should pages go if multiple workshops are running at a site simultaneously?*
+*   *Where should pages go if multiple boot camps are running at a site simultaneously?*
     <br/>
     Use subdirectories like `2013-07-01-esu/beginners`,
     so that main directory names always follow our four-part convention.
 
-*   *What is the "Windows installer"?*
-    <br/>
-    We have built a small installation helper for Windows
-    that installs `nano` and `sqlite`,
-    adds R to the path,
-    and so on.
-    It is maintained in [this repository](https://github.com/swcarpentry/windows-installer),
-    which also has an up-to-date description of what it actually does.
-    The latest version is always available at
-    [http://files.software-carpentry.org/SWCarpentryInstaller.exe](http://files.software-carpentry.org/SWCarpentryInstaller.exe),
-    and contributions are always welcome.
->>>>>>> b1c005003ff5abf14f17ceedb0f767e09f019a01
+>>>>>>> 2b9974c303a9b8258f4aae8ed6480849adf01fb4

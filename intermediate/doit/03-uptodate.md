@@ -8,19 +8,28 @@ root: ../..
 ### Objectives:
 
 
-- Explain how doit decides if a task is up to date when that task depends on another file
-- Explain how this is decided if a task does not have any dependencies
-- Explain how we configure a task to change the way doit will decide if it is up to date
-- Explain how doit decides which functions are tasks, and which are not
+<div>
+<ul>
+<li>Explain how doit decides if a task is up to date when that task depends on another file</li>
+<li>Explain how this is decided if a task does not have any dependencies</li>
+<li>Explain how we configure a task to change the way doit will decide if it is up to date</li>
+<li>Explain how doit decides which functions are tasks, and which are not</li>
+</ul>
+</div>
 
 
-Here is one version of the script, which now downloads both the raw data files. The download_data task was a bit long, so I refactored the part which calculates all the correct file names into a new python function.
+<div>
+<p>Here is one version of the script, which now downloads both the raw data files. The download_data task was a bit long, so I refactored the part which calculates all the correct file names into a new python function.</p>
+</div>
 
 
-<pre class="in"><code>%load_ext doitmagic</code></pre>
+<div class="in">
+<pre>%load_ext doitmagic</pre>
+</div>
 
 
-<pre class="in"><code>%%doit
+<div class="in">
+<pre>%%doit
 
 # download_all_data.py
 
@@ -54,13 +63,15 @@ def task_reformat_data():
             &#39;file_dep&#39;: [&#39;UK_{}_data.txt&#39;.format(data_type)],
             &#39;targets&#39;: [&#39;UK_{}_data.reformatted.txt&#39;.format(data_type)],
             &#39;name&#39;: &#39;UK_{}_data.txt&#39;.format(data_type),
-        }</code></pre>
+        }</pre>
+</div>
 
-<div class="out"><pre class='out'><code>.  download_data:Tmean
+<div class="out">
+<pre>.  download_data:Tmean
 .  download_data:Sunshine
 -- reformat_data:UK_Sunshine_data.txt
 -- reformat_data:UK_Tmean_data.txt
-</code></pre><pre class='out'><code>--2014-04-05 12:08:57--  http://www.metoffice.gov.uk/climate/uk/datasets/Tmean/ranked/UK.txt
+--2014-04-05 12:08:57--  http://www.metoffice.gov.uk/climate/uk/datasets/Tmean/ranked/UK.txt
 Resolving www.metoffice.gov.uk (www.metoffice.gov.uk)... 23.63.99.234, 23.63.99.216
 Connecting to www.metoffice.gov.uk (www.metoffice.gov.uk)|23.63.99.234|:80... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -82,21 +93,21 @@ Saving to: ‘UK_Sunshine_data.txt’
 
 2014-04-05 12:08:57 (6.48 MB/s) - ‘UK_Sunshine_data.txt’ saved [20986/20986]
 
-</code></pre></div>
+</pre>
+</div>
 
 
-There are two things to notice here. Firstly, my new python function `get_data_file_parameters` doesn't start with `task_`, so doit doesn't try to run it as a task.
-
-Secondly, no matter how many times we run this script, doit always re-downloads the data files. Since they don't depend on anything, doit doesn't know how to check that they are up to date. This is why it always re-downloads them.
-
-If we were trying to do all these tasks ourselves, we would probably want to update our monthly temperature data every month. Doit lets us define another parameter in our task configuration dictionary, called `uptodate`. This should define a python function which will tell doit whether our task needs to be re-run.
-
-This is one of the big advantages of doit: any python you can write is valid. In fact, even using task generators to create sub-tasks is just a convention. Any python script you can write to make your task configuration dictionaries can be made to work with doit.
-
-Back to our problem about keeping our raw data files fresh. You could write your own function that checks how old the raw data files are, but thankfully doit comes with a utility function for doing just this. Lets set our data files to expire after four weeks:
+<div>
+<p>There are two things to notice here. Firstly, my new python function <code>get_data_file_parameters</code> doesn't start with <code>task_</code>, so doit doesn't try to run it as a task.</p>
+<p>Secondly, no matter how many times we run this script, doit always re-downloads the data files. Since they don't depend on anything, doit doesn't know how to check that they are up to date. This is why it always re-downloads them.</p>
+<p>If we were trying to do all these tasks ourselves, we would probably want to update our monthly temperature data every month. Doit lets us define another parameter in our task configuration dictionary, called <code>uptodate</code>. This should define a python function which will tell doit whether our task needs to be re-run.</p>
+<p>This is one of the big advantages of doit: any python you can write is valid. In fact, even using task generators to create sub-tasks is just a convention. Any python script you can write to make your task configuration dictionaries can be made to work with doit.</p>
+<p>Back to our problem about keeping our raw data files fresh. You could write your own function that checks how old the raw data files are, but thankfully doit comes with a utility function for doing just this. Lets set our data files to expire after four weeks:</p>
+</div>
 
 
-<pre class="in"><code>%%doit
+<div class="in">
+<pre>%%doit
 
 # monthly_raw_data_update.py
 
@@ -135,13 +146,15 @@ def task_reformat_data():
             &#39;file_dep&#39;: [&#39;UK_{}_data.txt&#39;.format(data_type)],
             &#39;targets&#39;: [&#39;UK_{}_data.reformatted.txt&#39;.format(data_type)],
             &#39;name&#39;: &#39;UK_{}_data.txt&#39;.format(data_type),
-        }</code></pre>
+        }</pre>
+</div>
 
-<div class="out"><pre class='out'><code>.  download_data:Tmean
+<div class="out">
+<pre>.  download_data:Tmean
 .  download_data:Sunshine
 -- reformat_data:UK_Sunshine_data.txt
 -- reformat_data:UK_Tmean_data.txt
-</code></pre><pre class='out'><code>--2014-04-05 12:08:57--  http://www.metoffice.gov.uk/climate/uk/datasets/Tmean/ranked/UK.txt
+--2014-04-05 12:08:57--  http://www.metoffice.gov.uk/climate/uk/datasets/Tmean/ranked/UK.txt
 Resolving www.metoffice.gov.uk (www.metoffice.gov.uk)... 23.63.99.234, 23.63.99.216
 Connecting to www.metoffice.gov.uk (www.metoffice.gov.uk)|23.63.99.234|:80... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -163,15 +176,18 @@ Saving to: ‘UK_Sunshine_data.txt’
 
 2014-04-05 12:08:57 (6.86 MB/s) - ‘UK_Sunshine_data.txt’ saved [20986/20986]
 
-</code></pre></div>
+</pre>
+</div>
 
 
-When we run this new script for the second time, doit knows that the raw data files are less than four weeks old, so it doesn't download them again.
+<div>
+<p>When we run this new script for the second time, doit knows that the raw data files are less than four weeks old, so it doesn't download them again.</p>
+<p>The big advantage of defining all our tasks in this way, is that it becomes much easier to add a new dataset. Lets download some rainfall data by adding <code>Rainfall</code> to our list of datasets:</p>
+</div>
 
-The big advantage of defining all our tasks in this way, is that it becomes much easier to add a new dataset. Lets download some rainfall data by adding `Rainfall` to our list of datasets:
 
-
-<pre class="in"><code>%%doit
+<div class="in">
+<pre>%%doit
 
 # rainfall_data.py
 
@@ -210,15 +226,17 @@ def task_reformat_data():
             &#39;file_dep&#39;: [&#39;UK_{}_data.txt&#39;.format(data_type)],
             &#39;targets&#39;: [&#39;UK_{}_data.reformatted.txt&#39;.format(data_type)],
             &#39;name&#39;: &#39;UK_{}_data.txt&#39;.format(data_type),
-        }</code></pre>
+        }</pre>
+</div>
 
-<div class="out"><pre class='out'><code>.  download_data:Rainfall
+<div class="out">
+<pre>.  download_data:Rainfall
 -- download_data:Tmean
 -- download_data:Sunshine
 .  reformat_data:UK_Rainfall_data.txt
 -- reformat_data:UK_Sunshine_data.txt
 -- reformat_data:UK_Tmean_data.txt
-</code></pre><pre class='out'><code>--2014-04-05 12:08:58--  http://www.metoffice.gov.uk/climate/uk/datasets/Rainfall/ranked/UK.txt
+--2014-04-05 12:08:58--  http://www.metoffice.gov.uk/climate/uk/datasets/Rainfall/ranked/UK.txt
 Resolving www.metoffice.gov.uk (www.metoffice.gov.uk)... 23.63.99.234, 23.63.99.216
 Connecting to www.metoffice.gov.uk (www.metoffice.gov.uk)|23.63.99.234|:80... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -229,15 +247,21 @@ Saving to: ‘UK_Rainfall_data.txt’
 
 2014-04-05 12:08:58 (1.68 MB/s) - ‘UK_Rainfall_data.txt’ saved [25518/25518]
 
-</code></pre></div>
+</pre>
+</div>
 
 
-Now we have some shiny new rainfall data, properly formatted for further analysis:
+<div>
+<p>Now we have some shiny new rainfall data, properly formatted for further analysis:</p>
+</div>
 
 
-<pre class="in"><code>!head UK_Rainfall_data.reformatted.txt</code></pre>
+<div class="in">
+<pre>!head UK_Rainfall_data.reformatted.txt</pre>
+</div>
 
-<div class="out"><pre class='out'><code>month,value
+<div class="out">
+<pre>month,value
 1910-01-01,111.4
 1910-02-01,79.5
 1910-03-01,75.5
@@ -247,11 +271,16 @@ Now we have some shiny new rainfall data, properly formatted for further analysi
 1910-07-01,81.6
 1910-08-01,90.3
 1910-09-01,92.0
-</code></pre></div>
+</pre>
+</div>
 
 ### Challenges:
 
 
-- Edit the rainfall_data.py file so that doit downloads the raw data files if they are older than 20 seconds
-- What will happen if we move the 'uptodate' configuration line from the download_data task to the reformat_data task?
-- Try it out and see if you were right!
+<div>
+<ul>
+<li>Edit the rainfall_data.py file so that doit downloads the raw data files if they are older than 20 seconds</li>
+<li>What will happen if we move the 'uptodate' configuration line from the download_data task to the reformat_data task?</li>
+<li>Try it out and see if you were right!</li>
+</ul>
+</div>

@@ -23,12 +23,9 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine. For this set of examples 
-we're going to be working in the writing subdirectory:
+1998 competition in *Salon* magazine:
 
 ~~~
-$ cd
-$ cd writing
 $ cat haiku.txt
 ~~~
 {:class="in"}
@@ -211,24 +208,25 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 <img src="img/find-file-tree.svg" alt="File Tree for Find Example" />
 
-Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
+Vlad's home directory contains one file called `notes.txt` and four subdirectories:
 `thesis` (which is sadly empty),
 `data` (which contains two files `one.txt` and `two.txt`),
 a `tools` directory that contains the programs `format` and `stats`,
 and an empty subdirectory called `old`.
 
 For our first command,
-let's run `find . -type d`.
+let's run `find . -type d -print`.
 As always,
 the `.` on its own means the current working directory,
 which is where we want our search to start;
-`-type d` means "things that are directories".
+`-type d` means "things that are directories",
+and (unsurprisingly) `-print` means "print what's found".
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
 ~~~
-$ find . -type d
+$ find . -type d -print
 ~~~
 {:class="in"}
 ~~~
@@ -244,17 +242,15 @@ If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
 ~~~
-$ find . -type f
+$ find . -type f -print
 ~~~
 {:class="in"}
 ~~~
-./haiku.txt
-./tools/stats
-./tools/old/oldtool
-./tools/format
-./thesis/empty-draft.md
 ./data/one.txt
 ./data/two.txt
+./notes.txt
+./tools/format
+./tools/stats
 ~~~
 {:class="out"}
 
@@ -265,11 +261,11 @@ If we don't want it to,
 we can use `-maxdepth` to restrict the depth of search:
 
 ~~~
-$ find . -maxdepth 1 -type f
+$ find . -maxdepth 1 -type f -print
 ~~~
 {:class="in"}
 ~~~
-./haiku.txt
+./notes.txt
 ~~~
 {:class="out"}
 
@@ -278,7 +274,7 @@ which tells `find` to only report things that are at or below a certain depth.
 `-mindepth 2` therefore finds all the files that are two or more levels below us:
 
 ~~~
-$ find . -mindepth 2 -type f
+$ find . -mindepth 2 -type f -print
 ~~~
 {:class="in"}
 ~~~
@@ -289,25 +285,38 @@ $ find . -mindepth 2 -type f
 ~~~
 {:class="out"}
 
-Now let's try matching by name:
+Another option is `-empty`,
+which restricts matches to empty files and directories:
 
 ~~~
-$ find . -name *.txt
+$ find . -empty -print
 ~~~
 {:class="in"}
 ~~~
-./haiku.txt
+./thesis
+./tools/old
+~~~
+{:class="out"}
+
+Now let's try matching by name:
+
+~~~
+$ find . -name *.txt -print
+~~~
+{:class="in"}
+~~~
+./notes.txt
 ~~~
 {:class="out"}
 
 We expected it to find all the text files,
-but it only prints out `./haiku.txt`.
+but it only prints out `./notes.txt`.
 The problem is that the shell expands wildcard characters like `*` *before* commands run.
-Since `*.txt` in the current directory expands to `haiku.txt`,
+Since `*.txt` in the current directory expands to `notes.txt`,
 the command we actually ran was:
 
 ~~~
-$ find . -name haiku.txt
+$ find . -name notes.txt -print
 ~~~
 {:class="in"}
 
@@ -317,16 +326,16 @@ To get what we want,
 let's do what we did with `grep`:
 put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcard.
 This way,
-`find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
+`find` actually gets the pattern `*.txt`, not the expanded filename `notes.txt`:
 
 ~~~
-$ find . -name '*.txt'
+$ find . -name '*.txt' -print
 ~~~
 {:class="in"}
 ~~~
 ./data/one.txt
 ./data/two.txt
-./haiku.txt
+./notes.txt
 ~~~
 {:class="out"}
 
@@ -342,31 +351,31 @@ the command line's power lies in combining tools.
 We've seen how to do that with pipes;
 let's look at another technique.
 As we just saw,
-`find . -name '*.txt'` gives us a list of all text files in or below the current directory.
+`find . -name '*.txt' -print` gives us a list of all text files in or below the current directory.
 How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
 ~~~
-$ wc -l $(find . -name '*.txt')
+$ wc -l $(find . -name '*.txt' -print)
 ~~~
 {:class="in"}
 ~~~
-11 ./haiku.txt
-300 ./data/two.txt
-70 ./data/one.txt
-381 total
+70  ./data/one.txt
+420  ./data/two.txt
+30  ./notes.txt
+520  total
 ~~~
 {:class="out"}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
+Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./notes.txt`,
 the shell constructs the command:
 
 ~~~
-$ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
+$ wc -l ./data/one.txt ./data/two.txt ./notes.txt
 ~~~
 {:class="in"}
 
@@ -378,14 +387,14 @@ It's very common to use `find` and `grep` together.
 The first finds files that match a pattern;
 the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
-by looking for the string "FE" in all the `.pdb` files above the current directory:
+by looking for the string "FE" in all the `.pdb` files below the current directory:
 
 ~~~
-$ grep FE $(find .. -name '*.pdb')
+$ grep FE $(find . -name '*.pdb' -print)
 ~~~
 {:class="in"}
 ~~~
-../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
+./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
 ~~~
 {:class="out"}
 
@@ -413,7 +422,7 @@ $ grep FE $(find .. -name '*.pdb')
 > modern programming languages, Python included, have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
 
-### Conclusion
+#### Conclusion
 
 The Unix shell is older than most of the people who use it. It has
 survived so long because it is one of the most productive programming
@@ -440,7 +449,7 @@ Write a short explanatory comment for the following shell script:
 
 <div class="file" markdown="1">
 ~~~
-find . -name '*.dat' | wc -l | sort -n
+find . -name '*.dat' -print | wc -l | sort -n
 ~~~
 </div>
 </div>
@@ -452,11 +461,11 @@ the following commands will find all files in `/data` whose names
 end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
 *not* contain the word `temp`?
 
-1. `find /data -name '*.dat' | grep ose | grep -v temp`
+1. `find /data -name '*.dat' -print | grep ose | grep -v temp`
 
-2. `find /data -name ose.dat | grep -v temp`
+2. `find /data -name ose.dat -print | grep -v temp`
 
-3. `grep -v temp $(find /data -name '*ose.dat')`
+3. `grep -v temp $(find /data -name '*ose.dat' -print)`
 
 4. None of the above.
 </div>

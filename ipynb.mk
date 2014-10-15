@@ -27,9 +27,8 @@ IPYNB_TPL = _templates/ipynb.tpl
 IPYNB_SRC = \
 	$(wildcard novice/python/??-*.ipynb) \
 	$(wildcard novice/sql/??-*.ipynb) \
-	$(wildcard intermediate/doit/??-*.ipynb) \
 	$(wildcard intermediate/python/??-*.ipynb) \
-	$(wildcard intermediate/webdata/??-*.ipynb)
+	$(wildcard intermediate/doit/??-*.ipynb)
 
 # Notebooks converted to Markdown.
 IPYNB_TX = $(patsubst %.ipynb,%.md,$(IPYNB_SRC))
