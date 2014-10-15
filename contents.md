@@ -9,7 +9,7 @@ title: Lessons
 *   [The Unix Shell](novice/shell/index.html)
 *   [Version Control with Git](novice/git/index.html)
 *   [Programming with Python](novice/python/index.html)
-*   [A Few Extras](novice/extras/index.html)
+*   [working on a Remote Machine](novice/extras/07-ssh.html)
 *   [Setup Instructions](setup.html)
 *   [Recommended Reading](bib.html)
 *   [Glossary](gloss.html)
