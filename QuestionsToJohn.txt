@@ -1,7 +1,0 @@
-How to set up the payments? 
-
-ipython notebooks
-HTC before
-HTC after
-
-

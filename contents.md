@@ -10,6 +10,6 @@ title: Lessons
 *   [Version Control with Git](novice/git/index.html)
 *   [Programming with Python](novice/python/index.html)
 *   [working on a Remote Machine](novice/extras/07-ssh.html)
-*   [Setup Instructions](setup.html)
+*   [Distributed Computing on Remote Machines](novice/DHTC/index.html)
 *   [Recommended Reading](bib.html)
 *   [Glossary](gloss.html)
