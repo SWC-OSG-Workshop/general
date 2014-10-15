@@ -28,7 +28,7 @@
 SITE = _site
 
 # Installation directory on server.
-INSTALL = http://dmbala.github.io/2014-09-29-UC-Test/
+INSTALL = http://dmbala.github.io/SWC-OSG/
 
 # Jekyll configuration file.
 CONFIG = _config.yml
