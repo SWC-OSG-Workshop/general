@@ -19,10 +19,6 @@ contact: balamurugan@uchicago.edu
 <!--
     This block includes the Eventbrite registration widget if 'eventbrite' has been set in the header.
 -->
-{% if page.eventbrite %}
-<iframe src="//www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt" frameborder="0" width="100%" scrolling="auto"></iframe>
-{% endif %}
-
 <h2>General Information</h2>
 
 <p>
@@ -49,7 +45,7 @@ contact: balamurugan@uchicago.edu
   <strong>Helpers:</strong>
   {{page.helper | join: ', ' %}}
 </p>
-      <li><a href="./novice/content.html">Lessons...</a></li>
+      <a href="./novice/content.html">Lessons...</a>
 {% endif %}
 
 <!--
