@@ -9,7 +9,7 @@ title: HTCondor - job scripts
 *   Job script  
 *   Job submission  
 *   Job control and monitor  
-
+</div>
 
 <h2> Job script </h2> 
 

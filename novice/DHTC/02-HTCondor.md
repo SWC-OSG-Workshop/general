@@ -8,7 +8,7 @@ title: HTCondor - job schedular
 #### Objectives
 *   Basics of HTCondor 
 *   ClassAd mechanism  
-
+</div>
 
 <h2> Basics of HTCondor </h2> 
 

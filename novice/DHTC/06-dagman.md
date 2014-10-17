@@ -9,7 +9,7 @@ title:Scientific Workflows - DAGMAN
 *   Scientific Workflows
 *   What is DAGMAN?
 *   How to write a DAGMAN script   
-
+</div>
 
 <h2> Scientific Workflows suitable for HTC ? </h2> 
 

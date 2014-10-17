@@ -7,7 +7,7 @@ title:Data Storage Solution - Stash
 
 #### Objectives
 *   Understand how to utilize stash  
-
+</div>
 
 <h2> Where is stash? </h2> 
 

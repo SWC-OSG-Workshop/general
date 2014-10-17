@@ -11,8 +11,12 @@ title: Introduction to Open Science Grid
 *   Computation that is a good match for OSG Connect
 *   Learn how to use your SSH key
 
+</div>
 
 <h2> Introduction to Open Science Grid (OSG)  </h2> 
+
+
+
 <h2> Computation that is a good match for OSG Connect </h2> 
 
 High throughput workflows with simple system and data dependencies are a good fit for OSG Connect. The HTCondor manual has an overview of high throughput computing.
