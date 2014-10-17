@@ -5,7 +5,7 @@ title: Distributed High Throughput Computing
 ---
 <div class="toc" markdown="1">
 
-1.  [Properties of Distributed High Throughput Computing](01-propDHTC.html)
+1.  [Introduction to Open Science Grid](01-IntroGrid.html)
 2.  [HTCondor - DHTC job schedular](02-HTCondor.html)
 3.  [HTCondor - scripts](03-HTCondor.html)
 4.  [Scaling up Resources](04-ScaleUp.html)
