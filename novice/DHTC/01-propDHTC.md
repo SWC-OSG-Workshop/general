@@ -9,7 +9,6 @@ title: Properties of High Throughput Computing
 *   Computation that is a good match for RCC Connect
 *   Learn how to use your SSH key
 
-</div>
 
 <h2> Computation that is a good match for OSG Connect </h2> 
 
@@ -30,4 +29,3 @@ Computations requiring complex software deployments are not a good fit. There is
 How to get help using RCC Connect
 Please contact user support staff at email connect-support@uchicago.eduuchicago.edu. 
 
-</div>
