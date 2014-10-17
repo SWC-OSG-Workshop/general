@@ -8,11 +8,9 @@ title:Data Storage Solution - Stash
 #### Objectives
 *   Understand how to utilize stash  
 
-</div>
 
 <h2> Where is stash? </h2> 
 
 <h2> How to transfer the data to stash </h2> 
 
 
-</div>

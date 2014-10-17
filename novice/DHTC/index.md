@@ -12,4 +12,3 @@ title: Distributed High Throughput Computing
 5.  [Data Storage Solutions](05-Stash.html)
 6.  [Scientific Workflows - DAGMAN](06-dagman.html)
 
-</div>

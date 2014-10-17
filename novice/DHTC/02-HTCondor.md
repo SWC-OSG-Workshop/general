@@ -9,11 +9,9 @@ title: HTCondor - job schedular
 *   Basics of HTCondor 
 *   ClassAd mechanism  
 
-</div>
 
 <h2> Basics of HTCondor </h2> 
 
 
 <h2> ClassAd Mechanism </h2> 
 
-</div>

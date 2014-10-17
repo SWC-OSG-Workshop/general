@@ -10,7 +10,6 @@ title: HTCondor - job scripts
 *   Job submission  
 *   Job control and monitor  
 
-</div>
 
 <h2> Job script </h2> 
 
@@ -18,4 +17,3 @@ title: HTCondor - job scripts
 
 <h2> Job control and monitor </h2> 
 
-</div>

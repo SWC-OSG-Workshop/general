@@ -8,11 +8,9 @@ title:Scaling up the resources
 #### Objectives
 *   Scaling up the computational resources  
 
-</div>
 
 <h2> Scaling up the resources </h2> 
 
 <h2> Example </h2> 
 
 
-</div>
