@@ -10,6 +10,6 @@ title: Distributed High Throughput Computing
 3.  [HTCondor - scripts](03-HTCondor.html)
 4.  [Scaling up Resources](04-ScaleUp.html)
 5.  [Data Storage Solutions](05-Stash.html)
-6.  [Scientific Workflows](06-dagman.html)
+6.  [Scientific Workflows - DAGMAN](06-dagman.html)
 
 </div>

@@ -11,7 +11,7 @@ title: Properties of High Throughput Computing
 
 </div>
 
-<h2> Computation that is a good match for RCC Connect </h2> 
+<h2> Computation that is a good match for OSG Connect </h2> 
 
 High throughput workflows with simple system and data dependencies are a good fit for RCC Connect. The HTCondor manual has an overview of high throughput computing.
 Jobs submitted into the RCC Connect will be executed on machines at several remote physical clusters. These machines may differ in terms of computing environment from the submit node. Therefore it is important that the jobs are as self-contained as possible by generic binaries and data that can be either carried with the job, or staged on demand. Please consider the following guidelines:
@@ -21,7 +21,7 @@ Input and output data for each job should be < 10 GB to allow them to be pulled 
 No shared filesystem. Jobs must transfer all executables, input data, and output data. HTCondor can transfer the files for you, but you will have to identify and list the files in your HTCondor job description file.
 
 
-<h2> Computation that is NOT a good match for RCC Connect </h2> 
+<h2> Computation that is NOT a good match for OSG Connect </h2> 
 
 The following are examples of computations that are NOT good matches for RCC Connect:
 Tightly coupled computations, for example MPI based communication, will not work well on RCC Connect due to the distributed nature of the infrastructure.
