@@ -22,20 +22,32 @@ The sections below explain:
 ##Getting Started##
 ---------------
 
-   In your desktop or laptop home directory, clone the repo 
+If a repository has a branch called `gh-pages` (which 
+stands for "GitHub pages"), then GitHub uses the HTML and Markdown 
+files in that branch to create a website for the repository.
+
+~~~
+For example: 
+    If the repository's URL is `http://github.com/darwin/finches`,
+    the URL for the website is `http://darwin.github.io/finches`.
+~~~
+
+Therefore, we use **gh-pages branch** to develope the workshop front page and lesson materials. 
+
+
+In the desktop or laptop, clone the repo 
 
     ~~~
     $ git clone https://github.com/SWC-OSG-Workshop/2014-10-20.git
     ~~~
 
-
-  and create new branch named `gh-pages`.
+and create new branch named `gh-pages`.
 
     ~~~
     $ git checkout -b gh-pages
     ~~~
 
-   Now pull the content repository's `gh-pages` branch into your desktop repository:
+Now pull the content repository's `gh-pages` branch into your desktop repository:
 
     ~~~
     $ git pull origin gh-pages
@@ -146,9 +158,52 @@ but you will probably want to edit the fifth - `setup.html`.
 ##Lesson Material##
 ---------------
 
-The current material for novices is in the directories under `novice`.
-    The shell and Git materials are written in Markdown, while the Python and 
+The current material for novices is in the directories under `novice`.  
+The shell and Git materials are written in Markdown, while the Python and 
 SQL use the IPython Notebook.
+
+Formats
+-------
+
+We are using [Jekyll](https://en.wikipedia.org/wiki/Jekyll_%28software%29)
+to convert lessons in [Markdown](https://en.wikipedia.org/wiki/Markdown)
+to [HTML](https://en.wikipedia.org/wiki/HTML).
+Therefore, we require every lesson to be available in Markdown.
+But this does not mean that you have to write it in Markdown as well.
+
+The following list contains more detailed instructions for different formats:
+
+*   Markdown: Nothing to do.
+*   IPython Notebook: Generate and provide a Markdown version in addition
+    to the IPython Notebook.
+    Look at our existing files to get an idea how the IPython Notebook
+    should look like.
+*   Other formats: Generate and provide a Markdown version in addition
+    to the file in the original format.
+    In order to be able to recreate the Markdown from source,
+    include the conversion from this other format to Markdown
+    in the `Makefile` as well. This ensures that people who *aren't* familiar
+    with some format don't have to install the tools needed to work with it
+    (e.g., R programmers don't have to install the IPython Notebook).
+    **Please check with us if you plan to do this.**
+
+Sample Files
+------------
+
+The directory `misc` contains files that can be used as starting points for lessons.
+These files explain how to format titles,
+objectives,
+exercises,
+key points,
+and code fragments.
+In addition,
+the IPython Notebook file has metadata in various cells
+to ensure that the generated HTML pages have the right style.
+If you are creating a new lesson,
+please copy one of these files to use as a starting point.
+
+
+
 
 
 ##Site Map##
