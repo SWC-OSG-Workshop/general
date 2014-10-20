@@ -84,9 +84,7 @@ Once finished editing the index.html, push content to the repository:
 As soon as the repo has been pushed to GitHub, GitHub will render the pages
 at the url:
 
-~~~
 http://swc-osg-workshop.github.io/2014-10-20/ CurrentWebPage(http://swc-osg-workshop.github.io/2014-10-20/)
-~~~
 
 Below is the detail about the page header (#variables) and the website
 contents (#website-content) to design the "index.html" page. 
