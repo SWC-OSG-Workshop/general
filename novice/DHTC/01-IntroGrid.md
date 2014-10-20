@@ -6,16 +6,16 @@ title: Introduction to Open Science Grid
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   What is Open Science Grid?
-*   What resources are open to acadamic researchers?
+*   What is Open Science Grid
+*   What resources are open to acadamic researchers
 *   Computation that is a good match for OSG Connect
-*   Learn how to use your SSH key
+*   Computation that is NOT a good match for OSG Connect
 
 </div>
 
 <h2> Introduction to Open Science Grid (OSG)  </h2> 
 
-
+The Open Science Grid (OSG) is a consortium of research communities who promote science via sharing of computing resources. We enable a framework of distributed computing and storage resources, a set of services and methods that enable better access to ever increasing computing resources for researchers and communities, and principles and software that enable distributed high through-put computing (DHTC) for users and communities at all scales.
 
 <h2> Computation that is a good match for OSG Connect </h2> 
 
