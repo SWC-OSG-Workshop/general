@@ -31,6 +31,7 @@ For example:
     If the repository's URL is `http://github.com/darwin/finches`,
     the URL for the website is `http://darwin.github.io/finches`.
 ~~~
+So the current page is rendered at the url: CurrentWebPage(http://swc-osg-workshop.github.io/general/)
 
 Therefore, we use **gh-pages branch** to develope the workshop front page and lesson materials. 
 
@@ -85,10 +86,10 @@ As soon as the repo has been pushed to GitHub, GitHub will render the pages
 at the url:
 
 ~~~
-http://(organization or username).github.io/2014-10-20/ 
+http://(organization or username).github.io/general
 ~~~
 
-For example, the current page is rendered at the url: CurrentWebPage(http://swc-osg-workshop.github.io/2014-10-20/)
+For example, the current page is rendered at the url: CurrentWebPage(http://swc-osg-workshop.github.io/general)
 
 Below is the detail about the page header (#variables) and the website
 contents (#website-content) to design the "index.html" page. 
