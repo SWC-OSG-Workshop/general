@@ -3,23 +3,25 @@
 Software Carpentry - Open Science Grid (SWC-OSG) Workshop 
 ============================
 
-This repository's `gh-pages` branch is the starting point for a bootcamp 
-website: it contains a template for the bootcamp's home page and the shared 
+This repository's `gh-pages` branch is the starting point for a workshop 
+website: it contains a template for the workshop's home page and the shared 
 lesson materials developed by software carpentry.
 
 The sections below explain:
-*   how do we edit the workshop front page
+*   how do we edit the workshop front page.
 *   how do we add or edit the course materails.  
 
 **Note:**
 
 **Table of Contents**
 
-*   [Editing the workshop front page](#background)
-*   [Edit Lesson Material](#getting-started)
+*   [Getting Started](#getting-started)
+*   [Workshop Front Page](#workshop-frontpage)
+*   [Lesson Material](#lession-material)
+*   [Site Map](#site-map)
 
-Background
-
+Getting Started
+---------------
 
 1.   clone the repo 
 
@@ -42,13 +44,14 @@ Background
     This may take a minute or two.
 
 
-*   [Editing the workshop front page](#background)
+Workshop Front Page
+-------------------
 
 Editing workshop front page involves editing html pages. Two html files are of 
 primary interest to us. One is the "index.html" and other is "_includes/setup.html".
 
 
-Edit `index.html` to make any changes to the bootcamp home page.
+Edit `index.html` to make any changes to the workshop home page.
     In particular, double-check
     [the variables in the page's header](#variables),
     as these are used to update the main website,
@@ -81,11 +84,11 @@ contents (#website-content) to design the "index.html" page.
 Variables
 ---------
 
-The bootcamp's `index.html` page
-(which uses the `bootcamp.html` layout from the `_layouts` directory)
+The workshop's `index.html` page
+(which uses the `workshop.html` layout from the `_layouts` directory)
 *must* define the following values in its header:
 
-*   `layout` must be `bootcamp`.
+*   `layout` must be `workshop`.
 *   `root` is the path to the repository's root directory.
     This is '.' if the page is in the root directory
     (which `index.html` is).
@@ -93,19 +96,19 @@ The bootcamp's `index.html` page
     `root` is '..' if the page is one directory down,
     '../..' if it is two levels down,
     and so on.
-*   `venue` is the name of the institution or group hosting the bootcamp.
-*   `address` is the bootcamp's street address.
+*   `venue` is the name of the institution or group hosting the workshop.
+*   `address` is the workshop's street address.
 *   `country` must be a hyphenated country name like 'United-States'.
     This is used to look up flags for display in the main web site;
     see the `assets/flags` directory in the `site` repo for a full list of valid names.
-*   `latlng` is the latitude and longitude of the bootcamp site
+*   `latlng` is the latitude and longitude of the workshop site
     (so we can put a pin on our map).
-*   `humandate` is the human-friendly dates for the bootcamp (e.g., Jul 3-4, 2015).
+*   `humandate` is the human-friendly dates for the workshop (e.g., Jul 3-4, 2015).
     Please use three- or four-letter month names and abbreviations
     (e.g., `Dec` instead of `December`).
-*   `startdate` is the bootcamp's starting date in YYYY-MM-DD format.
-*   `enddate` is the bootcamp's ending date in the same format.
-    If your bootcamp is only one day long,
+*   `startdate` is the workshop's starting date in YYYY-MM-DD format.
+*   `enddate` is the workshop's ending date in the same format.
+    If your workshop is only one day long,
     the `enddate` field can be deleted.
 *   `registration` is `open` (if anyone is allowed to sign up)
     or `restricted` (if only some people are allowed to take part).
@@ -118,14 +121,14 @@ The bootcamp's `index.html` page
 *   `helper` is a comma-separated list of helper names.
     This must be enclosed in square brackets,
     as in `["John von Neumann"]`
-*   `contact` is the contact email address to use for your bootcamp.
+*   `contact` is the contact email address to use for your workshop.
 
 
 Website Content
 ---------------
 
 The body of `index.html` contains
-an explanation of what a bootcamp is and how it runs,
+an explanation of what a workshop is and how it runs,
 followed by setup instructions for our standard software.
 There is an explanatory comment for each section of this page;
 reorganize, rewrite, or delete the material as you think best.
@@ -172,17 +175,17 @@ The most important files and directories are **highlighted**.
 *   contents.md - site map used in place of `index.html` on the main web site.
 *   css/ - CSS files for this site.
 *   data/ - miscellaneous data files used by examples.
-*   etherpad.txt - starter text for the bootcamp's Etherpad.
+*   etherpad.txt - starter text for the workshop's Etherpad.
 *   gloss.md - glossary of terms.
 *   img/ - images used throughout this site.
-*   **index.html** - template for bootcamp home pages.
+*   **index.html** - template for workshop home pages.
 *   intro.md - introduction to book version of this site.
 *   ipynb.mk - Makefile for turning IPython Notebooks into Markdown.
 *   js/ - Javascript files used in this site.
 *   lessons/ - old lesson material.
 *   novice/ - novice lesson material.
 *   rules.md - the rules of programming (used in the book version of this site).
-*   setup.md - placeholder for bootcamp setup instructions.
-*   setup/ - setup tools for installing bootcamp software.
+*   setup.md - placeholder for workshop setup instructions.
+*   setup/ - setup tools for installing workshop software.
 *   team.md - who we are.
 
