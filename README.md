@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-==================
-Software Carpentry - Open Science Grid (SWC-OSG) Workshop 
+============================
+#Software Carpentry - Open Science Grid (SWC-OSG) Workshop#
 ============================
 
 This repository's `gh-pages` branch is the starting point for a workshop 
