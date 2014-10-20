@@ -1,192 +1,29 @@
 <<<<<<< HEAD
-2014-09-29-UC-Test
 ==================
-
-Workshop at UC: Testing
-=======
-Software Carpentry Bootcamps
+Software Carpentry - Open Science Grid (SWC-OSG) Workshop 
 ============================
 
-This repository's `gh-pages` branch is the starting point for a bootcamp website:
-it contains a template for your bootcamp's home page
-and the shared lesson materials we have developed.
+This repository's `gh-pages` branch is the starting point for a bootcamp 
+website: it contains a template for the bootcamp's home page and the shared 
+lesson materials developed by software carpentry.
+
 The sections below explain:
-
-*   how GitHub turns a repository into a web site,
-*   how you can build a website for your bootcamp using this repo as a starting point,
-*   which lessons we have,
-*   where they're located, and
-*   how to add new lessons.
-
-To contribute corrections or additions to this repository, see the
-[contribution guidelines](CONTRIBUTING.md).
-You may also want to view these videos:
-
-*   [Setting Up a Software Carpentry Bootcamp Repository](https://vimeo.com/87241285)
-*   [Adding Lesson Material to the Software Carpentry Bootcamp Repository](https://vimeo.com/92273942)
+*   how do we edit the workshop front page
+*   how do we add or edit the course materails.  
 
 **Note:**
-If you are teaching Git in your bootcamp,
-you should create *two* repositories:
-one for your bootcamp's website,
-and one for learners to clone and update during your lessons.
-You should not try to use the same repo for both purposes because:
-
-1.  your website repo is probably going to be fairly large, and
-2.  you don't want a learner accidentally overwriting your lessons
-    while you're trying to teach.
 
 **Table of Contents**
 
-*   [Background](#background)
-*   [Getting Started](#getting-started)
-*   [Previewing the Site](#previewing-the-site)
-*   [Variables](#variables)
-*   [Website Content](#website-content)
-*   [Lesson Material](#lesson-material)
-*   [Building Things](#building-things)
-*   [Site Map](#site-map)
-*   [FAQ](#faq)
+*   [Editing the workshop front page](#background)
+*   [Edit Course Material](#getting-started)
 
 Background
-----------
 
-There are a few things you need to know
-in order to understand why we do things the way we do.
-Most of them are specific to GitHub,
-rather than Git itself.
 
-1.  Git uses the term "clone" to mean
-    "a copy of a repository".
-    GitHub uses the term "fork" to mean,
-    "a copy of a GitHub-hosted repo that is also hosted on GitHub",
-    and the term "clone" to mean
-    "a copy of a GitHub-hosted repo that's located on someone else's machine".
-    In both cases,
-    the duplicate has a remote called `origin`
-    that points to the original repo;
-    other remotes can be added manually.
 
-2.  A user on GitHub can only have one fork of a particular repo.
-    This is a problem for us because
-    an instructor may be involved in several bootcamps,
-    each of which has its own website repo.
-    Those website repositories ought to be forks of this one,
-    but since GitHub doesn't allow that,
-    we've had to find a workaround.
 
-3.  If a repository has a file called `README.md` in its root directory,
-    GitHub displays that file on the repository's home page.
-
-4.  If a repository has a branch called `gh-pages`
-    (which stands for "GitHub pages"),
-    then GitHub uses the HTML and Markdown files in that branch
-    to create a website for the repository.
-    If the repository's URL is `http://github.com/darwin/finches`,
-    the URL for the website is `http://darwin.github.io/finches`.
-
-5.  If an HTML or Markdown file has a header consisting of three dashes,
-    some data about the page,
-    and three more dashes:
-
-    ~~~
-    ---
-    key: value
-    other_key: other_value
-    ---
-    stuff in the page
-    ~~~
-
-    then GitHub doesn't just copy the file over verbatim.
-    Instead,
-    it runs the file through a translator called [Jekyll](https://en.wikipedia.org/wiki/Jekyll_%28software%29)
-    that looks for specially-formatted commands embedded in the file.
-
-6.  Commands can be embedded in the body of a page.
-    One is `{% include somefile.html %}`,
-    which tells Jekyll to copy the contents of `somefile.html` into the file being translated;
-    this is used to create standard headers and footers for pages.
-    Another is `{{variable}}`:
-    when Jekyll sees this,
-    it replaces it with the value of `variable`.
-    This is used to insert things like a contact email address and the URL for our Twitter account.
-
-7.  Jekyll gets variables from two places:
-    a file called `_config.yml` located in the repo's root directory,
-    and the header of each individual page.
-    Variables from `_config.yml` are put in an object called `site`,
-    and referred to as `site.variable`,
-    so `{{site.twitter_name}}` in a page is replaced by `@swcarpentry`.
-    Variables from the page's header are put in an object called `page`,
-    and referred to as `page.variable`,
-    so if a page's header defines a variable called `venue`,
-    `{{page.venue}}` is replaced by "Euphoric State University"
-    (or whatever value the variable has).
-
-8.  If a page uses `{% include something.html %}` to include a snippet of HTML,
-    Jekyll looks in a directory called `_includes` to find `something.html`.
-    It always looks there,
-    and nowhere else,
-    so anything we want people to be able to include in their pages
-    has to be stored in `_includes`.
-
-9.  A repository can have another special directory called `_layouts`.
-    If a page like `index.html` has a variable called `layout`,
-    and that variable's value is `standard.html`,
-    Jekyll loads the file `_layouts/standard.html`
-    and copies the content of `index.html` into it,
-    then expands the result.
-    This is used to give the pages in a site a uniform appearance.
-
-We have created three standard layouts for bootcamp pages:
-
-*   `bootcamp.html` is used for bootcamps' home pages,
-    and is the layout for the `index.html` page in your repo's root directory.
-    That `index.html` page's header must
-    [define several variables](#variables)
-    in order for your bootcamp to be included in our main website.
-
-*   `lesson.html` is used to lay out pages for individual lessons.
-    All of the lessons in this repository use it
-    to ensure uniform look and feel.
-
-*   `slides.html` is used to format slideshows.
-    It is still under development.
-
-Getting Started
----------------
-
-To create a website for a new bootcamp:
-
-1.  Create a [new repository on GitHub](https://github.com/new)
-    with a name like YYYY-MM-DD-site, e.g., `2014-03-31-esu`.
-    This repository must *not* be a fork of an existing repository
-    because as mentioned earlier,
-    GitHub only allows a user to fork a repository once,
-    but many instructors are involved in several bootcamps.
-    Please use the same ID for your bootcamp
-    that the Software Carpentry admins are using to identify it
-    (i.e.,
-    if the admins called the bootcamp `2014-03-31-esu`,
-    please *don't* call your repo `euphoric-march-2014`),
-    and please use all lower-case
-    (i.e., '2014-03-31-esu' instead of '2014-03-31-ESU').
-
-2.  Clone this new repository to your local machine and `cd` into it.
-    You can ignore the warning about cloning an empty repository:
-    it won't stay empty long.
-
-![Step 1](img/readme/step1.png)
-
-3.  Add the repository `https://github.com/swcarpentry/bc.git` as a remote named `swc`:
-
-    ~~~
-    $ git remote add swc https://github.com/swcarpentry/bc.git
-    ~~~
-
-![Step 2](img/readme/step2.png)
-
-4.  Create a new branch in the local clone named `gh-pages`.
+4.   a new branch in the local clone named `gh-pages`.
 
     ~~~
     $ git checkout -b gh-pages
@@ -220,7 +57,6 @@ To create a website for a new bootcamp:
 8.  Edit `_includes/setup.html` to provide software installation instructions for bootcamp attendees.
     This is described in more detail in the section on [website content](#website-content).
 
-9.  [Preview your changes](#previewing-the-site).
 
 10. Replace the content of this `README.md` file with a line or two describing your bootcamp.
 
@@ -239,56 +75,7 @@ http://{your-github-username}.github.io/YYYY-MM-DD-site/
 
 You may update your bootcamp's website whenever you want.
 
-Previewing the Site
--------------------
 
-To preview your bootcamp's page(s),
-go into its root directory and run:
-
-~~~
-$ make site
-~~~
-
-This will run `jekyll` to create the directory `./_site`.
-The `index.html` page in this directory,
-`./_site/index.html`,
-should have the Software Carpentry look and feel
-and the information about your bootcamp.
-
-**Note:**
-you will need to install Jekyll 1.0.3 or later in order to preview things locally.
-If you have Ruby installed on your computer,
-this *should* be as simple as:
-
-~~~
-$ gem install github-pages
-~~~
-
-or if that doesn't work:
-
-~~~
-$ gem install jekyll
-$ gem install kramdown
-~~~
-
-(We use Kramdown for translating Markdown instead of the default
-Redcarpet because Kramdown will handle Markdown inside HTML blocks).
-
-On OS X, we suggest you use a recent Ruby to get access to these.
-If you don't have Homebrew or MacPorts installed,
-here's a quick recipe to get started using HomeBrew.
-
-~~~
-$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-$ brew install ruby
-~~~
-
-and then `gem install` as above.
-If you don't have `make` in your machine,
-you can build the preview with:
-
-~~~
-$ jekyll -t build -d _site
 ~~~
 
 Variables
@@ -333,13 +120,6 @@ Your bootcamp's `index.html` page
     as in `["John von Neumann"]`
 *   `contact` is the contact email address to use for your bootcamp.
 
-The header may optionally define the following:
-
-*   `eventbrite` is the multi-digit Eventbrite registration key.
-    If you are using Eventbrite,
-    the admins will set this key for you.
-    If you are using something else for registration,
-    it may be deleted.
 
 Website Content
 ---------------
@@ -439,7 +219,6 @@ The most important files and directories are **highlighted**.
 *   gloss.md - glossary of terms.
 *   img/ - images used throughout this site.
 *   **index.html** - template for bootcamp home pages.
-*   intermediate/ - intermediate lesson material (under development).
 *   intro.md - introduction to book version of this site.
 *   ipynb.mk - Makefile for turning IPython Notebooks into Markdown.
 *   js/ - Javascript files used in this site.
@@ -448,7 +227,6 @@ The most important files and directories are **highlighted**.
 *   rules.md - the rules of programming (used in the book version of this site).
 *   setup.md - placeholder for bootcamp setup instructions.
 *   setup/ - setup tools for installing bootcamp software.
-*   slides/ - slideshows (under construction).
 *   team.md - who we are.
 
 FAQ
