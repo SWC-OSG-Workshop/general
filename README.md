@@ -38,7 +38,7 @@ Therefore, we use **gh-pages branch** to develope the workshop front page and le
 In the desktop or laptop, clone the repo 
 
     ~~~
-    $ git clone https://github.com/SWC-OSG-Workshop/2014-10-20.git
+    $ git clone https://github.com/SWC-OSG-Workshop/general.git
     ~~~
 
 and create new branch named `gh-pages`.
