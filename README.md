@@ -80,9 +80,7 @@ http://swc-osg-workshop.github.io/2014-10-20/
 Below is the detail about the page header (#variables) and the website
 contents (#website-content) to design the "index.html" page. 
 
-~~~
-
-Variables
+**Variables**
 ---------
 
 The workshop's `index.html` page
@@ -125,7 +123,7 @@ The workshop's `index.html` page
 *   `contact` is the contact email address to use for your workshop.
 
 
-Website Content
+**Website Content**
 ---------------
 
 The body of `index.html` contains
@@ -146,7 +144,7 @@ You normally won't need to worry about the first four ---
 they're included in the right places by our standard layouts ---
 but you will probably want to edit the fifth - `setup.html`.
 
-Lesson Material
+##Lesson Material##
 ---------------
 
 The current material for novices is in the directories under `novice`.
@@ -154,7 +152,7 @@ The current material for novices is in the directories under `novice`.
 SQL use the IPython Notebook.
 
 
-Site Map
+##Site Map##
 --------
 
 The most important files and directories are **highlighted**.
