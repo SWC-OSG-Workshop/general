@@ -23,26 +23,24 @@ The sections below explain:
 ##Getting Started##
 ---------------
 
-1.   clone the repo 
+   In your desktop or laptop home directory, clone the repo 
 
     ~~~
     $ git clone https://github.com/SWC-OSG-Workshop/2014-10-20.git
     ~~~
 
 
-1.   a new branch in the local clone named `gh-pages`.
+  and create new branch named `gh-pages`.
 
     ~~~
     $ git checkout -b gh-pages
     ~~~
 
-2.  Pull content from the template repository's `gh-pages` branch into your desktop repository:
+   Now pull the content repository's `gh-pages` branch into your desktop repository:
 
     ~~~
     $ git pull origin gh-pages
     ~~~
-
-    This may take a minute or two.
 
 
 ##Workshop Front Page##
@@ -61,6 +59,8 @@ Edit `index.html` to make any changes to the workshop home page.
     check `index.html` for problems
     by running the command `make check`.
 
+
+Edit `_includes/setup.html` to provide software installation instructions for the workshop attendees.
 
 Once finished editing the index.html, push content to the repository:
 
