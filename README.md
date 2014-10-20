@@ -33,13 +33,11 @@ Getting Started
 
     ~~~
     $ git checkout -b gh-pages
-    ~~~
 
 2.  Pull content from the template repository's `gh-pages` branch into your desktop repository:
 
     ~~~
     $ git pull origin gh-pages
-    ~~~
 
     This may take a minute or two.
 
