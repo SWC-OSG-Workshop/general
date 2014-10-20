@@ -16,7 +16,7 @@ The sections below explain:
 **Table of Contents**
 
 *   [Editing the workshop front page](#background)
-*   [Edit Course Material](#getting-started)
+*   [Edit Lesson Material](#getting-started)
 
 Background
 
@@ -48,7 +48,7 @@ Editing workshop front page involves editing html pages. Two html files are of
 primary interest to us. One is the "index.html" and other is "_includes/setup.html".
 
 
-1.  Edit `index.html` to make any changes to the bootcamp home page.
+Edit `index.html` to make any changes to the bootcamp home page.
     In particular, double-check
     [the variables in the page's header](#variables),
     as these are used to update the main website,
@@ -57,12 +57,12 @@ primary interest to us. One is the "index.html" and other is "_includes/setup.ht
     check `index.html` for problems
     by running the command `make check`.
 
-2.  Edit `_includes/setup.html` to provide software installation instructions for bootcamp attendees.
 
-
-3. Push content to the repository:
+Once finished editing the index.html, push content to the repository:
 
     ~~~
+    $ git add index.html
+    $ git commit -m "some message here about the changes " 
     $ git push origin gh-pages
     ~~~
 
@@ -70,20 +70,20 @@ As soon as the repo has been pushed to GitHub, GitHub will render the pages
 at the url:
 
 ~~~
-http://dmbala.github.io/SWC-OSG/
+http://swc-osg-workshop.github.io/2014-10-20/
 ~~~
 
-You may update your bootcamp's website whenever you want.
-
+Below is the detail about the page header (#variables) and the website
+contents (#website-content) to design the "index.html" page. 
 
 ~~~
 
 Variables
 ---------
 
-Your bootcamp's `index.html` page
+The bootcamp's `index.html` page
 (which uses the `bootcamp.html` layout from the `_layouts` directory)
-*must* define the following values in its YAML header:
+*must* define the following values in its header:
 
 *   `layout` must be `bootcamp`.
 *   `root` is the path to the repository's root directory.
@@ -140,58 +140,15 @@ reorganize, rewrite, or delete the material as you think best.
 
 You normally won't need to worry about the first four ---
 they're included in the right places by our standard layouts ---
-but you will probably want to edit the fifth.
-In particular,
-if you are teaching a Python bootcamp,
-you should delete the instructions for installing R,
-and vice versa.
+but you will probably want to edit the fifth - `setup.html`.
 
 Lesson Material
 ---------------
 
-1.  The current material for novices is in the directories under `novice`.
-    The shell and Git materials are written in Markdown,
-    while the Python and SQL use the IPython Notebook.
-2.  New material for intermediate learners is currently under development
-    in directories under `intermediate`.
-3.  Our old lesson material
-    is in the `lessons` directory.
-    We plan to retire it in Spring 2014.
+The current material for novices is in the directories under `novice`.
+    The shell and Git materials are written in Markdown, while the Python and 
+SQL use the IPython Notebook.
 
-As explained [below](#building-things),
-you can use `make` to compile this material in the way that GitHub does
-when changes are committed to the `gh-pages` branch.
-
-Building Things
----------------
-
-GitHub automatically runs Jekyll
-to regenerate the pretty HTML versions of our content
-every time changes are pushed to the `gh-pages` branch of this repository.
-We use `make` to imitate that process locally
-so that people can preview changes before committing.
-We also use `make` to automate a handful of other tasks,
-such as converting IPython Notebooks from `.ipynb` format to Markdown (`.md`)
-so that Jekyll can convert them to HTML.
-
-Most of the commands to rebuild things are in `Makefile`;
-run the command `make` on its own to get a list of targets,
-and `make site` to re-run Jekyll to preview your site
-(which Jekyll will put in the `_site` directory).
-You can also run `make check` to run a Python script
-that checks whether `index.html`'s variables are formatted correctly,
-and `make clean` to clean up all generated files.
-
-The commands used to turn IPython Notebooks into Markdown files
-are stored in a separate Makefile called `ipynb.mk`.
-This separation ensures that people can rebuild the site
-even if they don't have IPython installed
-(which R instructors might not);
-it also guarantees that `make` won't try to regenerate Markdown after a Git pull
-(which might change the timestamps on files,
-but not actually change their contents).
-If we add more languages and file formats in future,
-we may also create separate Makefiles for them.
 
 Site Map
 --------
