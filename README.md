@@ -1,14 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
-2014-10-20
-==========
-
-SWC-OSG bootcamp materials
-=======
-SWC-OSG
-=======
->>>>>>> 7fae064d06015c8fc97824a8d00840c945c176a8
-=======
 ==================
 Software Carpentry - Open Science Grid (SWC-OSG) Workshop 
 ============================
@@ -33,13 +23,13 @@ Background
 
 
 
-4.   a new branch in the local clone named `gh-pages`.
+1.   a new branch in the local clone named `gh-pages`.
 
     ~~~
     $ git checkout -b gh-pages
     ~~~
 
-5.  Pull content from the template repository's `gh-pages` branch into your desktop repository:
+2.  Pull content from the template repository's `gh-pages` branch into your desktop repository:
 
     ~~~
     $ git pull swc gh-pages
@@ -47,40 +37,42 @@ Background
 
     This may take a minute or two.
 
-6.  Remove the `swc` remote so that you don't accidentally try
+3.  Remove the `swc` remote so that you don't accidentally try
     to push your changes to the main `bc` repository:
 
     ~~~
     $ git remote rm swc
     ~~~
 
-7.  Edit `index.html` to create the bootcamp home page.
-    In particular,
-    double-check
+*   [Editing the workshop front page](#background)
+
+Editing workshop front page involves editing html pages. Two html files are of 
+primary interest to us. One is the "index.html" and other is "_includes/setup.html".
+
+
+1.  Edit `index.html` to make any changes to the bootcamp home page.
+    In particular, double-check
     [the variables in the page's header](#variables),
     as these are used to update the main website,
     and make sure the [website content](#website-content) is correct.
-    You can use the script `./bin/swc_index_validator.py`
-    to check `index.html` for problems
+    You can use the script `./bin/swc_index_validator.py` to 
+    check `index.html` for problems
     by running the command `make check`.
 
-8.  Edit `_includes/setup.html` to provide software installation instructions for bootcamp attendees.
-    This is described in more detail in the section on [website content](#website-content).
+2.  Edit `_includes/setup.html` to provide software installation instructions for bootcamp attendees.
 
 
-10. Replace the content of this `README.md` file with a line or two describing your bootcamp.
-
-11. Push content to your YYYY-MM-DD-site repository:
+3. Push content to the repository:
 
     ~~~
     $ git push origin gh-pages
     ~~~
 
-As soon as your repo has been pushed to GitHub, GitHub will render your pages
+As soon as the repo has been pushed to GitHub, GitHub will render the pages
 at the url:
 
 ~~~
-http://{your-github-username}.github.io/YYYY-MM-DD-site/
+http://dmbala.github.io/SWC-OSG/
 ~~~
 
 You may update your bootcamp's website whenever you want.
@@ -239,104 +231,3 @@ The most important files and directories are **highlighted**.
 *   setup/ - setup tools for installing bootcamp software.
 *   team.md - who we are.
 
-FAQ
----
-
-*   *Where can I get help?*
-    <br/>
-    Mail us at [admin@software-carpentry.org](mailto:admin@software-carpentry.org),
-    come chat with us on [our IRC channel](irc://moznet/sciencelab),
-    or join our [discussion list](http://software-carpentry.org/contrib/discuss.html)
-    and ask for help there.
-
-*   *Why does the bootcamp repository have to be created from scratch? Why not fork `bc` on GitHub?*
-    <br/>
-    Because any particular user can only have one fork of a repository,
-    but instructors frequently need to work on several bootcamps at once.
-
-*   *Why use Jekyll?  Why not some other markup language and some other converter?*
-    <br/>
-    Because it's the default on GitHub.
-    If we're going to teach people to use that site,
-    we should teach them to use it as it is,
-    not as we wish it was.
-
-*   *Why does `make site` take so long?*
-    <br/>
-    We know this problem happens with pandoc >= 1.2 and <= 1.12.3.3. If you are
-    using one of this versions you can (a) update or (b) downgrade pandoc.
-
-    On a MacBook Air with pandoc 1.11.1 and Jekyll 1.3.0,
-    making the site from scratch takes approximately 24 seconds,
-    half of which is spent converting IPython Notebooks.
-
-*   *What do I do if I see a `invalid byte sequence in ...` error when I run `make check`?*
-    <br/>
-    Declare the `en_US.UTF-8` locale in your shell:
-
-    ~~~
-    $ export LC_ALL=en_US.UTF-8
-    $ export LANG=en_US.UTF-8
-    ~~~
-
-*   *What do I do if I see a `Conversion error` when I run `make check`?*
-    <br/>
-    The error message may look something like this:
-
-    ~~~
-    Configuration file: d:/OpenCourses/swc/2013-10-17-round6.4/_config.yml
-            Source: d:/OpenCourses/swc/2013-10-17-round6.4
-       Destination: _site
-      Generating... c:/Ruby193/lib/ruby/gems/1.9.1/gems/posix-spawn-0.3.6/lib/posix/spawn.rb:162: wa
-    rning: cannot close fd before spawn
-    Conversion error: There was an error converting 'lessons/misc-biopython/fastq.md'.
-    done.
-    ~~~
-        
-    This is a [problem in Pygments.rb](http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working)
-    Uninstall pygments.rb 0.5.1 or 0.5.2, install 0.5.0.  For example, here's how you would
-    uninstall pygments 0.5.2 and restore version 0.5.0:
-
-    ~~~
-    $ gem uninstall pygments.rb --version "=0.5.2"
-    $ gem install pygments.rb --version "=0.5.0"
-    ~~~
-
-*   *What do I do if I see a `File not found: u'nbconvert'` when I run `make check`?*
-    <br/>
-    The output of `make check` looks like this:
-
-    ~~~
-    WARNING: Unrecognized alias: 'output', it will probably have no effect.[TerminalIPythonApp] File not found: u'nbconvert'
-    cp tmp/python/novice/01-numpy.html _site/python/novice/01-numpy.html
-    cp: cannot stat ‘tmp/python/novice/01-numpy.html’: No such file or directory
-    ~~~
-    
-    This means you don't have a recent enough version of IPython (below 1.0) and you should install a newer version.
-    Installing a local version can be done with:
-    
-    ~~~
-    $ pip install --upgrade --user ipython
-    ~~~
-
-    You might need `pip` that can be installed (under Ubuntu and alike) with:
-
-    ~~~
-    $ sudo apt-get install python-pip
-    ~~~
-
-*   *What if I get some missing packages messages when I run `make check`?*
-    <br/>
-    Some additional packages are required. They can be installed (under Ubuntu and alike) with:
-    
-    ~~~
-    $ sudo apt-get install pandoc
-    ~~~
-
-*   *Where should pages go if multiple boot camps are running at a site simultaneously?*
-    <br/>
-    Use subdirectories like `2013-07-01-esu/beginners`,
-    so that main directory names always follow our four-part convention.
-
->>>>>>> 2b9974c303a9b8258f4aae8ed6480849adf01fb4
->>>>>>> 548d764c923c07447bf310af68c214f52d577798
