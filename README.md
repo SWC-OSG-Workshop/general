@@ -185,7 +185,6 @@ The following list contains more detailed instructions for different formats:
     in the `Makefile` as well. This ensures that people who *aren't* familiar
     with some format don't have to install the tools needed to work with it
     (e.g., R programmers don't have to install the IPython Notebook).
-    **Please check with us if you plan to do this.**
 
 Sample Files
 ------------
