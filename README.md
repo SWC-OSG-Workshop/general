@@ -3,4 +3,4 @@
 
 SWC-OSG bootcamp materials
 
-Please check the gh-pages branch to access the information and material. 
+Please check the **gh-pages branch** to access the information and material. 
