@@ -21,6 +21,10 @@ The sections below explain:
 Background
 
 
+1.   clone the repo 
+
+    ~~~
+    $ git clone https://github.com/SWC-OSG-Workshop/2014-10-20.git
 
 
 1.   a new branch in the local clone named `gh-pages`.
@@ -32,17 +36,11 @@ Background
 2.  Pull content from the template repository's `gh-pages` branch into your desktop repository:
 
     ~~~
-    $ git pull swc gh-pages
+    $ git pull origin gh-pages
     ~~~
 
     This may take a minute or two.
 
-3.  Remove the `swc` remote so that you don't accidentally try
-    to push your changes to the main `bc` repository:
-
-    ~~~
-    $ git remote rm swc
-    ~~~
 
 *   [Editing the workshop front page](#background)
 
