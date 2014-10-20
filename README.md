@@ -20,7 +20,7 @@ The sections below explain:
 *   [Lesson Material](#lession-material)
 *   [Site Map](#site-map)
 
-Getting Started
+##Getting Started##
 ---------------
 
 1.   clone the repo 
@@ -42,7 +42,7 @@ Getting Started
     This may take a minute or two.
 
 
-Workshop Front Page
+##Workshop Front Page##
 -------------------
 
 Editing workshop front page involves editing html pages. Two html files are of 
