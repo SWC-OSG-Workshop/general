@@ -85,7 +85,7 @@ As soon as the repo has been pushed to GitHub, GitHub will render the pages
 at the url:
 
 ~~~
-http://swc-osg-workshop.github.io/2014-10-20/
+http://swc-osg-workshop.github.io/2014-10-20/ CurrentWebPage(http://swc-osg-workshop.github.io/2014-10-20/)
 ~~~
 
 Below is the detail about the page header (#variables) and the website
@@ -158,8 +158,7 @@ but you will probably want to edit the fifth - `setup.html`.
 ##Lesson Material##
 ---------------
 
-The current material for novices is in the directories under `novice`.  
-The shell and Git materials are written in Markdown, while the Python and 
+The current material for novices is in the directories under `novice`. The shell and Git materials are written in Markdown, while the Python and 
 SQL use the IPython Notebook.
 
 Formats
