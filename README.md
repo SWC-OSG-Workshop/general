@@ -1,11 +1,23 @@
 ============================
 #Software Carpentry - Open Science Grid (SWC-OSG) Workshop#
 ============================
-The current repository contains the basic learning modules and necessary 
-tools to set up a new workshop website. 
+
+First, a note on why we work on `gh-pages` branch. Because GitHub renders the 
+webpage when the HTML and markdown files are located at `gh-pages` branch. 
+For example, the HTML and markdown files of the current `gh-pages` branch is rendered at the 
+url: CurrentWebPage(http://swc-osg-workshop.github.io/general/). Since we want all the edits are 
+displayed on the webpage, we want to directly work on `gh-pages`. This is the standard practice 
+recomended by the software carpentry. 
+
+
+The current repo contains the basic learning modules and necessary 
+tools to set up new websites for the up-comping worshops. We will edit the course materials 
+in the current branch. Also we change the general look of the woskshop front page in the 
+current repo. 
 
 
 The sections below explain:
+
 *   How to set up the current git repo on your local machine.
 *   How do we add or edit the course materails.  
 *   How do we edit the workshop front page.
@@ -22,10 +34,6 @@ The sections below explain:
 ##Getting Started##
 ---------------
 
-We work on `gh-pages` branch. Because GitHub renders the webpage when the HTML and markdown 
-files are located at `gh-pages` branch. For example, the HTML and 
-markdown files of the current `gh-pages` branch is rendered at the 
-url: CurrentWebPage(http://swc-osg-workshop.github.io/general/). 
 
 Now let us see how to make a copy of the existing repo on your locale machine.  In your local 
 desktop or laptop, clone the repo 
@@ -71,10 +79,8 @@ primary interest to us. One is the "index.html" and other is "_includes/setup.ht
 
 
 Edit `index.html` to make any changes to the workshop home page.
-    In particular, double-check
-    [the variables in the page's header](#variables),
-    as these are used to update the main website,
-    and make sure the [website content](#website-content) is correct.
+    In particular, the variables such as venue, date etc., in the page's header,
+    as these are used to update the main website, and make sure the website-content is correct.
     You can use the script `./bin/swc_index_validator.py` to 
     check `index.html` for problems
     by running the command `make check`.
