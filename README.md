@@ -2,18 +2,17 @@
 #Software Carpentry - Open Science Grid (SWC-OSG) Workshop#
 ============================
 
-First, a note on why we work on `gh-pages` branch. Because GitHub renders the 
-webpage when the HTML and markdown files are located at `gh-pages` branch. 
-For example, the HTML and markdown files of the current `gh-pages` branch is rendered at the 
-url: CurrentWebPage(http://swc-osg-workshop.github.io/general/). Since we want all the edits are 
-displayed on the webpage, we want to directly work on `gh-pages`. This is the standard practice 
-recomended by the software carpentry. 
+First, a note on why to work with the `gh-pages` branch. GitHub renders the 
+webpage from the HTML and markdown files located at `gh-pages`.  For example, the HTML and 
+markdown files of this branch are rendered at the url: 
+CurrentWebPage(http://swc-osg-workshop.github.io/general/). Since we want all the edits are 
+displayed on the webpage and available to the participants, we want to directly work 
+on `gh-pages`. This is the standard practice recomended by the software carpentry. 
 
 
-The current repo contains the basic learning modules and necessary 
-tools to set up new websites for the up-comping worshops. We will edit the course materials 
-in the current branch. Also we change the general look of the woskshop front page in the 
-current repo. 
+The `general/gh-pages` repo contains the basic learning modules and necessary 
+tools to set up new websites for the up-comping worshops. In this repo, we will 
+update all the new materials and make generic changes to the woskshop front page. 
 
 
 The sections below explain:
@@ -39,19 +38,19 @@ Now let us see how to make a copy of the existing repo on your locale machine.  
 desktop or laptop, clone the repo 
 
     ~~~
-    $ git clone https://github.com/SWC-OSG-Workshop/general.git
+     git clone https://github.com/SWC-OSG-Workshop/general.git
     ~~~
 
 and create new branch named `gh-pages`.
 
     ~~~
-    $ git checkout -b gh-pages
+     git checkout -b gh-pages
     ~~~
 
 Now pull the content repository's `gh-pages` branch into your desktop repository:
 
     ~~~
-    $ git pull origin gh-pages
+     git pull origin gh-pages
     ~~~
 ##Lesson Material##
 ---------------
@@ -64,9 +63,9 @@ Once finished editing or adding material under novice/DHTC directory push the
 content to the repository:
 
     ~~~
-    $ git add filename.md
-    $ git commit -m "some message here about the changes " 
-    $ git push origin gh-pages
+     git add filename.md
+     git commit -m "some message here about the changes " 
+     git push origin gh-pages
     ~~~
 
 
@@ -91,9 +90,9 @@ Edit `_includes/setup.html` to provide software installation instructions for th
 Once finished editing the index.html, push content to the repository:
 
     ~~~
-    $ git add index.html
-    $ git commit -m "some message here about the changes " 
-    $ git push origin gh-pages
+     git add index.html
+     git commit -m "some message here about the changes " 
+     git push origin gh-pages
     ~~~
 
 As soon as the repo has been pushed to GitHub, GitHub will render the pages
