@@ -6,12 +6,11 @@ tools to set up a new workshop website.
 
 
 The sections below explain:
-*   How to set up the git repo on your local machine.
+*   How to set up the current git repo on your local machine.
 *   How do we add or edit the course materails.  
 *   How do we edit the workshop front page.
 *   How do we generate a new repo for a new workshop.
 
-**Note:**
 
 **Table of Contents**
 
@@ -23,11 +22,12 @@ The sections below explain:
 ##Getting Started##
 ---------------
 
-First, a note about why we are working on `gh-pages` branch. Because the HTML and markdown 
-files are rendered as webpages by GitHub.  For example,  the current page is rendered at 
-the url: CurrentWebPage(http://swc-osg-workshop.github.io/general/). 
+We work on `gh-pages` branch. Because GitHub renders the webpage when the HTML and markdown 
+files are located at `gh-pages` branch. For example, the HTML and 
+markdown files of the current `gh-pages` branch is rendered at the 
+url: CurrentWebPage(http://swc-osg-workshop.github.io/general/). 
 
-Now let us see how to make a copy of the existing repo on your locale machine.  In the 
+Now let us see how to make a copy of the existing repo on your locale machine.  In your local 
 desktop or laptop, clone the repo 
 
     ~~~
