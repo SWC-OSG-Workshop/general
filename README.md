@@ -88,12 +88,11 @@ Edit `index.html` to make any changes to the workshop home page.
 Edit `_includes/setup.html` to provide software installation instructions for the workshop attendees.
 
 Once finished editing the index.html, push content to the repository:
-
-    ~~~
+~~~
      git add index.html
      git commit -m "some message here about the changes " 
      git push origin gh-pages
-    ~~~
+~~~
 
 As soon as the repo has been pushed to GitHub, GitHub will render the pages
 at the url(http://swc-osg-workshop.github.io/general)
@@ -101,12 +100,13 @@ at the url(http://swc-osg-workshop.github.io/general)
 ##New Repo for a New Workshop##
 
 As soon as the workshop date is finalized, create a repo by the name
-"YYYY-MM-DD", where YYYY is the year, MM is the month and DD is the
-date of the workshop. The generated repository needs to have the
-course material and web content for a workshop. Since we have all
-the materials under the general repo, we copy the course material and web
-content from the general repo. In your local Desktop or Laptop, type
+`YYYY-MM-DD`, where `YYYY` is the year, `MM` is the month and `DD` is the
+date of the workshop. The new repo  - `YYYY-MM-DD` should have the materials for the 
+workshop. The required materials already exist in `general` repo. Therefore we copy 
+the course material and web content from the `general` repo.  This can done in your local 
+Desktop or Laptop, type
 the followings
+
 ~~~
  git clone https://github.com/SWC-OSG-Workshop/YYYY-MM-DD.git
  cd YYYY-MM-DD 
