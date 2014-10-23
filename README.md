@@ -19,7 +19,7 @@ update all the new materials and make generic changes to the woskshop front page
 The sections below explain:
 
 * __How to set up the git repo on your local machine.__
-* __How do we add or edit the course materails.__
+* __How do we edit the course materails.__
 * __How do we edit the workshop front page.__
 * __How do we create a new repo for a new workshop.__
 
@@ -57,11 +57,10 @@ Now pull the content repository's `gh-pages` branch into your desktop repository
 ---------------
 
 The current material is in the directories under `novice`. The shell and Git materials are 
-written in Markdown, while the Python and SQL use the IPython Notebook. The material 
-related to OSG is in the directory DHTC and are written in Markdown. 
+written in Markdown, while the Python and SQL use the IPython Notebook. 
 
-Once finished editing or adding material under novice/DHTC directory push the 
-content to the repository:
+The material related to OSG is in the directory `novice/DHTC` and are written in Markdown.  Once 
+finished editing the material at `novice/DHTC/filename.md`, push the content to the repository:
 
     ~~~
      git add filename.md
