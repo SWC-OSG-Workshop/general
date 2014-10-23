@@ -18,10 +18,10 @@ update all the new materials and make generic changes to the woskshop front page
 
 The sections below explain:
 
-* **  How to set up the git repo on your local machine. **
-* **  How do we add or edit the course materails.   **
-* **  How do we edit the workshop front page. **
-* **  How do we create a new repo for a new workshop. **
+- **  How to set up the git repo on your local machine. **
+- **  How do we add or edit the course materails.   **
+- **  How do we edit the workshop front page. **
+- **  How do we create a new repo for a new workshop. **
 
 
 **Table of Contents**
