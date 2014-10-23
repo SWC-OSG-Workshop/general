@@ -2,8 +2,8 @@
 #Software Carpentry - Open Science Grid (SWC-OSG) Workshop#
 ============================
 
-First, a note on why to work with the `gh-pages` branch. GitHub renders the 
-webpage from the HTML and markdown files located at `gh-pages`.  For example, the HTML and 
+We work on the `gh-pages` as it is useful for the website rendering. The HTML and markdown 
+files kept under `gh-pages` are used to render the webiste on GitHub. For example, the HTML and 
 markdown files of this branch are rendered at the url: 
 CurrentWebPage(http://swc-osg-workshop.github.io/general/). Since we want all the edits are 
 displayed on the webpage and available to the participants, we want to directly work 
@@ -17,10 +17,10 @@ update all the new materials and make generic changes to the woskshop front page
 
 The sections below explain:
 
-*   How to set up the current git repo on your local machine.
+*   How to set up the git repo on your local machine.
 *   How do we add or edit the course materails.  
 *   How do we edit the workshop front page.
-*   How do we generate a new repo for a new workshop.
+*   How do we create a new repo for a new workshop.
 
 
 **Table of Contents**
