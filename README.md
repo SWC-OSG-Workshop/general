@@ -2,57 +2,72 @@
 #Software Carpentry - Open Science Grid (SWC-OSG) Workshop#
 ============================
 
-This repository's `gh-pages` branch is the starting point for a workshop 
-website: it contains a template for the workshop's home page and the shared 
-lesson materials developed by software carpentry.
+We work directly on the `gh-pages` as it is useful for the website 
+rendering. GitHub renders the website from the HTML and markdown 
+files kept under `gh-pages`. For example, the HTML and 
+markdown files of this branch are rendered at the url: 
+CurrentWebPage(http://swc-osg-workshop.github.io/general/). Since we want all the edits are 
+displayed on the webpage and available to the participants, we want to directly work 
+on `gh-pages`. This is the standard practice recomended by the software carpentry. 
+
+
+The `general/gh-pages` repo contains the basic learning modules and necessary 
+tools to set up new websites for the up-comping worshops. In this repo, we will 
+update all the new materials and make generic changes to the woskshop front page. 
+
 
 The sections below explain:
-*   how do we edit the workshop front page.
-*   how do we add or edit the course materails.  
 
-**Note:**
+* __How to set up the git repo on your local machine.__
+* __How do we edit the course materails.__
+* __How do we edit the workshop front page.__
+* __How do we create a new repo for a new workshop.__
+
 
 **Table of Contents**
 
 *   [Getting Started](#getting-started)
-*   [Workshop Front Page](#workshop-frontpage)
 *   [Lesson Material](#lession-material)
-*   [Site Map](#site-map)
+*   [Workshop Front Page](#workshop-frontpage)
+*   [New Repo for a New Workshop](#new-repo)
 
 ##Getting Started##
 ---------------
 
-If a repository has a branch called `gh-pages` (which 
-stands for "GitHub pages"), then GitHub uses the HTML and Markdown 
-files in that branch to create a website for the repository.
 
-~~~
-For example: 
-    If the repository's URL is `http://github.com/darwin/finches`,
-    the URL for the website is `http://darwin.github.io/finches`.
-~~~
-So the current page is rendered at the url: CurrentWebPage(http://swc-osg-workshop.github.io/general/)
-
-Therefore, we use **gh-pages branch** to develope the workshop front page and lesson materials. 
-
-
-In the desktop or laptop, clone the repo 
+Now let us see how to make a copy of the existing repo on your locale machine.  In your local 
+desktop or laptop, clone the repo 
 
     ~~~
-    $ git clone https://github.com/SWC-OSG-Workshop/general.git
+     git clone https://github.com/SWC-OSG-Workshop/general.git
     ~~~
 
 and create new branch named `gh-pages`.
 
     ~~~
-    $ git checkout -b gh-pages
+     git checkout -b gh-pages
     ~~~
 
 Now pull the content repository's `gh-pages` branch into your desktop repository:
 
     ~~~
-    $ git pull origin gh-pages
+     git pull origin gh-pages
     ~~~
+##Lesson Material##
+---------------
+
+The current material is in the directories under `novice`. The shell and Git materials are 
+written in Markdown, while the Python and SQL use the IPython Notebook. 
+
+The material related to OSG is in the directory `novice/DHTC` and are written in Markdown.  Once 
+finished editing the material at `novice/DHTC/filename.md`, push the content to the repository:
+
+    ~~~
+     git add filename.md
+     git commit -m "some message here about the changes " 
+     git push origin gh-pages
+    ~~~
+
 
 
 ##Workshop Front Page##
@@ -63,10 +78,8 @@ primary interest to us. One is the "index.html" and other is "_includes/setup.ht
 
 
 Edit `index.html` to make any changes to the workshop home page.
-    In particular, double-check
-    [the variables in the page's header](#variables),
-    as these are used to update the main website,
-    and make sure the [website content](#website-content) is correct.
+    In particular, the variables such as venue, date etc., in the page's header,
+    as these are used to update the main website, and make sure the website-content is correct.
     You can use the script `./bin/swc_index_validator.py` to 
     check `index.html` for problems
     by running the command `make check`.
@@ -75,171 +88,34 @@ Edit `index.html` to make any changes to the workshop home page.
 Edit `_includes/setup.html` to provide software installation instructions for the workshop attendees.
 
 Once finished editing the index.html, push content to the repository:
-
-    ~~~
-    $ git add index.html
-    $ git commit -m "some message here about the changes " 
-    $ git push origin gh-pages
-    ~~~
+~~~
+     git add index.html
+     git commit -m "some message here about the changes " 
+     git push origin gh-pages
+~~~
 
 As soon as the repo has been pushed to GitHub, GitHub will render the pages
-at the url:
+at the url(http://swc-osg-workshop.github.io/general)
+
+##New Repo for a New Workshop##
+
+As soon as the workshop date is finalized, create a repo by the name
+`YYYY-MM-DD`, where `YYYY` is the year, `MM` is the month and `DD` is the
+date of the workshop. The new repo  - `YYYY-MM-DD` should have the materials for the 
+workshop. The required materials already exist in `general` repo. Therefore we copy 
+the course material and web content from the `general` repo.  This can done in your local 
+Desktop or Laptop, type
+the followings
 
 ~~~
-http://(organization or username).github.io/general
+ git clone https://github.com/SWC-OSG-Workshop/YYYY-MM-DD.git
+ cd YYYY-MM-DD 
+ git checkout -b gh-pages 
+ git remote add general https://github.com/SWC-OSG-Workshop/general.git 
+ git pull general gh-pages 
+ git remote remove general 
 ~~~
 
-For example, the current page is rendered at the url: CurrentWebPage(http://swc-osg-workshop.github.io/general)
-
-Below is the detail about the page header (#variables) and the website
-contents (#website-content) to design the "index.html" page. 
-
-###Variables###
----------
-
-The workshop's `index.html` page
-(which uses the `workshop.html` layout from the `_layouts` directory)
-*must* define the following values in its header:
-
-*   `layout` must be `workshop`.
-*   `root` is the path to the repository's root directory.
-    This is '.' if the page is in the root directory
-    (which `index.html` is).
-    In other pages,
-    `root` is '..' if the page is one directory down,
-    '../..' if it is two levels down,
-    and so on.
-*   `venue` is the name of the institution or group hosting the workshop.
-*   `address` is the workshop's street address.
-*   `country` must be a hyphenated country name like 'United-States'.
-    This is used to look up flags for display in the main web site;
-    see the `assets/flags` directory in the `site` repo for a full list of valid names.
-*   `latlng` is the latitude and longitude of the workshop site
-    (so we can put a pin on our map).
-*   `humandate` is the human-friendly dates for the workshop (e.g., Jul 3-4, 2015).
-    Please use three- or four-letter month names and abbreviations
-    (e.g., `Dec` instead of `December`).
-*   `startdate` is the workshop's starting date in YYYY-MM-DD format.
-*   `enddate` is the workshop's ending date in the same format.
-    If your workshop is only one day long,
-    the `enddate` field can be deleted.
-*   `registration` is `open` (if anyone is allowed to sign up)
-    or `restricted` (if only some people are allowed to take part).
-    Please do *not* put HTML or links in here to explain
-    who's allowed to enrol or how to go about doing it;
-    that should go in the main body of your page.
-*   `instructor` is a comma-separated list of instructor names.
-    This must be enclosed in square brackets,
-    as in `["Alan Turing","Grace Hopper"]`
-*   `helper` is a comma-separated list of helper names.
-    This must be enclosed in square brackets,
-    as in `["John von Neumann"]`
-*   `contact` is the contact email address to use for your workshop.
-
-
-###Website Content###
----------------
-
-The body of `index.html` contains
-an explanation of what a workshop is and how it runs,
-followed by setup instructions for our standard software.
-There is an explanatory comment for each section of this page;
-reorganize, rewrite, or delete the material as you think best.
-
-`index.html` depends on five HTML files in the `_includes` directory:
-
-*   `header.html`: material for the page's head.
-*   `banner.html`: the generic banner with the Software Carpentry logo.
-*   `footer.html`: the generic footer with links to Software Carpentry's web presence.
-*   `javascript.html`: JQuery and Bootstrap Javascript.
-*   `setup.html`: common setup instructions.
-
-You normally won't need to worry about the first four ---
-they're included in the right places by our standard layouts ---
-but you will probably want to edit the fifth - `setup.html`.
-
-##Lesson Material##
----------------
-
-The current material for novices is in the directories under `novice`. The shell and Git materials are written in Markdown, while the Python and 
-SQL use the IPython Notebook.
-
-Formats
--------
-
-We are using [Jekyll](https://en.wikipedia.org/wiki/Jekyll_%28software%29)
-to convert lessons in [Markdown](https://en.wikipedia.org/wiki/Markdown)
-to [HTML](https://en.wikipedia.org/wiki/HTML).
-Therefore, we require every lesson to be available in Markdown.
-But this does not mean that you have to write it in Markdown as well.
-
-The following list contains more detailed instructions for different formats:
-
-*   Markdown: Nothing to do.
-*   IPython Notebook: Generate and provide a Markdown version in addition
-    to the IPython Notebook.
-    Look at our existing files to get an idea how the IPython Notebook
-    should look like.
-*   Other formats: Generate and provide a Markdown version in addition
-    to the file in the original format.
-    In order to be able to recreate the Markdown from source,
-    include the conversion from this other format to Markdown
-    in the `Makefile` as well. This ensures that people who *aren't* familiar
-    with some format don't have to install the tools needed to work with it
-    (e.g., R programmers don't have to install the IPython Notebook).
-
-Sample Files
-------------
-
-The directory `misc` contains files that can be used as starting points for lessons.
-These files explain how to format titles,
-objectives,
-exercises,
-key points,
-and code fragments.
-In addition,
-the IPython Notebook file has metadata in various cells
-to ensure that the generated HTML pages have the right style.
-If you are creating a new lesson,
-please copy one of these files to use as a starting point.
-
-
-
-
-
-##Site Map##
---------
-
-The most important files and directories are **highlighted**.
-
-*   CITATION - how to cite Software Carpentry.
-*   CONTRIBUTING.md - how to contribute new material.
-*   LICENSE.md - our license.
-*   **Makefile** - rebuild this site (type `make` on its own for a list of targets).
-*   **README.md** - how to use this site.
-*   _config.yml - Jekyll configuration directives.
-*   _includes/ - snippets of HTML that can be included in other files by Jekyll.
-*   _layouts/ - Jekyll page layouts.
-*   **_site/** - output directory (created when building the site locally).
-*   _templates/ - template files for conversion of IPython Notebooks to Markdown.
-    Templates for other conversion systems (e.g., Pandoc) should go here, too.
-*   bib.md - bibliography.
-*   bin/ - miscellaneous tools used in building the site.
-*   book.md - generated when compiling the website locally.
-*   contents.md - site map used in place of `index.html` on the main web site.
-*   css/ - CSS files for this site.
-*   data/ - miscellaneous data files used by examples.
-*   etherpad.txt - starter text for the workshop's Etherpad.
-*   gloss.md - glossary of terms.
-*   img/ - images used throughout this site.
-*   **index.html** - template for workshop home pages.
-*   intro.md - introduction to book version of this site.
-*   ipynb.mk - Makefile for turning IPython Notebooks into Markdown.
-*   js/ - Javascript files used in this site.
-*   lessons/ - old lesson material.
-*   novice/ - novice lesson material.
-*   rules.md - the rules of programming (used in the book version of this site).
-*   setup.md - placeholder for workshop setup instructions.
-*   setup/ - setup tools for installing workshop software.
-*   team.md - who we are.
+Now you will have to change the workshop front page in the current repo `YYYY-MM-DD.git` as 
+outlined in the previous section.  
 
