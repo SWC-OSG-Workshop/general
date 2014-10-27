@@ -1,11 +1,11 @@
 <h2>Setup</h2>
 
 <p>
-  To participate in a Software Carpentry bootcamp, 
+  To participate in a Software Carpentry workshop, 
   you will need working copies of the software described below.
   Please make sure to install everything
   (or at least to download the installers)
-  <em>before</em> the start of your bootcamp.
+  <em>before</em> the start of your workshop.
 </p>
 
 <h3>Overview</h3>
@@ -14,16 +14,11 @@
   <div class="span6">
     <h4>Editor</h4>
     <p>
+      Make sure you install, or have available, a text editor that
+      you are comfortable with using.
       When you're writing code, it's nice to have a text
       editor that is optimized for writing code, with features
       like automatic color-coding of key words.
-      The default text editor on Mac OS X and Linux is usually set to Vim,
-      which is not famous for being intuitive.
-      if you accidentally find yourself stuck in it,
-      try typing the escape key,
-      followed by ':q!' (colon, lower-case 'q', exclamation mark),
-      then hitting Return
-      to return to the shell.
     </p>
     <h4>The Bash Shell</h4>
     <p>
@@ -31,8 +26,6 @@
       more power to do more tasks more quickly with your
       computer.
     </p>
-  </div>
-  <div class="span6">
     <h4>Git</h4>
     <p>
       Git is a state-of-the-art version control system. It
@@ -40,48 +33,27 @@
       options for easily updating a shared or public version of
       your code on <a href="https://github.com/">github.com</a>.
     </p>
-    <h4>R</h4>
+  </div>
+  <div class="span6">
+    <h4>Python</h4>
     <p>
-      <a href="http://www.r-project.org">R</a> is a programming language that is especially powerful for
-      data exploration, visualization, and statistical analysis. To interact with R, we will
-      use <a href="http://www.rstudio.com/">RStudio</a>, an interactive
-      development environment (IDE).
+      Python is becoming very popular in scientific computing,
+      and it's a great language for teaching general programming concepts due to its easy-to-read syntax.
+      We teach with Python version 2.7,
+      since it is still the most widely used.
+      Installing all the scientific packages for Python individually can be a bit difficult,
+      so we recommend an all-in-one installer.
     </p>
-
     <h4>OSG </h4>
     <p>
-     OSG set up iformation. XXX
+       OSG related set up: Sign Up information
     </p>
-
   </div>
 </div>
 
 <h3>Windows</h3>
 
 <div class="row-fluid">
-  <div class="span6">
-    <h4>Git Bash</h4>
-    <p>
-      Install Git for Windows by download and running
-      <a href="http://msysgit.github.io/">the installer</a>.
-      This will provide you with both Git and Bash in the Git Bash program.
-    </p>
-    <h4>Software Carpentry Installer (optional)</h4>
-    <p>This installer requires an active internet connection</p>
-    <p>After installing R and Git Bash:</p>
-    <ul>
-      <li>
-        Download the <a href="http://files.software-carpentry.org/SWCarpentryInstaller.exe">installer</a>.
-      </li>
-      <li>
-        If the file opens directly in the browser select <strong>File&rarr;Save Page As</strong>
-        to download it to your computer.
-      </li>
-      <li>
-        Double click on the file to run it.
-      </li>
-    </ul>
-  </div>
   <div class="span6">
     <h4>Editor</h4>
     <p>
@@ -96,19 +68,47 @@
       (or have other tools like Git launch it for you).
       Please ask your instructor to help you do this.
     </p>
-    <h4>R</h4>
+    <h4>Git Bash</h4>
     <p>
-      Install R by downloading and running
-      <a href="http://cran.r-project.org/bin/windows/base/release.htm">this .exe file</a>
-      from <a href="http://cran.r-project.org/index.html">CRAN</a>.
-      Also, please install the
-      <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+      Install Git for Windows by download and running
+      <a href="http://msysgit.github.io/">the installer</a>.
+      This will provide you with both Git and Bash in the Git Bash program.
     </p>
+    <h4>Software Carpentry Installer</h4>
+    <p>This installer requires an active internet connection</p>
+    <p>After installing Python and Git Bash:</p>
+    <ul>
+      <li>
+        Download the <a href="http://files.software-carpentry.org/SWCarpentryInstaller.exe">installer</a>.
+      </li>
+      <li>
+        If the file opens directly in the browser select <strong>File&rarr;Save Page As</strong>
+        to download it to your computer.
+      </li>
+      <li>
+        Double click on the file to run it.
+      </li>
+    </ul>
+  </div>
+  <div class="span6">
+    <h4>Python</h4>
+    <ul>
+      <li>
+        Download and install  <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>.
+      </li>
+      <li>
+        Use all of the defaults for installation
+        <em>except</em>
+        make sure to check <strong>Make Anaconda the default Python</strong>.
+      </li>
+    </ul>
+
     <h4>OSG </h4>
     <p>
-     OSG set up iformation. XXX
+       OSG related set up: Sign Up information
     </p>
-
+    </ul>
+    </p>
   </div>
 </div>
 
@@ -116,14 +116,6 @@
 
 <div class="row-fluid">
   <div class="span6">
-    <h4>Bash</h4>
-    <p>
-      The default shell in all versions of Mac OS X is bash,
-      so no need to install anything.  You access bash from
-      the Terminal (found
-      in <code>/Applications/Utilities</code>).  You may want
-      to keep Terminal in your dock for this workshop.
-    </p>
     <h4>Editor</h4>
     <p>
       We recommend
@@ -132,8 +124,14 @@
       In a pinch, you can use <code>nano</code>,
       which should be pre-installed.
     </p>
-  </div>
-  <div class="span6">
+    <h4>Bash</h4>
+    <p>
+      The default shell in all versions of Mac OS X is bash,
+      so no need to install anything.  You access bash from
+      the Terminal (found
+      in <code>/Applications/Utilities</code>).  You may want
+      to keep Terminal in your dock for this workshop.
+    </p>
     <h4>Git</h4>
     <p>
       Install Git for Mac by downloading and running
@@ -143,17 +141,22 @@
       here</a>. Use the Leopard installer for 10.5 and the Snow Leopard
       installer for 10.6-10.7.
     </p>
-    <h4>R</h4>
-    <p>
-      Install R by downloading and running
-      <a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg file</a>
-      from <a href="http://cran.r-project.org/index.html">CRAN</a>.
-      Also, please install the
-      <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
-    </p>
+  </div>
+  <div class="span6">
+    <h4>Python</h4>
+    <ul>
+      <li>
+        Download and install <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>.
+      </li>
+      <li>
+        Use all of the defaults for installation
+        <em>except</em>
+        make sure to check <strong>Make Anaconda the default Python</strong>.
+      </li>
+    </ul>
     <h4>OSG </h4>
     <p>
-     OSG set up iformation. XXX
+       OSG related set up: Sign Up information
     </p>
 
   </div>
@@ -163,6 +166,12 @@
 
 <div class="row-fluid">
   <div class="span6">
+    <h4>Editor</h4>
+    <p>
+      <a href="http://kate-editor.org/">Kate</a> is one option for Linux users.
+      In a pinch, you can use <code>nano</code>,
+      which should be pre-installed.
+    </p>
     <h4>Bash</h4>
     <p>
       The default shell is usually <code>bash</code>,
@@ -170,35 +179,112 @@
       you can run it by opening a terminal and typing <code>bash</code>.
       There is no need to install anything.
     </p>
-    <h4>Editor</h4>
-    <p>
-      <a href="http://kate-editor.org/">Kate</a> is one option for Linux users.
-      In a pinch, you can use <code>nano</code>,
-      which should be pre-installed.
-    </p>
-  </div>
-  <div class="span6">
     <h4>Git</h4>
     <p>
       If Git is not already available on your machine you can try
       to install it via your distro's package manager
       (e.g. <code>apt-get</code> or <code>yum</code>).
     </p>
-    <h4>R</h4>
+  </div>
+  <div class="span6">
+    <h4>Python</h4>
     <p>
-      You can download the binary files for your distribution
-      from <a href="http://cran.r-project.org/index.html">CRAN</a>. Or
-      you can use your package manager, e.g. for Debian/Ubuntu
-      run <code>apt-get install r-base</code> or <code>yum install R</code>. 
-      Also, please install the
-      <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+      We recommend the all-in-one scientific Python installer
+      <a href="http://continuum.io/downloads.html">Anaconda</a>.
+      (Installation requires using the shell and if you aren't
+      comfortable doing the installation yourself just
+      download the installer and we'll help you at the workshop.)
     </p>
+    <ol>
+      <li>
+        Download the installer that matches your operating
+        system and save it in your home folder.
+      </li>
+      <li>
+        Open a terminal window.
+      </li>
+      <li>
+        Type <pre>bash Anaconda-</pre> and then press
+        tab. The name of the file you just downloaded should
+        appear.
+      </li>
+      <li>
+        Press enter. You will follow the text-only
+        prompts. When there is a colon at the bottom of the
+        screen press the down arrow to move down through the
+        text. Type <code>yes</code> and press enter to approve
+        the license. Press enter to approve the default
+        location for the files. Type <code>yes</code> and
+        press enter to prepend Anaconda to
+        your <code>PATH</code> (this makes the Anaconda
+        distribution the default Python).
+      </li>
+    </ol>
     <h4>OSG </h4>
     <p>
-     OSG set up iformation. XXX
+       OSG related set up: Sign Up information
     </p>
 
   </div>
 </div>
 
+<h3>Virtual Machine</h3>
+
+<p>
+  As an alternative to the above, you can  use a virtual machine (VM)
+  rather than install all the software above. To use a VM:
+</p>
+<ol>
+  <li>
+    Install <a href="https://www.virtualbox.org/">VirtualBox</a>.
+  </li>
+  <li>
+    Download our <a href="https://docs.google.com/uc?id=0B4Kr6DYkzkQtd05FekRId05DLXM&amp;export=download">VM image</a>.
+    <strong>Warning:</strong>
+    this file is 1.7 GByte,
+    so please download it <em>before</em> coming to your workshop.
+  </li>
+  <li>
+    Load the VM into VirtualBox by selecting "Import Appliance"
+    and loading the <code>.ova</code> file.
+  </li>
+</ol>
+
+
+<h2>Check your setup</h2>
+
+<p>
+  To check you have the correct version of Python:
+</p>
+<ul>
+  <li>
+    Download <a href="./setup/swc-installation-test-1.py">swc-installation-test-1.py</a>
+  </li>
+  <li>Open up a bash shell</li>
+  <li>Change into the directory where you put the script</li>
+  <li>Run the script:
+    <pre>python swc-installation-test-1.py</pre>
+  </li>
+</ul>
+<p>
+  To check you have the necessary software and tools:
+</p>
+<ul>
+  <li>
+    Download <a href="./setup/swc-installation-test-2.py">swc-installation-test-2.py</a>
+  </li>
+  <li>Open up a bash shell</li>
+  <li>Change into the directory where you put the script</li>
+  <li>Run the script:
+    <pre>python swc-installation-test-2.py</pre>
+  </li>
+</ul>
+
+<hr/>
+
+<h2>Recognising prompts and how to exit</h2>
+
+<p>
+If you find yourself in a shell that you don't recognise, or in an editor that you can't get out of then see <a href="novice/ref/05-prompts-exits.html">Recognising prompts and how to exit</a>.
+</p>
 
