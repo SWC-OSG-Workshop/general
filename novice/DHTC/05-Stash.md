@@ -39,9 +39,14 @@ To transfer a file called "BigData.tar.gz" via scp from the midway to stash
 
 ~~~
 scp BigData.tar.gz username@login.ci-connect.uchicago.edu:~/data/.  //Transfers the file "BigData.tar.gz" using secured copy.
+~~~
+{:class="in"}
+
 You can do the same transfer via rsync, as
+~~~
 rsync -v -e ssh BigData.tar.gz username@login.ci-connect.uchicago.edu:~/data/.
 ~~~
+{:class="in"}
 
 In case of broken connection, rsync would start the file transfer from where it is stopped through recursive synchronization. This is an advantage of rsync over scp. 
  
