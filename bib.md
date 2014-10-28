@@ -9,7 +9,7 @@ Deborah S. Ray and Eric J. Ray: *Unix and Linux: Visual QuickStart Guide*. Peach
 
 ##Git##
 [Interactive Git Tutorial](https://try.github.io/levels/1/challenges/1)
-[Git pretty - A flowchart about how to recover from mistakes] (http://justinhileman.info/article/git-pretty/) >
+[Git pretty - A flowchart about how to recover from mistakes] (http://justinhileman.info/article/git-pretty/)
 [Changing history or How to Git pretty] (https://presentate.com/bobthecow/talks/changing-history)
 ##Python##
 <a href="http://matplotlib.org/gallery.html">matplotlib examples gallery</a> - includes source code.
