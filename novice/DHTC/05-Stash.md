@@ -22,11 +22,14 @@ transfer the files from your laptop to stash.
 <h2> Where is stash? </h2> 
 Stash is mounted on your account at login.osgconnect.edu.  You can login with 
 the  secured shell (ssh) protocol by typing 
-```
+
+~~~
+
 ssh username@login.ci-connect.uchicago.edu //Connect to the remote host with your username
 passwd:       // your password
 cd ~/data    // This is where the stash is mounted for you. You can keep the data here for a quick access by worker machines.
-```
+~~~
+
 <h2> File Transfer to Stash </h2> 
 
 We can transfer files from the local machine to stash with scp, rsync, or globus. Indeed, globus is the most reliable approach for transferring a large amount of data. 
