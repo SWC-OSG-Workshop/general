@@ -30,7 +30,7 @@ ssh username@login.ci-connect.uchicago.edu //Connect to the remote host with you
 passwd:       // your password
 cd ~/data    // This is where the stash is mounted for you. You can keep the data here for a quick access by worker machines.
 ~~~
-
+{:class="in"}
 <h2> File Transfer to Stash </h2> 
 
 We can transfer files from the local machine to stash with scp, rsync, or globus. Indeed, globus is the most reliable approach for transferring a large amount of data. 
