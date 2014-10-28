@@ -3,6 +3,52 @@ layout: lesson
 root: .
 title: Recommended Reading
 ---
+##Unix##
+Deborah S. Ray and Eric J. Ray: *Unix and Linux: Visual QuickStart Guide*. Peachpit Press, 0321636783, 2009.
+:   A gentle introduction to Unix, with many examples.
+
+##Git##
+[Interactive Git Tutorial](https://try.github.io/levels/1/challenges/1)
+[Git pretty - A flowchart about how to recover from mistakes] (http://justinhileman.info/article/git-pretty/) >
+[Changing history or How to Git pretty] (https://presentate.com/bobthecow/talks/changing-history)
+##Python##
+<a href="http://matplotlib.org/gallery.html">matplotlib examples gallery</a> - includes source code.
+<a href="http://wiki.scipy.org/Cookbook">SciPy Cookbook</a> - examples of how to do useful stuff using numpy, scipy, matplotlib, interfacing, etc.
+Scientific Python <a href="http://scipy-lectures.github.io/">lecture notes</a></li>
+##OSG##
+<a href="https://confluence.grid.iu.edu/display/CON/Home">open science grid documentation</a> Detaile information about distributed computing with examples and tutorials</a>
+##Online Training Courses##
+<a href="http://www.codecademy.com/">Code Academy</a> - free online programming courses</a>
+Papers:
+</p>
+<p>
+Wilson G, Aruliah DA, Brown CT, Chue Hong NP, Davis M, et al. (2014)  
+Best Practices for Scientific Computing. PLoS Biol 12(1): e1001745. <a 
+href="http://dx.doi.org/10.1371/journal.pbio.1001745">doi:10.1371/journal.pbio.1001745</a>.
+</p>
+<p>
+Sandve GK, Nekrutenko A, Taylor J, Hovig E (2013) Ten Simple Rules for  
+Reproducible Computational Research. PLoS Comput Biol 9(10): e1003285. 
+<a 
+href="http://dx.doi.org/10.1371/journal.pcbi.1003285">doi:10.1371/journal.pcbi.1003285</a>.
+</p>
+<p>
+Noble WS (2009) A Quick Guide to Organizing Computational Biology 
+Projects. PLoS Comput Biol 5(7): e1000424. <a 
+href="http://dx.doi.org/10.1371/journal.pcbi.1000424">doi:10.1371/journal.pcbi.1000424</a>.
+</p>
+<p>
+Ram K (2013) "git can facilitate greater reproducibility and increased
+transparency in science", Source Code for Biology and Medicine 2013,
+8:7 <a
+href="http://dx.doi.org/10.1186/1751-0473-8-7">doi:10.1186/1751-0473-8-7</a>.
+</p>
+<p>
+Glass, R. (2002) Facts and Fallacies of Software Engineering, Addison-Wesley, 2002. (<a href="http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20Robert%20L%20Glass%20-%20Facts%20and%20Fallacies%20of%20Software%20Engineering.pdf">PDF</a>).
+</p>
+
+
+
 ## Books
 
 Susan A. Ambrose, Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman: *[How Learning Works: Seven Research-Based Principles for Smart Teaching](http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/)*. Jossey-Bass, 2010, 978-0470484104.
