@@ -23,12 +23,13 @@ transfer the files from your laptop to stash.
 Stash is mounted on your account at login.osgconnect.edu.  You can login with 
 the  secured shell (ssh) protocol by typing 
 
-~~~
+```
 
 ssh username@login.ci-connect.uchicago.edu //Connect to the remote host with your username
 passwd:       // your password
 cd ~/data    // This is where the stash is mounted for you. You can keep the data here for a quick access by worker machines.
-~~~
+
+```
 
 <h2> File Transfer to Stash </h2> 
 
@@ -36,12 +37,13 @@ We can transfer files from the local machine to stash with scp, rsync, or globus
  
 To transfer a file called "BigData.tar.gz" via scp from the midway to stash
 
-~~~
+```
+
 scp BigData.tar.gz username@login.ci-connect.uchicago.edu:~/data/.  //Transfers the file "BigData.tar.gz" using secured copy.
 You can do the same transfer via rsync, as
 rsync -v -e ssh BigData.tar.gz username@login.ci-connect.uchicago.edu:~/data/.
-~~~
 
+```
 In case of broken connection, rsync would start the file transfer from where it is stopped through recursive synchronization. This is an advantage of rsync over scp. 
  
 Globus file transfer is much efficient and highly recommended for file transfer of large amount of data. Go to globus https://www.globus.org/. Click on the "Sign in" tab.  Select the option "InCommon/CILogon". Choose University of Chicago from the list.  You will be redirected to login page where you provide your CNET-ID and password.  Click on the tab "File Tranfer" which takes you to a portal with partitioned double window.  
