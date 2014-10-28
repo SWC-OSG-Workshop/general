@@ -13,47 +13,19 @@ Deborah S. Ray and Eric J. Ray: *Unix and Linux: Visual QuickStart Guide*. Peach
 * [Changing history or How to Git pretty](https://presentate.com/bobthecow/talks/changing-history)
 
 ##Python##
-<a href="http://matplotlib.org/gallery.html">matplotlib examples gallery</a> - includes source code.
-<a href="http://wiki.scipy.org/Cookbook">SciPy Cookbook</a> - examples of how to do useful stuff using numpy, scipy, matplotlib, interfacing, etc.
-Scientific Python <a href="http://scipy-lectures.github.io/">lecture notes</a></li>
+* [matplotlib examples gallery](http://matplotlib.org/gallery.html)
+* [examples of how to do useful stuff using numpy, scipy, matplotlib, 
+interfacing, etc.](http://wiki.scipy.org/Cookbook)
+* [Scientific Python lecture notes](http://scipy-lectures.github.io)
 ##OSG##
-<a href="https://confluence.grid.iu.edu/display/CON/Home">open science grid documentation</a> Detaile information about distributed computing with examples and tutorials</a>
+* [Open Science Grid (OSG) 
+   documentation](https://confluence.grid.iu.edu/display/CON/Home) about 
+   the distributed computing with lots of examples and tutorials.
 ##Online Training Courses##
-<a href="http://www.codecademy.com/">Code Academy</a> - free online programming courses</a>
-Papers:
-</p>
-<p>
-Wilson G, Aruliah DA, Brown CT, Chue Hong NP, Davis M, et al. (2014)  
-Best Practices for Scientific Computing. PLoS Biol 12(1): e1001745. <a 
-href="http://dx.doi.org/10.1371/journal.pbio.1001745">doi:10.1371/journal.pbio.1001745</a>.
-</p>
-<p>
-Sandve GK, Nekrutenko A, Taylor J, Hovig E (2013) Ten Simple Rules for  
-Reproducible Computational Research. PLoS Comput Biol 9(10): e1003285. 
-<a 
-href="http://dx.doi.org/10.1371/journal.pcbi.1003285">doi:10.1371/journal.pcbi.1003285</a>.
-</p>
-<p>
-Noble WS (2009) A Quick Guide to Organizing Computational Biology 
-Projects. PLoS Comput Biol 5(7): e1000424. <a 
-href="http://dx.doi.org/10.1371/journal.pcbi.1000424">doi:10.1371/journal.pcbi.1000424</a>.
-</p>
-<p>
-Ram K (2013) "git can facilitate greater reproducibility and increased
-transparency in science", Source Code for Biology and Medicine 2013,
-8:7 <a
-href="http://dx.doi.org/10.1186/1751-0473-8-7">doi:10.1186/1751-0473-8-7</a>.
-</p>
-<p>
-Glass, R. (2002) Facts and Fallacies of Software Engineering, Addison-Wesley, 2002. (<a href="http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20Robert%20L%20Glass%20-%20Facts%20and%20Fallacies%20of%20Software%20Engineering.pdf">PDF</a>).
-</p>
+* [Code Academy](http://www.codecademy.com/) - free online programming courses
 
 
-
-## Books
-
-Susan A. Ambrose, Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman: *[How Learning Works: Seven Research-Based Principles for Smart Teaching](http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/)*. Jossey-Bass, 2010, 978-0470484104.
-:   The best single-volume guide to evidence-based practices in education around.
+## Books on Scientific Softwares"  
 
 Chris Fehily: *SQL: Visual QuickStart Guide* (3rd ed). Peachpit Press, 0321553578, 2002.
 :   Describes the 5% of SQL that covers 95% of real-world needs.
@@ -67,8 +39,9 @@ Steve Haddock and Casey Dunn: *Practical Computing for Biologists*. Sinauer, 087
 Andy Oram and Greg Wilson (eds): *Making Software: What Really Works, and Why We Believe It*. O'Reilly, 0596808321, 2010.
 :   Leading software engineering researchers take a chapter each to describe key empirical results and the evidence behind them. Topics range from the impact of programming languages on programmers' productivity to whether we can predict software faults using statistical techniques.
 
-Deborah S. Ray and Eric J. Ray: *Unix and Linux: Visual QuickStart Guide*. Peachpit Press, 0321636783, 2009.
-:   A gentle introduction to Unix, with many examples.
+
+Susan A. Ambrose, Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman: *[How Learning Works: Seven Research-Based Principles for Smart Teaching](http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/)*. Jossey-Bass, 2010, 978-0470484104.
+:   The best single-volume guide to evidence-based practices in education around.
 
 ## Papers
 
