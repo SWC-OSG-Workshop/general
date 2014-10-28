@@ -53,6 +53,6 @@ On the top, you will see the menu for end-points.  The end points need be specif
 #### Key Points
 * Data on *stash* is quickly accessed by the worker machines. 
 * *stash* is located at ~/data on login.osgconnect.net. 
-* scp, rsync and globus - are the available data trasfer tools.  
+* Use of *globus* is strongly recommended. 
 </div>
 
