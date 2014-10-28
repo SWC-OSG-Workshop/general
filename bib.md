@@ -8,9 +8,10 @@ Deborah S. Ray and Eric J. Ray: *Unix and Linux: Visual QuickStart Guide*. Peach
 :   A gentle introduction to Unix, with many examples.
 
 ##Git##
-[Interactive Git Tutorial](https://try.github.io/levels/1/challenges/1)
-[Git pretty - A flowchart about how to recover from mistakes] (http://justinhileman.info/article/git-pretty/)
-[Changing history or How to Git pretty] (https://presentate.com/bobthecow/talks/changing-history)
+* [Interactive Git Tutorial](https://try.github.io/levels/1/challenges/1)
+* [Git pretty - A flowchart about how to recover from mistakes](http://justinhileman.info/article/git-pretty/)
+* [Changing history or How to Git pretty](https://presentate.com/bobthecow/talks/changing-history)
+
 ##Python##
 <a href="http://matplotlib.org/gallery.html">matplotlib examples gallery</a> - includes source code.
 <a href="http://wiki.scipy.org/Cookbook">SciPy Cookbook</a> - examples of how to do useful stuff using numpy, scipy, matplotlib, interfacing, etc.
