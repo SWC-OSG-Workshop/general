@@ -9,7 +9,6 @@ title:Data Storage Solution - Stash
 *   Understand how to utilize stash  
 </div>
 
-<div> 
 
 <h2> Overview </h2>
 We will learn how to transfer data from your laptop to OSG-Connect.  In particular, 
@@ -49,5 +48,3 @@ In case of broken connection, rsync would start the file transfer from where it 
 Globus file transfer is much efficient and highly recommended for file transfer of large amount of data. Go to globus https://www.globus.org/. Click on the "Sign in" tab.  Select the option "InCommon/CILogon". Choose University of Chicago from the list.  You will be redirected to login page where you provide your CNET-ID and password.  Click on the tab "File Tranfer" which takes you to a portal with partitioned double window.  
 On the top, you will see the menu for end-points.  The end points need be specified properly. The endpoint for Midway is ucrcc#midway and the endpoint for stash is connect#stash. The directories and files in the endpoints will appear in the listed format. Select the directory or file and click the top arrow for the file transfer. An email will be send to you after the transfer is complete.
 
-
-</div> 
