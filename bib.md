@@ -17,15 +17,17 @@ Deborah S. Ray and Eric J. Ray: *Unix and Linux: Visual QuickStart Guide*. Peach
 * [examples of how to do useful stuff using numpy, scipy, matplotlib, 
 interfacing, etc.](http://wiki.scipy.org/Cookbook)
 * [Scientific Python lecture notes](http://scipy-lectures.github.io)
+
 ##OSG##
 * [Open Science Grid (OSG) 
    documentation](https://confluence.grid.iu.edu/display/CON/Home) about 
    the distributed computing with lots of examples and tutorials.
+
 ##Online Training Courses##
 * [Code Academy](http://www.codecademy.com/) - free online programming courses
 
 
-## Books on Scientific Softwares"  
+##Software Development##  
 
 Chris Fehily: *SQL: Visual QuickStart Guide* (3rd ed). Peachpit Press, 0321553578, 2002.
 :   Describes the 5% of SQL that covers 95% of real-world needs.
