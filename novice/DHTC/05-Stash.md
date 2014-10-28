@@ -43,6 +43,7 @@ scp BigData.tar.gz username@login.ci-connect.uchicago.edu:~/data/.  //Transfers 
 {:class="in"}
 
 You can do the same transfer via rsync, as
+
 ~~~
 rsync -v -e ssh BigData.tar.gz username@login.ci-connect.uchicago.edu:~/data/.
 ~~~
