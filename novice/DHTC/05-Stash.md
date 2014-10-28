@@ -51,7 +51,8 @@ On the top, you will see the menu for end-points.  The end points need be specif
 <div class="keypoints" markdown="1">
 
 #### Key Points
-* stash is  located at ~/data
-* scp, rsync and globus - all are available for the trasfer to  stash 
+* Data on stash is quickly accessed by the worker machines. 
+* stash is located at ~/data. 
+* scp, rsync and globus - are the available data trasfer tools.  
 </div>
 
