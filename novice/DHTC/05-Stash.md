@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title:Data Storage Solution - Stash 
+title: Data Storage Solution - Stash 
 ---
 <div class="objectives" markdown="1">
 
