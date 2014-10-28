@@ -21,7 +21,7 @@ accessible to the worker nodes.  A detailed description about the mechanism
 of *stash* can be found in the OSG connectbook. Here we will focus on how to 
 transfer the files from your laptop to *stash*.  
 
-<h2> Where is *stash*? </h2> 
+<h2> Where is stash? </h2> 
 Stash is mounted on your account at login.osgconnect.edu.  You can login with 
 the  secured shell (ssh) protocol by typing 
 
