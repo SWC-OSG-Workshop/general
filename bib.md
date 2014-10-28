@@ -26,11 +26,11 @@ interfacing, etc.](http://wiki.scipy.org/Cookbook)
 ##Online Training Courses##
 * [Code Academy](http://www.codecademy.com/) - free online programming courses
 
+##Teaching##
+Susan A. Ambrose, Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman: *[How Learning Works: Seven Research-Based Principles for Smart Teaching](http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/)*. Jossey-Bass, 2010, 978-0470484104.
+:   The best single-volume guide to evidence-based practices in education around.
 
 ##Software Development##  
-
-Chris Fehily: *SQL: Visual QuickStart Guide* (3rd ed). Peachpit Press, 0321553578, 2002.
-:   Describes the 5% of SQL that covers 95% of real-world needs.
 
 Karl Fogel: *Producing Open Source Software: How to Run a Successful Free Software Project*. O'Reilly Media, 0596007590, 2005.
 :   An guide to how open source projects actually work, full of practical advice on how to earn commit privileges on a project, get it more attention, or fork it in case of irreconcilable differences.
@@ -42,11 +42,7 @@ Andy Oram and Greg Wilson (eds): *Making Software: What Really Works, and Why We
 :   Leading software engineering researchers take a chapter each to describe key empirical results and the evidence behind them. Topics range from the impact of programming languages on programmers' productivity to whether we can predict software faults using statistical techniques.
 
 
-Susan A. Ambrose, Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman: *[How Learning Works: Seven Research-Based Principles for Smart Teaching](http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/)*. Jossey-Bass, 2010, 978-0470484104.
-:   The best single-volume guide to evidence-based practices in education around.
-
-## Papers
-
+## Papers##
 Paul F. Dubois: "Maintaining Correctness in Scientific Programs". *Computing in Science & Engineering*, May–June 2005.
 :   Shows how several good programming practices fit together to create defense in depth, so that errors missed by one will be caught by another.
 
