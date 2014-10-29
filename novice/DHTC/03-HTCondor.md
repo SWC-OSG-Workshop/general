@@ -6,37 +6,49 @@ title: HTCondor - job scripts
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Job script  
-*   Job submission  
-*   Job control and monitor  
+*   Learn how to write HTCondor Job scripts.
+*   Learn how to submit HTCondor Jobs.   
+*   Learn how to conntrol and monitor the running Jobs.    
 </div>
 
-This is a quick start page which should take only a few minutes to complete.
-Login to OSG Connect
-If not already registered to OSG Connect, go to the registration site and follow instructions there.
-Once registered you are authorized to use login.osgconnect.net (the Condor submit host) and stash.osgconnect.net (the data host), in each case authenticating with your network ID (netid) and password:
-$ ssh netid@login.osgconnect.net
-Set up the tutorial
-You may perform the examples in the tutorial by typing them in from the text below, or by using tutorial files already on login.osgconnect.net. It's your choice; the tutorial is the same either way.
-Pretyped setup
-To save some typing, you can install the tutorial into your home directory from login.osgconnect.net. This is highly recommended to ensure that you don't encounter transcription errors during the tutorials.
+<h2>Overview</h2> 
+In this section, we will learn the basics of HTCondor scripts towards submitting and 
+monitoring the computational jobs. The jobs are submitted through the login node of 
+OSG connect. The submitted jobs are executed on the remote worker node(s) and the outputs are 
+transfered back to the login node. In the HTCondor job script, we have to describe how to execute 
+the program and transfer the output data. 
+
+<h2>Login to OSG Connect </h2>
+
+First, we log in to OSG connect
+~~~
+$ ssh netid@login.osgconnect.net  //netid is your username
+$ passwd:                        // enter your password
+~~~
+{:class="in"}
+
+
+Now we will get the relevant example files using the *tutorial* command.  
+
+~~~
 $ tutorial 
 usage: tutorial name-of-tutorial 
        tutorial info name-of-tutorial
 
 Available tutorials: 
 quickstart     Basic HTCondor job submission tutorial
+~~~
+
 Now, run the quickstart tutorial:
+~~~
 $ tutorial quickstart 
-$ cd ~/osg-quickstart 
-Manual setup
-Alternatively, if you want the full manual experience, create a new directory for the tutorial work:
-$ mkdir osg-quickstart 
-$ cd osg-quickstart 
+$ cd ~/tutorial-quickstart 
+~~~
 Tutorial jobs
 Job 1: A simple, nonparallel job
 Create a workload
 Inside the tutorial directory that you created or installed previously, let's create a test script to execute as your job:
+~~~
 $ nano short.sh
 file: short.sh
 #!/bin/bash
@@ -49,22 +61,34 @@ echo
 echo "Working hard..."
 sleep ${1-15}
 echo "Science complete!"
-Icon
+~~~
+
 To close nano, hold down Ctrl and press X. Press Y to save, and then Enter
 Now, make the script executable.
+
+~~~
 $ chmod +x short.sh 
-If you used the tutorial command, all files are already in your workspace.
-Run the job locally
-When setting up a new job type, it's important to test your job outside of Condor before submitting into the grid.
+~~~
+
+If you used the tutorial command, all files are already in your workspace. Run 
+the job locally When setting up a new job type, it's important to test your 
+job outside of Condor before submitting into the grid.
+~~~
 $ ./short.sh
+~~~
+
+```
 Start time: Wed Aug 21 09:21:35 CDT 2013
 Job is running on node: login01.osgconnect.net
 Job running as user: uid=54161(netid) gid=1000(users) groups=1000(users),0(root),1001(osg-connect),1002(osg-staff),1003(osg-connect-test),9948(staff),19012(osgconnect)
 Job is running in directory: /home/netid/quickstart
 Working hard...
 Science complete!
-Create an HTCondor submit file
-So far, so good! Let's create a simple (if verbose) HTCondor submit file.
+```
+
+Create an HTCondor submit file. So far, so good! Let's create a 
+simple (if verbose) HTCondor submit file.
+~~~
 $ nano tutorial01
 file: tutorial01
 # The UNIVERSE defines an execution environment. You will almost always use VANILLA. 
@@ -89,6 +113,8 @@ Log = job.log
 # QUEUE is the "start button" - it launches any jobs that have been 
 # specified thus far. 
 Queue 1
+~~~
+
 Choose the Project Name
 It is very important to set a project name using the +ProjectName = "project" parameter. A job without a ProjectName will fail with a message like:
 No ProjectName ClassAd defined!
@@ -102,7 +128,10 @@ OSG-Staff
 To see the projects you belong to, you can use the command osgconnect_show_projects:
  
 Example
+~~~
 sh$ osgconnect_show_projects
+~~~
+
 Based on username (dgc), here is a list of projects you might have
 access to:
 con-atlas
@@ -110,9 +139,10 @@ con-cmts
 con-evotheory
 con-staff
 ConnectTrain
+
 You can join projects after you login at https://portal.osgconnect.net/ . Within minutes of joining and being approved for a project, you will have access via condor_submit as well. To define a new project, see the ConnectBook section for Principal Investigators.
+
  
-Icon
 Note that project names are case sensitive.
 You have two ways to set the project name for your jobs:
 Add the +ProjectName="MyProject" line to the HTCondor submit file. Remember to quote the project name!
