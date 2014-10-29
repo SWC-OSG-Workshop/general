@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Basics of Job Scheduling on OSG - HTCondor
+title: Scheduling Distributed Computing Jobs with HTCondor
 ---
 <div class="objectives" markdown="1">
 
