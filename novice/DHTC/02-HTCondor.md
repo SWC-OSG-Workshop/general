@@ -6,8 +6,8 @@ title: HTCondor - job schedular
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Basics of HTCondor 
-*   ClassAd mechanism  
+*   Learn what is HTCondor 
+*   Learn what is the classAd mechanism in HTCondor  
 </div>
 
 <h2> Basics of HTCondor </h2> 
