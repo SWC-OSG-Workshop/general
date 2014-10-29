@@ -48,6 +48,7 @@ Tutorial jobs
 Job 1: A simple, nonparallel job
 Create a workload
 Inside the tutorial directory that you created or installed previously, let's create a test script to execute as your job:
+
 ~~~
 $ nano short.sh
 file: short.sh
@@ -84,10 +85,12 @@ Job running as user: uid=54161(netid) gid=1000(users) groups=1000(users),0(root)
 Job is running in directory: /home/netid/quickstart
 Working hard...
 Science complete!
+
 ```
 
 Create an HTCondor submit file. So far, so good! Let's create a 
 simple (if verbose) HTCondor submit file.
+
 ~~~
 $ nano tutorial01
 file: tutorial01
@@ -121,10 +124,6 @@ No ProjectName ClassAd defined!
 Please record your OSG project ID in your submit file.
   Example:  +ProjectName = "OSG-CO1234567"
 
-Based on your username, here is a list of projects you might have 
-access to:
-ConnectTrain
-OSG-Staff
 To see the projects you belong to, you can use the command osgconnect_show_projects:
  
 Example
@@ -146,6 +145,8 @@ You can join projects after you login at https://portal.osgconnect.net/ . Within
 Note that project names are case sensitive.
 You have two ways to set the project name for your jobs:
 Add the +ProjectName="MyProject" line to the HTCondor submit file. Remember to quote the project name!
+
+
 Create in your home directory a file with your default project name: $HOME/.osg_default_project
 If you do not set a project name, or you use a project that you're not a member of, then your job submission will fail.
 Submit the job
