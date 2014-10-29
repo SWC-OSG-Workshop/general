@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: HTCondor - job schedular
+title: Grid computing with HTCondor system 
 ---
 <div class="objectives" markdown="1">
 

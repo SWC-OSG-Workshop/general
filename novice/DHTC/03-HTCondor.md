@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: HTCondor - job scripts 
+title: HTCondor scripts  
 ---
 <div class="objectives" markdown="1">
 

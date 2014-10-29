@@ -1,12 +1,12 @@
 ---
 layout: lesson
 root: ../..
-title: Introduction to Open Science Grid 
+title: Computing on the Open Science Grid 
 ---
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   What is Open Science Grid
+*   Get to know what is Open Science Grid
 *   What resources are open to acadamic researchers
 *   Computation that is a good match for OSG Connect
 *   Computation that is NOT a good match for OSG Connect
