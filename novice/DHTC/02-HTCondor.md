@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Grid computing with HTCondor system 
+title: Basics of Job Scheduling on OSG - HTCondor
 ---
 <div class="objectives" markdown="1">
 

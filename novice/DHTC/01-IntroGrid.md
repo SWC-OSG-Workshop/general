@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Computing on the Open Science Grid 
+title: Introduction to Open Science Grid 
 ---
 <div class="objectives" markdown="1">
 
