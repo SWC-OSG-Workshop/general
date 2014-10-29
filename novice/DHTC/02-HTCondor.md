@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Scheduling Distributed Computing Jobs with HTCondor
+title: Basics of  HTCondor Systems
 ---
 <div class="objectives" markdown="1">
 
