@@ -44,6 +44,7 @@ Now, run the quickstart tutorial:
 $ tutorial quickstart 
 $ cd ~/tutorial-quickstart 
 ~~~
+
 Tutorial jobs
 Job 1: A simple, nonparallel job
 Create a workload
