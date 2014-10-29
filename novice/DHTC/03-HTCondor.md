@@ -67,6 +67,7 @@ $ chmod +x short.sh
 Since we used the tutorial command, all files are already in your workspace. Run 
 the job locally when setting up a new job type, it's important to test your 
 job outside of Condor before submitting into the grid.
+
 ~~~
 $ ./short.sh
 ~~~
@@ -176,7 +177,7 @@ $ condor_history 823
 You can see much more information about your job's final status using the -long option.
 
 
-##job output##
+##Job output##
 Once your job has finished, you can look at the files that HTCondor has returned to the 
 working directory. If everything was successful, it should have returned: a log file from 
 Condor for the job cluster: jog.log
