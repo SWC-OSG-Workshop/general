@@ -35,9 +35,8 @@ HTCondor is the product of years of research by the Center for High Throughput C
 
 
 
-<h2> ClassAd Mechanism </h2> 
 
-##Matchmaking with ClassAds##
+<h2>Matchmaking with ClassAds</h2> 
 
 Before you learn about how to submit a job, it is important to understand how HTCondor allocates resources. Understanding the unique framework by which HTCondor matches submitted jobs with machines is the key to getting the most from HTCondor's scheduling algorithm.
 
