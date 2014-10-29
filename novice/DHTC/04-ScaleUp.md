@@ -25,7 +25,7 @@ simple example. Once we understand the basic HTCondor script, it is easy
 to scale up of the resources. 
 
 
-##Set Up the tutorial##
+##Example##
 
 Run the command 
 
