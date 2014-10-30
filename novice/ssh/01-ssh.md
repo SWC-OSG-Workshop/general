@@ -52,7 +52,7 @@ Typing `exit` or Control-D
 terminates the remote shell and returns us to our previous shell.
 
 In the example below,
-the remote machine's command prompt is `moon>`
+the remote machine's command prompt is `osg>`
 instead of just `$`.
 To make it clearer which machine is doing what,
 we'll indent the commands sent to the remote machine
@@ -67,20 +67,20 @@ $ pwd
 ~~~
 {:class="out"}
 ~~~
-$ ssh vlad@moon.euphoric.edu
+$ ssh vlad@login.osgconnect.net
 Password: ********
 ~~~
 {:class="in"}
 ~~~
-    moon> hostname
+    osg> hostname
 ~~~
 {:class="in"}
 ~~~
-    moon
+   osg 
 ~~~
 {:class="out"}
 ~~~
-    moon> pwd
+    osg> pwd
 ~~~
 {:class="in"}
 ~~~
@@ -88,7 +88,7 @@ Password: ********
 ~~~
 {:class="out"}
 ~~~
-    moon> ls -F
+    osg> ls -F
 ~~~
 {:class="in"}
 ~~~
@@ -96,7 +96,7 @@ Password: ********
 ~~~
 {:class="out"}
 ~~~
-    moon> exit
+    osg> exit
 ~~~
 {:class="in"}
 ~~~
@@ -171,7 +171,7 @@ Instead of logging in and then typing `ls`,
 we could do this:
 
 ~~~
-$ ssh vlad@backupserver "ls results"
+$ ssh vlad@backupserver "ls results*"
 Password: ********
 ~~~
 {:class="in"}
@@ -284,7 +284,7 @@ Copy the contents of the output. Login to the server you want to connect using
 your SSH keys.
 
 ~~~
-$ ssh vlad@moon.euphoric.edu
+$ ssh vlogin.osgconnect.net
 Password: ********
 ~~~
 {:class="in"}
@@ -292,7 +292,7 @@ Password: ********
 Paste the content that you copy at the end of `~/.ssh/authorized_keys`.
 
 ~~~
-    moon> nano ~/.ssh/authorized_keys`.
+    osg> nano ~/.ssh/authorized_keys`.
 ~~~
 {:class="in"}
 
@@ -300,11 +300,11 @@ After append the content, logout of the remote machine and try login again. If
 you setup your SSH key correctly you won't need to type your password.
 
 ~~~
-    moon> exit
+    osg> exit
 ~~~
 {:class="in"}
 ~~~
-$ ssh vlad@moon.euphoric.edu
+$ ssh vlogin.osgconnect.net
 ~~~
 {:class="in"}
 
