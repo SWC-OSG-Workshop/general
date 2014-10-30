@@ -88,11 +88,12 @@ Password: ********
 ~~~
 {:class="out"}
 ~~~
-    osg> ls -F
+    osg> mkdir backup
+    osg> ls -F 
 ~~~
 {:class="in"}
 ~~~
-    bin/     cheese.txt   dark_side/   rocks.cfg
+    backup/ (plus something) 
 ~~~
 {:class="out"}
 ~~~
@@ -132,12 +133,12 @@ we specify the source and destination paths,
 either of which may include computer names.
 If we leave out a computer name,
 `scp` assumes we mean the machine we're running on.
-For example,
-this command copies our latest results to the backup server in the basement,
-printing out its progress as it does so:
+
+For example, this command copies our latest results to the 
+osg login node:
 
 ~~~
-$ scp results.dat vlad@backupserver:backups/results-2011-11-11.dat
+$ scp results.dat vlad@login.osgconnect.net:~/backup/results-2011-11-11.dat
 Password: ********
 ~~~
 {:class="in"}
@@ -152,7 +153,7 @@ For example,
 this command copies all of our results from the backup server to our laptop:
 
 ~~~
-$ scp -r vlad@backupserver:backups ./backups
+$ scp -r vlad@login.osgconnect.net:~/backups .
 Password: ********
 ~~~
 {:class="in"}
@@ -171,7 +172,7 @@ Instead of logging in and then typing `ls`,
 we could do this:
 
 ~~~
-$ ssh vlad@backupserver "ls results*"
+$ ssh vlad@backupserver "ls ~/backups/results*"
 Password: ********
 ~~~
 {:class="in"}
@@ -284,7 +285,7 @@ Copy the contents of the output. Login to the server you want to connect using
 your SSH keys.
 
 ~~~
-$ ssh vlogin.osgconnect.net
+$ ssh username@login.osgconnect.net
 Password: ********
 ~~~
 {:class="in"}
@@ -304,7 +305,7 @@ you setup your SSH key correctly you won't need to type your password.
 ~~~
 {:class="in"}
 ~~~
-$ ssh vlogin.osgconnect.net
+$ ssh username@login.osgconnect.net
 ~~~
 {:class="in"}
 
