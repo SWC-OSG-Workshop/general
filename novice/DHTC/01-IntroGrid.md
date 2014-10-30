@@ -13,7 +13,7 @@ title: Introduction to Open Science Grid
 
 </div>
 
-== Introduction to Open Science Grid (OSG)  
+## Introduction to Open Science Grid (OSG)  
 
 The Open Science Grid (OSG) is a consortium of research communities who promote 
 science via sharing of computing resources. We enable a framework of distributed 
@@ -22,7 +22,7 @@ access to ever increasing computing resources for researchers and communities,
 and principles and software that enable distributed high thoroughput 
 computing (DHTC) for users and communities at all scales.
 
-== Computation that is a good match for OSG Connect 
+## Computation that is a good match for OSG Connect 
 
 High throughput workflows with simple system and data dependencies are a good 
 fit for OSG Connect. Typically these workflows can be decomposed into multiple
@@ -54,7 +54,7 @@ guidelines:
     identify and list the files in your HTCondor job description file.
 
 
-== Computation that is NOT a good match for OSG Connect 
+## Computation that is NOT a good match for OSG Connect 
 
 The following are examples of computations that are NOT good matches for 
 OSG Connect:
