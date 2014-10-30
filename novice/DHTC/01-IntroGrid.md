@@ -70,5 +70,5 @@ OSG Connect:
     deployment can be a major task.</li>
 </ul>
 How to get help using OSG Connect
-Please contact user support staff at email connect-support@uchicago.edu. 
+Please contact user support staff at [connect-support@uchicago.edu][connect-support@uchicago.edu].
 
