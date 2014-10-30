@@ -59,15 +59,16 @@ guidelines:
 
 The following are examples of computations that are NOT good matches for 
 OSG Connect:
-*   Tightly coupled computations, for example MPI based communication, will 
-    not work well on OSG Connect due to the distributed nature of the infrastructure.
-*   Computations requiring a shared file system will not work, as there is 
-    no shared filesystem between the different clusters on OSG Connect.
-*   Computations requiring complex software deployments or proprietary software 
+<ul>
+<li>   Tightly coupled computations, for example MPI based communication, will 
+    not work well on OSG Connect due to the distributed nature of the infrastructure.</li>
+<li>   Computations requiring a shared file system will not work, as there is 
+    no shared filesystem between the different clusters on OSG Connect.</li>
+<li>   Computations requiring complex software deployments or proprietary software 
     are not a good fit.  There is limited support for distributing software to 
     the compute clusters, but for complex software, or licensed software, 
-    deployment can be a major task.
-
+    deployment can be a major task.</li>
+</ul>
 How to get help using OSG Connect
 Please contact user support staff at email connect-support@uchicago.edu. 
 
