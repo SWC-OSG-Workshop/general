@@ -1,42 +1,169 @@
 ---
 layout: lesson
 root: ../..
-title: Basics of  HTCondor Systems
+title: Selecting Sites and Resources in OSG Connect
 ---
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn what is HTCondor 
-*   Learn what is the classAd mechanism in HTCondor  
+*   Learn how HTCondor schedules jobs
+*   Learn how to select resources or sites using Classads
 </div>
 
-<h2> Basics of HTCondor </h2> 
-HTCondor is a batch management system that handles running jobs on
-a cluster. Like other full-featured batch systems, HTCondor provides a job 
-queueing mechanism, scheduling policy, priority scheme, resource monitoring, 
-and resource management. Users submit their serial or parallel jobs to 
+<h2> Basics of HTCondor Matchmaking</h2> 
+As you have seen in the previous lesson, HTCondor is a batch management system 
+that handles running jobs on a cluster. Like other full-featured batch systems,
+HTCondor provides a job queueing mechanism, scheduling policy, priority scheme, 
+resource monitoring, and resource management. Users submit their jobs to 
 HTCondor scheduler. HTCondor places them into a queue, chooses when and 
 where to run the jobs based upon a policy, carefully monitors their 
-progress, and ultimately informs the user upon completion.
+progress, and ultimately informs the user upon completion.  This lesson will 
+go over the some of the specifics of how HTCondor selects compute nodes where 
+it should run particular jobs.  
 
-The ClassAd mechanism in HTCondor provides an extremely flexible and expressive framework for matching resource requests (jobs) with resource offers (machines). Jobs can easily state both job requirements and job preferences. Likewise, machines can specify requirements and preferences about the jobs they are willing to run. These requirements and preferences can be described in powerful expressions, resulting in HTCondor's adaptation to nearly any desired policy.
+HTCondor selects nodes on which to run particular jobs using a matchmaking
+process.  When a job is submitted to HTCondor, HTCondor generates a set of 
+attributes that the job needs in order to run.  These attributes function 
+like classified ads in the newspaper and are called classads.  The classads 
+for a job indicate what it is looking for, just like a help wanted ad.  For
+example:
 
-HTCondor can be used to build Grid-style computing environments that cross administrative boundaries. HTCondor's "flocking" technology allows multiple HTCondor compute installations to work together. HTCondor incorporates many of the emerging Grid and Cloud-based computing methodologies and protocols. For instance, HTCondor-G is fully interoperable with resources managed by Globus.
+~~~
+MemoryUsage = ( ( ResidentSetSize + 1023 ) / 1024 )
+MATCH_EXP_JOBGLIDEIN_ResourceName = "UConn-OSG"
+In = "/dev/null"
+Requirements = ( TARGET.Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) && ( TARGET.Disk >= RequestDisk ) && ( TARGET.Memory >= RequestMemory ) && ( TARGET.HasFileTransfer )
+~~~
 
-HTCondor is the product of years of research by the Center for High Throughput Computing in the Department of Computer Sciences at the University of Wisconsin-Madison (UW-Madison), and it was first installed as a production system in the UW-Madison Department of Computer Sciences over 15 years ago. This HTCondor installation has since served as a major source of computing cycles to UW-Madison faculty and students. Additional HTCondor installations have been established over the years across our campus and the world. Hundreds of organizations in industry, government, and academia have used HTCondor to establish compute installations ranging in size from a handful to many thousands of workstations.
+Likewise, compute nodes that can run jobs also advertise a set of classads that
+indicate what resources are available and some information about the
+environment.  For example:
 
+~~~
+HasReconnect = true
+HasJobDeferral = true
+HOLD_GRACE_TIME = 0
+GLIDEIN_Job_Max_Time = 34800
+GLIDEIN_Country = "US"
+GLIDEIN_Glexec_Use = "NEVER"
+GLIDEIN_REQUIRE_VOMS = false
+CVMFS_oasis_opensciencegrid_org_REVISION = 2921
+Arch = "X86_64"
+HAS_CVMFS_cms_cern_ch = true
+OSGVO_OS_STRING = "RHEL 5"
+HAS_TCSH = true
+HAS_IRODS_PLUGIN = true
+CVMFS_atlas_cern_ch_REVISION = 6605
+UpdateSequenceNumber = 136
+GLIDEIN_COLLECTOR_NAME = "osg-flock.grid.iu.edu:9731"
+LoadAvg = 7.990000
+OpSysAndVer = "SL5"
+HAS_SQUID = true
+~~~
 
+HTCondor takes a list of classads from jobs and from compute nodes and then
+tries to make the classads with job requirements with the classads with compute
+node capabilities.  When the two match, HTCondor will run the job on the
+compute node.
 
+<h2>Using Classads to select resources and sites</h2>
 
-<h2>Matchmaking with ClassAds</h2> 
+Users can also add classads to their job submissions files in order to change
+which compute nodes their jobs will match.  This section will show how to 
+use classads to select compute nodes with certain resources or at certain sites.
 
-Before you learn about how to submit a job, it is important to understand how HTCondor allocates resources. Understanding the unique framework by which HTCondor matches submitted jobs with machines is the key to getting the most from HTCondor's scheduling algorithm.
+<h3>Selecting specific resources</h3>
 
-HTCondor simplifies job submission by acting as a matchmaker of ClassAds. HTCondor's ClassAds are analogous to the classified advertising section of the newspaper. Sellers advertise specifics about what they have to sell, hoping to attract a buyer. Buyers may advertise specifics about what they wish to purchase. Both buyers and sellers list constraints that need to be satisfied. For instance, a buyer has a maximum spending limit, and a seller requires a minimum purchase price. Furthermore, both want to rank requests to their own advantage. Certainly a seller would rank one offer of $50 dollars higher than a different offer of $25. In HTCondor, users submitting jobs can be thought of as buyers of compute resources and machine owners are sellers.
+Nelle Nemo, a marine biologist, would like run her applications using OSG Connect.
+However, her applications only run on Scientific Linux 6 (SL6) systems.  On other
+linux systems, her applications will crash after about 10 minutes of starting.
+Since OSG Connect will run jobs on compute nodes running SL5 or SL6, she would like 
+make sure her jobs only run on compute nodes running SL6 to avoid wasting 
+execution time.
 
-All machines in a HTCondor pool advertise their attributes, such as available memory, CPU type and speed, virtual memory size, current load average, along with other static and dynamic properties. This machine ClassAd also advertises under what conditions it is willing to run a HTCondor job and what type of job it would prefer. These policy attributes can reflect the individual terms and preferences by which all the different owners have graciously allowed their machine to be part of the HTCondor pool. You may advertise that your machine is only willing to run jobs at night and when there is no keyboard activity on your machine. In addition, you may advertise a preference (rank) for running jobs submitted by you or one of your co-workers.
+In order to do this, first let's look at a simple HTCondor submit file:
 
-Likewise, when submitting a job, you specify a ClassAd with your requirements and preferences. The ClassAd includes the type of machine you wish to use. For instance, perhaps you are looking for the fastest floating point performance available. You want HTCondor to rank available machines based upon floating point performance. Or, perhaps you care only that the machine has a minimum of 128 Mbytes of RAM. Or, perhaps you will take any machine you can get! These job attributes and requirements are bundled up into a job ClassAd.
+~~~
+# The UNIVERSE defines an execution environment. You will almost always use
+# VANILLA. 
+Universe = vanilla 
 
-HTCondor plays the role of a matchmaker by continuously reading all the job ClassAds and all the machine ClassAds, matching and ranking job ads with machine ads. HTCondor makes certain that all requirements in both ClassAds are satisfied.
+# EXECUTABLE is the program your job will run It's often useful 
+# to create a shell script to "wrap" your actual work. 
+Executable = checkos.sh
+
+# ERROR and OUTPUT are the error and output channels from your job
+# that HTCondor returns from the remote host.
+Error = job.error
+Output = job.output
+
+# The LOG file is where HTCondor places information about your 
+# job's status, success, and resource consumption. 
+Log = job.log
+
+# +ProjectName is the name of the project reported to the OSG accounting system
++ProjectName="ConnectTrain"
+
+# QUEUE is the "start button" - it launches any jobs that have been 
+# specified thus far. 
+Queue 1
+~~~
+
+The job script currently just setups the parameters for a job and then submits a
+single job to the queue.  Let's submit this job and look at the requirements for
+this job
+
+~~~~
+[user@login01 ~]$ condor_q -l 1316101.0 | grep 'Requirements ='
+Requirements = ( TARGET.Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) && (
+TARGET.Disk >= RequestDisk ) && ( TARGET.Memory >= RequestMemory ) && ( (
+TARGET.HasFileTransfer ) || ( TARGET.FileSystemDomain == MY.FileSystemDomain ) )
+~~~
+
+Although, the submit file didn't include any requirements, HTCondor automatically adds some
+to the job's classads so that by default the job will only run on compute nodes
+that have the same architecture, OS, and can provide access to input and output
+facilities.  
+
+In order to add additional requirements to the job's classads, we will need to 
+use the `Requirements` option in the submit file.  HTCondor will include any
+requirements specified using this option to the default job requirements.  So,
+if we use the following submit file:
+
+~~~
+# The UNIVERSE defines an execution environment. You will almost always use
+# VANILLA.
+Universe = vanilla
+
+# EXECUTABLE is the program your job will run It's often useful
+# to create a shell script to "wrap" your actual work.
+Executable = checkos.sh
+
+# ERROR and OUTPUT are the error and output channels from your job
+# that HTCondor returns from the remote host.
+Error = job.error
+Output = job.output
+
+# The LOG file is where HTCondor places information about your
+# job's status, success, and resource consumption.
+Log = job.log
+
+# +ProjectName is the name of the project reported to the OSG accounting system
++ProjectName="ConnectTrain"
+
+# Require a SL6/RHEL6 system
+Requirements = (OpSys == "LINUX" && OpSysMajorVer == 6)
+
+# QUEUE is the "start button" - it launches any jobs that have been
+# specified thus far.
+Queue 1
+~~~
+
+and then examine requirements that are generated, we'll see that the job now
+requires a RHEL6 or SL6 system in addition to the default requirements:
+
+~~~
+[user@login01 ~]$ condor_q -l 1316172.0 | grep 'Requirements ='
+Requirements = ( ( OpSys == "LINUX" && OpSysMajorVer == 6 ) ) && ( TARGET.Arch == "X86_64" ) && ( TARGET.Disk >= RequestDisk ) && ( TARGET.Memory >= RequestMemory ) && ( ( TARGET.HasFileTransfer ) || ( TARGET.FileSystemDomain == MY.FileSystemDomain ) )
+~~~
 
