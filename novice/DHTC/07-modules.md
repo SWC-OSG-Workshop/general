@@ -13,7 +13,7 @@ title: Module Load and Tutorial Commands on OSG
 </div>
 
 <h2> Overview </h2> 
-The applications in OSG are centrally managed. The  users have convenient access to 
+The applications on OSG are centrally managed. The  users have convenient access to 
 the applications and their dependent libraries with module command.  We will see 
 how to use the centrally managed applications via module command. 
 
@@ -23,7 +23,7 @@ perform calculations and simulations.
 
 <h2>Modules on OSG</h2> 
 
-Log in on OSG with the secured shell  
+Log in OSG with the secured shell  
 
 ~~~
 $ ssh username@login.osgconnect.net
@@ -77,7 +77,7 @@ $ R //invoking R package
 
 ~~~
 
-If you want to unload a module, simply type 
+If you want to unload a module, type 
 
 ~~~
 $ module unload R 
@@ -86,9 +86,7 @@ $ module unload R
 <h2> Tutorial Command on OSG </h2> 
 
 The in built *tutorial* command assists a user in getting started on 
-OSG. 
-
-To see the list of existing tutorials 
+OSG.  To see the list of existing tutorials, type
 
 ~~~
 $ tutorial //will print a list tutorials
@@ -99,6 +97,7 @@ tutorial command sets up the R tutorial for you.
 
 ~~~
 $ tutorial R //prints the following message.
+
 
 Application Example - R (statistical analysis)
 
