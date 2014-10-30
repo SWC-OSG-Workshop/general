@@ -10,7 +10,7 @@ title: Selecting Sites and Resources in OSG Connect
 *   Learn how to select resources or sites using Classads
 </div>
 
-<h2> Basics of HTCondor Matchmaking</h2> 
+## Basics of HTCondor Matchmaking
 As you have seen in the previous lesson, HTCondor is a batch management system 
 that handles running jobs on a cluster. Like other full-featured batch systems,
 HTCondor provides a job queueing mechanism, scheduling policy, priority scheme, 
@@ -66,13 +66,13 @@ tries to make the classads with job requirements with the classads with compute
 node capabilities.  When the two match, HTCondor will run the job on the
 compute node.
 
-<h2>Using Classads to select resources and sites</h2>
+## Using Classads to select resources and sites
 
 Users can also add classads to their job submissions files in order to change
 which compute nodes their jobs will match.  This section will show how to 
 use classads to select compute nodes with certain resources or at certain sites.
 
-<h3>Selecting specific resources</h3>
+### Selecting specific resources
 
 Nelle Nemo, a marine biologist, would like run her applications using OSG Connect.
 However, her applications only run on Scientific Linux 6 (SL6) systems.  On other
@@ -113,7 +113,7 @@ The job script currently just setups the parameters for a job and then submits a
 single job to the queue.  Let's submit this job and look at the requirements for
 this job
 
-~~~~
+~~~
 [user@login01 ~]$ condor_q -l 1316101.0 | grep 'Requirements ='
 Requirements = ( TARGET.Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) && (
 TARGET.Disk >= RequestDisk ) && ( TARGET.Memory >= RequestMemory ) && ( (
@@ -165,5 +165,42 @@ requires a RHEL6 or SL6 system in addition to the default requirements:
 ~~~
 [user@login01 ~]$ condor_q -l 1316172.0 | grep 'Requirements ='
 Requirements = ( ( OpSys == "LINUX" && OpSysMajorVer == 6 ) ) && ( TARGET.Arch == "X86_64" ) && ( TARGET.Disk >= RequestDisk ) && ( TARGET.Memory >= RequestMemory ) && ( ( TARGET.HasFileTransfer ) || ( TARGET.FileSystemDomain == MY.FileSystemDomain ) )
+~~~
+
+Using this Nelle can now run her application without wasting cpu time. 
+
+Now suppose Nelle has a new version of her application that requires 3GB of RAM
+in order to run.  By default, most sites available through OSG Connect 
+terminate jobs that use more than 2GB of RAM.  So in order to get these nodes,
+Nelle would have to change the requirements slightly in order to request a
+compute node that allows applications to use 3GB of RAM:
+
+~~~
+# The UNIVERSE defines an execution environment. You will almost always use
+# VANILLA.
+Universe = vanilla
+
+# EXECUTABLE is the program your job will run It's often useful
+# to create a shell script to "wrap" your actual work.
+Executable = checkos.sh
+
+# ERROR and OUTPUT are the error and output channels from your job
+# that HTCondor returns from the remote host.
+Error = job.error
+Output = job.output
+
+# The LOG file is where HTCondor places information about your
+# job's status, success, and resource consumption.
+Log = job.log
+
+# +ProjectName is the name of the project reported to the OSG accounting system
++ProjectName="ConnectTrain"
+
+# Require a SL6/RHEL6 system
+Requirements = (OpSys == "LINUX" && OpSysMajorVer == 6 && Memory >=3072)
+
+# QUEUE is the "start button" - it launches any jobs that have been
+# specified thus far.
+Queue 1
 ~~~
 
