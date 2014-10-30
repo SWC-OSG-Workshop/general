@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Distributed Environmental Modules 
+title: Module Load and Tutorial Commands on OSG
 ---
 <div class="objectives" markdown="1">
 
