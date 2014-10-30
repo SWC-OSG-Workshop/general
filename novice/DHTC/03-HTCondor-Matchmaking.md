@@ -204,3 +204,97 @@ Requirements = (OpSys == "LINUX" && OpSysMajorVer == 6 && Memory >=3072)
 Queue 1
 ~~~
 
+If we look at the new requirements, we'll see that the requirements now reflect 
+the memory requirement of 3GB
+
+~~~
+[user@login01 ~]$ condor_q -l 1316172.0 | grep 'Requirements ='
+Requirements = ( ( OpSys == "LINUX" && OpSysMajorVer == 6 && Memory >= 3072 ) ) && ( TARGET.Arch == "X86_64" ) && ( TARGET.Disk >= RequestDisk ) && ( TARGET.Memory >= RequestMemory ) && ( ( TARGET.HasFileTransfer ) || ( TARGET.FileSystemDomain == MY.FileSystemDomain ) )
+~~~
+
+If you let the job run, you'll notice that it takes much longer than usual for
+the job to get scheduled and run on a compute node.  This is because as your
+requirements get stricter, the number of nodes available decreases in size.  If
+you have sufficiently strict job requirements, your jobs may not match with
+any compute nodes and never run!
+
+### Selecting sites with classads
+
+Classads can also be used to select or avoid specific sites on OSG Connect.
+This is also done using the `Requirements` option in your job submit file.  In
+this case, the important thing to know is that compute nodes for every  site that runs jobs
+from OSG Connect set a classad called `GLIDEIN_ResourceName` with the name of
+the site.  So in order to run on a specific site like Midwest Tier 2, you would 
+use a requirement like in in the following submit file:
+
+~~~
+# The UNIVERSE defines an execution environment. You will almost always use
+# VANILLA.
+Universe = vanilla
+
+# EXECUTABLE is the program your job will run It's often useful
+# to create a shell script to "wrap" your actual work.
+Executable = checkos.sh
+
+# ERROR and OUTPUT are the error and output channels from your job
+# that HTCondor returns from the remote host.
+Error = job.error
+Output = job.output
+
+# The LOG file is where HTCondor places information about your
+# job's status, success, and resource consumption.
+Log = job.log
+
+# +ProjectName is the name of the project reported to the OSG accounting system
++ProjectName="ConnectTrain"
+
+# Require a SL6/RHEL6 system
+Requirements = (GLIDEIN_ResourceName == "MWT2") && (IS_GLIDEIN == True)
+
+# QUEUE is the "start button" - it launches any jobs that have been
+# specified thus far.
+Queue 1
+~~~
+
+Try submitting a job using this requirement and see how it works.
+
+In order to avoid running jobs on certain sites, the requirements need to be 
+changed a little but the general idea is the same:
+
+~~~
+# The UNIVERSE defines an execution environment. You will almost always use
+# VANILLA.
+Universe = vanilla
+
+# EXECUTABLE is the program your job will run It's often useful
+# to create a shell script to "wrap" your actual work.
+Executable = checkos.sh
+
+# ERROR and OUTPUT are the error and output channels from your job
+# that HTCondor returns from the remote host.
+Error = job.error
+Output = job.output
+
+# The LOG file is where HTCondor places information about your
+# job's status, success, and resource consumption.
+Log = job.log
+
+# +ProjectName is the name of the project reported to the OSG accounting system
++ProjectName="ConnectTrain"
+
+# Require a SL6/RHEL6 system
+Requirements = (GLIDEIN_ResourceName != "MWT2") && (IS_GLIDEIN == True)
+
+# QUEUE is the "start button" - it launches any jobs that have been
+# specified thus far.
+Queue 1
+~~~
+
+
+Try submitting a job with this new requirement and see how this affects your
+job.  
+
+You'll probably notice that your job ran much faster with the second set of 
+requirements.  This is because the selecting compute nodes on a given site
+signficantly reduces the number of potential places that will run your job
+resulting in longer waits to run your jobs.
