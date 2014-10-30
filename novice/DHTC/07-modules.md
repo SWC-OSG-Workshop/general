@@ -17,25 +17,22 @@ The applications in OSG are centrally managed. The  users have convenient access
 the applications and their dependent libraries with module command.  We will see 
 how to use the centrally managed applications via module command. 
 
-The in built *tutorial* command on OSG guides the users in learning how to 
-perform calculations on OSG. 
+The in built *tutorial* command on OSG guides the users to get started on OSG to 
+perform calculations and simulations. 
 
 
 <h2>Modules on OSG</h2> 
 
-Log in on OSG 
+Log in on OSG with the secured shell  
 
 ~~~
 $ ssh username@login.osgconnect.net
 ~~~
 
 
-<h4> Initialization </h4> 
-
-The first step to using the modules is to initialize the module system.  This 
+The first step in using the modules is to initialize the module system.  This 
 step consists of sourcing a shell specific file that adds the module command 
-to your environment. For example, if you use bash then this can be done by 
-running the following: Initializing module for bash
+to your environment. For example, initializing module for bash is done as follows:
 
 ~~~
 $ source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
@@ -43,10 +40,9 @@ $ source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
 
 For other shells such as sh, zsh, tcsh, csh, etc., you would replace bash with the shell name (e.g. zsh).
 
-<h4> Load Modules </h4> 
 
-Once the distributed environment modules system is initialized, you can then use the
-*module avail* to see available modules, e.g.: 
+Once the distributed environment modules system is initialized, you can check the 
+available modules: 
 
 ~~~
 $ module avail
@@ -64,13 +60,14 @@ Use "module spider" to find all possible modules.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 ~~~
 
-In order to load a module, you should run module load [modulename], e.g.
+In order to load a module, you need to run "module load [modulename]".  Say for
+example you want to load R package, 
 
 ~~~
 $ module load R 
 ~~~
 
-The R package is set up.  for you.  
+This sets up the R package for you. Now you can do some test calculations with R. 
 
 ~~~
 $ R //invoking R package
@@ -86,15 +83,19 @@ If you want to unload a module, simply type
 $ module unload R 
 ~~~
 
-<h2> Tutorial Command </h2> 
+<h2> Tutorial Command on OSG </h2> 
 
-The in built *tutorial* command assists you to get started on OSG. To see the list of existing tutorials 
+The in built *tutorial* command assists a user in getting started on 
+OSG. 
+
+To see the list of existing tutorials 
 
 ~~~
 $ tutorial //will print a list tutorials
 ~~~
 
-Say for example, you are interested in learning R. 
+Say for example, you are interested in learning how to run R scripts on OSG, the 
+tutorial command sets up the R tutorial for you. 
 
 ~~~
 $ tutorial R //prints the following message.
