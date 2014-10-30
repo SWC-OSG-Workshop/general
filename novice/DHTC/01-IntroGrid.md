@@ -36,23 +36,24 @@ environment from the submit node. Therefore it is important that the jobs are
 as self-contained as possible by generic binaries and data that can be either 
 carried with the job, or staged on demand. Please consider the following 
 guidelines:
-*   Software should preferably be single threaded, using less than 2 GB memory and 
+<ul>
+<li>   Software should preferably be single threaded, using less than 2 GB memory and 
     each invocation should run for 1-12 hours (optimally under 4 hours). There is 
     some support for jobs with longer run time, more memory or multi-threaded codes. 
     Please contact the support listed below for more information about these 
-    capabilities.
-*   Only core utilities can be expected on the remote end. There are no standard 
+    capabilities.</li>
+<li>   Only core utilities can be expected on the remote end. There are no standard 
     versions of software such as 'gcc', 'python', 'BLAS' or others on the grid. 
     Consider using Distributed Environment Modules to manage software dependencies, 
-    or read our Developing High-Throughput Applications guide.
-*   Input and output data for each job should be < 10 GB to allow them to be 
+    or read our Developing High-Throughput Applications guide.</li>
+<li>   Input and output data for each job should be < 10 GB to allow them to be 
     transferred in by the jobs, processed and returned to the submit node. Note 
     that the OSG Connect Virtual Cluster does not have a global shared file 
-    system, so jobs with such dependencies will not work.
-*   No shared filesystem. Jobs must transfer all executables, input data, and 
+    system, so jobs with such dependencies will not work.</li>
+<li>   No shared filesystem. Jobs must transfer all executables, input data, and 
     output data. HTCondor can transfer the files for you, but you will have to 
-    identify and list the files in your HTCondor job description file.
-
+    identify and list the files in your HTCondor job description file. </li>
+</ul>
 
 ## Computation that is NOT a good match for OSG Connect 
 
