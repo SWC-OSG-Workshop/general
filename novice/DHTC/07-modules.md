@@ -12,7 +12,7 @@ title: Distributed Environmental Modules
 
 </div>
 
-<h2> Overview
+<h2> Overview </h2> 
 The applications in OSG are centrally managed. The  users have convenient access to 
 the applications and their dependent libraries with module command.  We will see 
 how to use the centrally managed applications via module command. 
@@ -21,7 +21,7 @@ The in built *tutorial* command on OSG guides the users in learning how to
 perform calculations on OSG. 
 
 
-<h2>Modules on OSG</h> 
+<h2>Modules on OSG</h2> 
 
 Log in on OSG 
 
@@ -86,7 +86,7 @@ If you want to unload a module, simply type
 $ module unload R 
 ~~~
 
-<h2> Tutorial Command
+<h2> Tutorial Command </h2> 
 
 The in built *tutorial* command assists you to get started on OSG. To see the list of existing tutorials 
 
@@ -137,8 +137,5 @@ Similar to the R tutorial, there are other tutorials available on OSG. The tutor
 serve as a template to develop your own scripts and run the calculations on OSG. 
 
 
-
-
-~~~
 
 
