@@ -59,6 +59,7 @@ namd_run_dag1.submit...  are the condor job submit files.
 
 The above DAGMan script and the neccessary files are available to the user 
 by invoking the *tutorial* command. 
+
 ~~~
 tutorial namd-DAGMan
 cd ~/osg-namd-DAGMan
