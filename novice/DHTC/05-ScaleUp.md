@@ -12,8 +12,13 @@ title: Scaling up the resources
 
 <h2>Overview </h2> 
 Scaling up the computational resources is a big advantage for doing certain
-large scale calculations on OSG. In the past examples, we submitted the job
-to a single worker machine. About a million CPU hours per day is 
+large scale calculations on OSG. Consider the  extensive 
+sampling for a multi-dimensional Monte Carlo integration or molecular dynamics 
+simulation with several initial conditions. These type of calculations definetly 
+require submitting lot of jobs.  
+
+In the past examples, we submitted the job to a single worker machine. About a 
+million CPU hours per day is 
 available to the users on an oppertunistic basis for the OSG users. 
 Learning how to scale up the resources is important to utilize 
 the full potential of the distributed high throughput computing on 
@@ -23,7 +28,6 @@ OSG.
 In this section, we will see how to scale up the calculations with 
 simple example. Once we understand the basic HTCondor script, it is easy 
 to scale up of the resources. 
-
 
 ##Example##
 
@@ -73,7 +77,12 @@ Log = log/campus.log.$(Cluster) //differs from the old script
 Queue 25 //differs from the old script
 ~~~
 
+In the above script, the value of Queue is 25, so you will 25 jobs in the queue when 
+you try 
 
+~~~
+condor_q username
+~~~
 
 
 
