@@ -27,7 +27,7 @@ At present, the recomended execution time to run a jobs on OSG is about 2-3 hour
 requiring more than 2-3 hours, need to be submitted with the restart files. Manually 
 submitting small jobs repeatedly with restart files may not be practical in many 
 situations. DAGMan offers an elegant and simple solution to run set of jobs. With 
-DAGMan scripts one could run a long time scale MD simulations of biomolecules. 
+the DAGMan script one could run a long time scale MD simulations of biomolecules. 
 
 In our example, we will break the MD simulation in four steps and run it through the 
 DAGMan script. For the sake of simplicity, the MD simulations run only for few 
@@ -67,11 +67,12 @@ tutorial namd-DAGMan
 cd ~/osg-namd-DAGMan
 ~~~
 
-The directory "~/osg-name-DAGMan" contains the all the neccessary files including, the 
-"linear.dag" the DAGMan script, the condor job submission, job executation and input 
-files for NAMD.  
+The directory "~/osg-name-DAGMan" contains all the neccessary files. The file 
+"linear.dag" is the DAGMan script. The files "namd_run_dag0.submit, ..." are the 
+HTCondor script files that execute the files "namd_run_dag0.sh,...".
 
-Now we submit the DAGMan file on OSG. 
+
+Now we submit the DAGMan script on OSG. 
 
 ~~~
 $ condor_submit_dag linear.dag 
