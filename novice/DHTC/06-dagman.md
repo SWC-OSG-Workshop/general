@@ -38,12 +38,11 @@ Say we have created four MD jobs: *A0*, *A1*, *A2* and *A3* that we want to run 
 after another and combine the results. This means that the output files from the 
 job *A0* serves as an input for the job *A1* and so forth. The input and output 
 dependencies of the jobs are such that they need to be progressed in a linear 
-fashion:  *A0-->A1-->A2---A3*. These set of jobs clearly represents an 
+fashion:  *A0-->A1-->A2-->A3*. These set of jobs clearly represents an 
 acyclic graph. In DAGMan language, job *A0* is parent of job *A1*,  job *A1* is 
 parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is expressed as 
 
 ~~~
-
 ######DAG file######    //comment
 Job A0 namd_run_dag0.submit  //Job keyword, Job Name, Condor Job submision script.
 Job A0 namd_run_dag0.submit  //Job keyword, Job Name, Condor Job submision script.
@@ -55,10 +54,10 @@ PARENT A2 CHILD A3  //Inter Dependency between Job A2 and A3
 ~~~
 
 The first four lines after the comment are the listing of the condor jobs  
-by assigning names A0, A1, A2 and A3. The next three lines describe the 
-relation between the four jobs. The script files -  namd_run_dag0.submit, 
-namd_run_dag1.submit...  are the condor job submit files that run the individual 
-MD simulations. 
+with name assignment:  A0, A1, A2 and A3. Here the condor job submit files are 
+ namd_run_dag0.submit, namd_run_dag1.submit... that run the individual 
+MD simulations.  The next three lines describe the inter relation 
+among the four jobs. 
 
 The above DAGMan script and the neccessary files are available to the user 
 by invoking the *tutorial* command. 
