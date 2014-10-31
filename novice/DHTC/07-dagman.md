@@ -104,7 +104,12 @@ $ condor_q username
 ~~~~
 
 We see two runing jobs. One is the dagman job which manages the execution of NAMD jobs.
-The other is the actual NAMD execution "namd_run_dag0.sh". 
+The other is the actual NAMD execution "namd_run_dag0.sh". Once the dag 
+completes, you will see four .tar.gz files "OutFilesFromNAMD_dag0.tar.gz, 
+OutFilesFromNAMD_dag1.tar.gz, OutFilesFromNAMD_dag2.tar.gz, 
+OutFilesFromNAMD_dag3.tar.gz". If the output files are not empty, the jobs are 
+successfully completed. Of course, a through check up requires looking at the ouput 
+results.  
 
 The example described above has  simple inter relation among the jobs. DAGMan is 
 capable of dealing with the acyclic graph jobs with complex inter relations. Also 

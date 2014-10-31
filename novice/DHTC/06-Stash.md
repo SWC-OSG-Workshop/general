@@ -58,7 +58,9 @@ rsync -v -e ssh BigData.tar.gz username@login.osgconnect.net:~/data/.
 ~~~
 {:class="in"}
 
-In case of broken connection, rsync would start the file transfer from where it is stopped through recursive synchronization. This is an advantage of rsync over scp. 
+In case of broken connection, rsync would re-start the file transfer from 
+where it is stopped through recursive synchronization. This is an 
+advantage of rsync over scp. 
 
 
 <h2> Downloading data from Stash </h2> 
@@ -69,6 +71,7 @@ molecular dynamics simulation of a small protien in implicit water. To get the
 necessary files, we use the *tutorial* command on OSG. 
 
 Log in OSG
+
 ~~~
 $ ssh username@login.osgconnect.net
 ~~~
@@ -76,22 +79,23 @@ $ ssh username@login.osgconnect.net
 type 
 
 ~~~
-$ tutorial namd
-$ cd ~/osg-namd-stash
+$ tutorial stash-namd
+$ cd ~/osg-stash-namd
 ~~~
 
 ~~~
-namd_run.submit //Condor job submission script file.
-namd_run.sh //Job execution script file.
+namd_stash_run.submit //Condor job submission script file.
+namd_stash_run.sh //Job execution script file.
 ubq_gbis_eq.conf //Input configuration for NAMD.
 ubq.pdb //Input pdb file for NAMD.
 ubq.psf //Input file for NAMD.
 par_all27_prot_lipid.inp //Parameter file for NAMD.
 ~~~
 
-The parameter file "par_all27_prot_lipid.inp" required for the NAMD simulations. This 
-is a common data file for the MD simulations. It is better to keep the parameter file
-in the *stash* for easy access.  
+The file - "par_all27_prot_lipid.inp" is the parameter file and is required for 
+the NAMD simulations. The parameter file is common data file for the NAMD
+simulations. It is a good practice to keep the common files, like  the parameter file 
+in our example, in the *stash* storage.  
 
 ~~~
 mv par_all27_prot_lipid.inp ~/data/public/.  //moving the parameter file from the local directory ~/osg-namd-stash  to ~/data/public 
@@ -109,29 +113,39 @@ the execution machines. This means the execution machine can transfer the data f
 *stash* as a part of the job execution. So we have to script this in the job execution 
 script. 
 
-You can see that the job execution script has the following lines. 
+You can see that the job execution script "namd_stash_run.sh" has the following lines:
 
 ~~~
 #!/bin/bash  
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash //sourcing a shell specific file that adds the module command to your environment
 module load namd/2.9  //loading the namd module
 wget --no-check-certificate http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp // Getting the data from the *stash*. Insert your username. 
-namd2 ubq_gbis_eq.conf > ubq_gbis_eq.log //Executing the NAMD simulation
+namd2 ubq_gbis_eq.conf  //Executing the NAMD simulation
 ~~~
 
-In the above script, you will have to insert your "username" in the http 
-address specifing the parameter file on *stash*. The parameter file is transfer using 
-the #wget# utility from the web. 
+In the above script, you will have to insert your "username" in URL address. The
+parameter file located on *stash* is downloaded using the #wget# utility.  
  
 
 Now we submit the NAMD job. 
 
 ~~~
-$ condor_submit namd_run.submit 
+$ condor_submit namd_stash_run.submit 
 ~~~
 
-Once the job completes, you will see the NAMD output files and  
-the parameter file. 
+Once the job completes, you will see non-empty "job.out.0" file where 
+the standout output from the programs are written as default.   
+
+~~~~
+tail job.out.0
+
+====================================================
+
+WallClock: 6.084453  CPUTime: 6.084453  Memory: 53.500000 MB
+Program finished.
+~~~
+
+The above lines indicate the NAMD simulation was successful. 
 
  
 <div class="keypoints" markdown="1">
