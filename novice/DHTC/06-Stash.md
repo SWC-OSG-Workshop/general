@@ -114,18 +114,23 @@ You can see that the job execution script has the following lines.
 #!/bin/bash  
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash //sourcing a shell specific file that adds the module command to your environment
 module load namd/2.9  //loading the namd module
-wget --no-check-certificate http://stash.osgconnect.net/+dbala/Namd_param/par_all27_prot_lipid.inp // Getting the data from the *stash* before executing the NAMD simulation
+wget --no-check-certificate http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp // Getting the data from the *stash*. Insert your username. 
 namd2 ubq_gbis_eq.conf > ubq_gbis_eq.log //Executing the NAMD simulation
 ~~~
 
-In the above script, the data is transfered from the *stash* using wget command. 
+In the above script, you will have to insert your "username" in the http 
+address specifing the parameter file on *stash*. The parameter file is transfer using 
+the #wget# utility from the web. 
+ 
 
-We submit the NAMD job. 
+Now we submit the NAMD job. 
 
 ~~~
 $ condor_submit namd_run.submit 
 ~~~
 
+Once the job completes, you will see the NAMD output files. You can also see that 
+the parameter file transfered back from the execute machine.  
 
  
 <div class="keypoints" markdown="1">
