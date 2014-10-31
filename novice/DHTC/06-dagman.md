@@ -106,5 +106,10 @@ $ condor_q username
 We see two runing jobs. One is the dagman job which manages the execution of NAMD jobs.
 The other is the actual NAMD execution "namd_run_dag0.sh". 
 
+The example described above has  simple inter relation among the jobs. DAGMan is 
+capable of dealing with the acyclic graph jobs with complex inter relations. Also 
+DAGMan can help with the resubmission of uncompleted portions of a DAG, when one 
+or more nodes result in failure. Also  several dags can be combined into a 
+single dag.  
 
 
