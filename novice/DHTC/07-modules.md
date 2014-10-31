@@ -18,9 +18,9 @@ worker machines. As a result, the  users have convenient access to the applicati
 and their dependent libraries with module command. We will see 
 how to use the centrally managed applications via module command. 
 
-The in built *tutorial* command on OSG helps the users to get started on OSG. The 
+The in built *tutorial* command helps the users to get started on OSG. The 
 *tutorial* command sets up the input and script files for a specific example. A 
-user can experiment with these files or use them as a template to prepare thier 
+user can experiment with these files or use them as a template to prepare their 
 own input and script files. 
 
 
