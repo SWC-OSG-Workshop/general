@@ -10,6 +10,6 @@ title: Distributed Computing on Open Science Grid
 3.  [HTCondor - Selecting Resources](03-HTCondor-Matchmaking.html)
 4.  [Scaling up Resources](04-ScaleUp.html)
 5.  [Data Storage Solutions](05-Stash.html)
-6.  [Scientific Workflows - DAGMAN](06-dagman.html)
+6.  [Scientific Workflow Management - DAGMAN](06-dagman.html)
 7.  [Module Load and Tutorial Commands](07-modules.html)
 </div>
