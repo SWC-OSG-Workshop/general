@@ -13,12 +13,15 @@ title: Module Load and Tutorial Commands on OSG
 </div>
 
 <h2> Overview </h2> 
-The applications on OSG are centrally managed. The  users have convenient access to 
-the applications and their dependent libraries with module command.  We will see 
+The applications on OSG are centrally managed and made available on many of the 
+worker machines. As a result, the  users have convenient access to the applications 
+and their dependent libraries with module command. We will see 
 how to use the centrally managed applications via module command. 
 
-The in built *tutorial* command on OSG guides the users to get started on OSG to 
-perform calculations and simulations. 
+The in built *tutorial* command on OSG helps the users to get started on OSG. The 
+*tutorial* command sets up the input and script files for a specific example. A 
+user can experiment with these files or use them as a template to prepare thier 
+own input and script files. 
 
 
 <h2>Modules on OSG</h2> 
