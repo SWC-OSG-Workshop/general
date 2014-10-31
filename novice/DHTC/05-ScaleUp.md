@@ -34,8 +34,8 @@ to scale up of the resources.
 Run the command 
 
 ~~~
-$ tutorial scaleup
-$ cd tutorial-scaleup
+$ tutorial scaling-up-resources
+$ cd tutorial-scaling-up-resourcew
 ~~~
 
 As we discussed in the previous section on HTCondor scripts, we need to 
