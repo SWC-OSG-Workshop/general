@@ -61,9 +61,10 @@ rsync -v -e ssh BigData.tar.gz username@login.osgconnect.net:~/data/.
 In case of broken connection, rsync would start the file transfer from where it is stopped through recursive synchronization. This is an advantage of rsync over scp. 
 
 
-<h2> Utilizing Stash </h2> 
+<h2> Downloading data from Stash </h2> 
 
-Let us do an example calculation to understand the use of *stash*. We will peform 
+Let us do an example calculation to understand the use of *stash* and how we download 
+the data from the web. We will peform 
 molecular dynamics simulation of a small protien in implicit water. To get the
 necessary files, we use the *tutorial* command on OSG. 
 
@@ -129,8 +130,8 @@ Now we submit the NAMD job.
 $ condor_submit namd_run.submit 
 ~~~
 
-Once the job completes, you will see the NAMD output files. You can also see that 
-the parameter file transfered back from the execute machine.  
+Once the job completes, you will see the NAMD output files and  
+the parameter file. 
 
  
 <div class="keypoints" markdown="1">
