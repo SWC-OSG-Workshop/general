@@ -137,9 +137,7 @@ Once the job completes, you will see non-empty "job.out.0" file where
 the standout output from the programs are written as default.   
 
 ~~~~
-tail job.out.0
-
-====================================================
+$ tail job.out.0
 
 WallClock: 6.084453  CPUTime: 6.084453  Memory: 53.500000 MB
 Program finished.
