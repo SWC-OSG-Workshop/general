@@ -103,6 +103,8 @@ $ condor_q username
 2 jobs; 0 completed, 0 removed, 1 idle, 1 running, 0 held, 0 suspended
 ~~~~
 
-There are two jobs runing. One is the dagman job that executes the shell "namd_run_dag0.sh" that corresponds to the condor job "namd_run_dag0.submit". 
+We see two runing jobs. One is the dagman job which manages the execution of NAMD jobs.
+The other is the actual NAMD execution "namd_run_dag0.sh". 
+
 
 
