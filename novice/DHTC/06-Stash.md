@@ -32,7 +32,7 @@ cd ~/data    // This is where the *stash* is mounted for you. You can keep the d
 ~~~
 {:class="in"}
 
-You can make the data on *stash* publically available on the WWW. The data copied or moved to the directory #~/data/public# is available on WWW as 
+You can make the data on *stash* publically available on the WWW. The data copied or moved to the directory *~/data/public* is available on WWW as 
 
 ~~~
 http://stash.osgconnect.net/+yourusername.
