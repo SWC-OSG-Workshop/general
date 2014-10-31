@@ -14,7 +14,7 @@ title: Scientific Workflow Management - DAGMAN
 
 
 In scientific computing, one may have to perform several computational tasks or 
-data manipulations that are releted one another in some order. Workflow management 
+data manipulations that are inter releted in some order. Workflow management 
 systems help to deal with such tasks or data manipulations. DAGMan is one of the 
 early workflow managment system developed for distributed high throughput 
 computing. DAGMan (Directed Acyclic Graph Manager) handles computational jobs 
@@ -23,22 +23,24 @@ apply DAGMan to run a long time scale molecular dynmaics (MD) simulation.
 
 <h2> Running Long Time Scale MD Simulation with DAGMAN   </h2> 
 
-At present, the recomended calculation time to run jobs on OSG is about 2-3 hours. Jobs
+At present, the recomended execution time to run a jobs on OSG is about 2-3 hours. Jobs
 requiring more than 2-3 hours, need to be submitted with the restart files. Manually 
 submitting small jobs repeatedly with restart files may not be practical in many 
-situations. DAGMan offers an elegant and simple solutions to run set of jobs. With 
+situations. DAGMan offers an elegant and simple solution to run set of jobs. With 
 DAGMan scripts one could run a long time scale MD simulations of biomolecules. 
 
-As an example, we will break the MD simulation in four steps and run it through the 
-DAGMan script. For the sake of simplicity, the simulations are run only for few 
-integration steps and they  will not consume much computational time. 
+In our example, we will break the MD simulation in four steps and run it through the 
+DAGMan script. For the sake of simplicity, the MD simulations run only for few 
+integration steps to consume less computational time but demonstrate the ability 
+of DAGMan. 
 
-Say we have four MD jobs: *A0*, *A1*, *A2* and *A3*. Some of the output files from the 
-job *A0* serves as an input for the job *A1* and so forth.  The input and output 
-dependencies of the jobs are such that they need to be linearly progressing 
-from *A0-->A1-->A2---A3*. These set of jobs clearly represents an acyclic graph. In 
-DAGMan language, job *A0* is parent of job *A1*,  job *A1* is parent of 
-*A2* and job *A3* is parent of *A4*. In DAGMan script, this is expressed as 
+Say we have created four MD jobs: *A0*, *A1*, *A2* and *A3* that we want to run one 
+after another and combine the results. This means that the output files from the 
+job *A0* serves as an input for the job *A1* and so forth. The input and output 
+dependencies of the jobs are such that they need to be progressed in a linear 
+fashion:  *A0-->A1-->A2---A3*. These set of jobs clearly represents an 
+acyclic graph. In DAGMan language, job *A0* is parent of job *A1*,  job *A1* is 
+parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is expressed as 
 
 ~~~
 
@@ -53,9 +55,10 @@ PARENT A2 CHILD A3  //Inter Dependency between Job A2 and A3
 ~~~
 
 The first four lines after the comment are the listing of the condor jobs  
-with names A0, A1, A2 and A3. The next three lines describe the 
-relation between the four jobs. The script files namd_run_dag0.submit, 
-namd_run_dag1.submit...  are the condor job submit files. 
+by assigning names A0, A1, A2 and A3. The next three lines describe the 
+relation between the four jobs. The script files -  namd_run_dag0.submit, 
+namd_run_dag1.submit...  are the condor job submit files that run the individual 
+MD simulations. 
 
 The above DAGMan script and the neccessary files are available to the user 
 by invoking the *tutorial* command. 
