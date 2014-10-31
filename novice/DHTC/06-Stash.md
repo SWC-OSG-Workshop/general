@@ -32,6 +32,13 @@ cd ~/data    // This is where the *stash* is mounted for you. You can keep the d
 ~~~
 {:class="in"}
 
+You can make the data on stash publically available on the WWW. The data copied or moved to the directory #~/data/public# is available on WWW as 
+
+~~~
+http://stash.osgconnect.net/+yourusername.
+~~~
+
+
 <h2> File Transfer to Stash </h2> 
 
 We can transfer files from the local machine to *stash* with scp, rsync, or 
@@ -52,6 +59,68 @@ rsync -v -e ssh BigData.tar.gz username@login.osgconnect.net:~/data/.
 {:class="in"}
 
 In case of broken connection, rsync would start the file transfer from where it is stopped through recursive synchronization. This is an advantage of rsync over scp. 
+
+
+<h2> Utilizing Stash </h2> 
+
+Let us do an example calculation to understand the use of stash. We will peform 
+molecular dynamics simulation of a small protien in implicit water. To get the
+necessary files, we use the *tutorial* command on OSG. 
+
+Log in OSG
+~~~
+$ ssh username@login.osgconnect.net
+~~~
+
+type 
+
+~~~
+$ tutorial namd
+$ cd ~/osg-namd-stash
+~~~
+
+~~~
+namd_run.submit //Condor job submission script file.
+namd_run.sh //Job execution script file.
+ubq_gbis_eq.conf //Input configuration for NAMD.
+ubq.pdb //Input pdb file for NAMD.
+ubq.psf //Input file for NAMD.
+par_all27_prot_lipid.inp //Parameter file for NAMD.
+~~~
+
+The parameter file "par_all27_prot_lipid.inp" required for the NAMD simulations. This 
+is a common data file for the MD simulations. It is better to keep the parameter file
+in the stash for easy access.  
+
+~~~
+mv par_all27_prot_lipid.inp ~/data/public/.  //moving the parameter file from the local directory ~/osg-namd-stash  to ~/data/public 
+~~~
+
+You can view the parameter file appear on WWW
+
+~~~
+http://stash.osgconnect.net/+yourusername
+~~~
+
+Now we want the parameter file available on the execution (worker) machine when the 
+simulation starts to run. As mentioned early, the data on the stash is available to 
+the execution machines. This means the execution machine can transfer the data from 
+stash as a part of the job execution. So we have to script this in the job execution 
+script. 
+
+You can see that the job execution script has the following lines. 
+
+~~~
+#!/bin/bash  
+source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash //sourcing a shell specific file that adds the module command to your environment
+module load namd/2.9  //loading the namd module
+wget --no-check-certificate http://stash.osgconnect.net/+dbala/Namd_param/par_all27_prot_lipid.inp // Getting the data from the stash before executing the NAMD simulation
+namd2 ubq_gbis_eq.conf > ubq_gbis_eq.log //Executing the NAMD simulation
+~~~
+
+
+
+
 
 
  
