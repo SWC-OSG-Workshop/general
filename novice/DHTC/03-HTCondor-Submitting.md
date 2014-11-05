@@ -196,4 +196,12 @@ Sleeping for 10 seconds...
 Et voila!
 ~~~ 
 
+<div class="keypoints" markdown="1">
 
+#### Key Points
+*   HTCondor shedules and monitors your Jobs. 
+*   To submit a job to HTCondor, the user need to prepare the Job execution and Job Submission scripts. 
+*   *condor_submit* - HTCondor's job submission command.     
+*   *condor_q* - HTCondor's job monitoring command.     
+*   *condor_rm* - HTCondor's job removal command.     
+</div>
