@@ -77,12 +77,18 @@ Log = log/campus.log.$(Cluster) //differs from the old script
 Queue 25 //differs from the old script
 ~~~
 
-In the above script, the value of Queue is 25, so you will 25 jobs in the queue when 
+In the above script, the value of Queue is 25, so you will see 25 jobs in the queue when 
 you try 
 
 ~~~
 condor_q username
 ~~~
 
+<div class="keypoints" markdown="1">
+
+#### Keypoints
+*    Scaling up the computational resources on OSG is beneficial to many scientific calculations and simulations.  
+*    Changing the value of *Queue* allows the user to scale up the resources.   
+</div>
 
 
