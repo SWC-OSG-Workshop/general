@@ -143,7 +143,7 @@ calculations on OSG.
 <div class="keypoints" markdown="1">
 
 #### Key Points
-*   Many scientific applications were installed on OSG and ready for use. 
+*   Many scientific applications are installed on OSG and available for the users. 
 *   To use an existing application use the module load command. 
 *   The command - *tutorial* helps to access the existing tutorials.  
 </div>
