@@ -118,3 +118,11 @@ or more nodes result in failure. Also  several dags can be combined into a
 single dag.  
 
 
+<div class="keypoints" markdown="1">
+
+#### Keypoints
+*   DAGMan (Directed Acyclic Graph Manager) handles computational jobs that are mapped as a directed acyclic graph.
+*   DAGMan script describe the interdepency between set of jobs.  
+*   *condor_submit_dag* - is the command to submit a dagman job. 
+*   One may write a DAGMan script consisting of several DAGMan jobs. 
+</div>
