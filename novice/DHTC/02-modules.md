@@ -136,9 +136,15 @@ module load R    // Loads the module
 Rscript  mcpi.R  // Executation of the R script
 ~~~
 
-Similar to the R tutorial, there are other tutorials available on OSG. The tutorials 
-serve as a template to develop your own scripts and run the calculations on OSG. 
+Similar to the R tutorial, there are other tutorials available on OSG. The available 
+tutorials serve as templates to develop your own scripts and run the 
+calculations on OSG. 
 
-
+<div class="keypoints" markdown="1">
+#### Objectives
+*   Many scientific applications were installed on OSG and ready for use. 
+*   To use an existing application use the module load command. 
+*   The command - *tutorial* helps to access the existing tutorials.  
+</div>
 
 
