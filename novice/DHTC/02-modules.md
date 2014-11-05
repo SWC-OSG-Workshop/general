@@ -15,12 +15,12 @@ title: Module Load and Tutorial Commands on OSG
 <h2> Overview </h2> 
 The applications on OSG are centrally managed and made available on many of the 
 worker machines. As a result, the  users have convenient access to the applications 
-and their dependent libraries with module command. We will see 
-how to use the centrally managed applications via module command. 
+and their dependent libraries. We will see how to use the centrally managed 
+applications via module command. 
 
-The in built *tutorial* command helps the users to get started on OSG. The 
+The built-in *tutorial* command helps the users to get started on OSG. The 
 *tutorial* command sets up the input and script files for a specific example. A 
-user can experiment with these files or use them as a template to prepare their 
+user can experiment with these files or use them as templates to prepare their 
 own input and script files. 
 
 
@@ -33,7 +33,7 @@ $ ssh username@login.osgconnect.net
 ~~~
 
 
-The first step in using the modules is to initialize the module system.  This 
+The first step in using the module command is to initialize the module system.  This 
 step consists of sourcing a shell specific file that adds the module command 
 to your environment. For example, initializing module for bash is done as follows:
 
@@ -88,7 +88,7 @@ $ module unload R
 
 <h2> Tutorial Command on OSG </h2> 
 
-The in built *tutorial* command assists a user in getting started on 
+The built-in *tutorial* command assists a user in getting started on 
 OSG.  To see the list of existing tutorials, type
 
 ~~~
@@ -141,7 +141,8 @@ tutorials serve as templates to develop your own scripts and run the
 calculations on OSG. 
 
 <div class="keypoints" markdown="1">
-#### Objectives
+
+#### Key Points
 *   Many scientific applications were installed on OSG and ready for use. 
 *   To use an existing application use the module load command. 
 *   The command - *tutorial* helps to access the existing tutorials.  
