@@ -44,10 +44,10 @@ parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is express
 
 ~~~
 ######DAG file######    //comment
-Job A0 namd_run_dag0.submit  //Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_dag0.submit  //Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_dag0.submit  //Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_dag0.submit  //Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
 PARENT A0 CHILD A1  //Inter Dependency between Job A0 and A1
 PARENT A1 CHILD A2  //Inter Dependency between Job A1 and A2 
 PARENT A2 CHILD A3  //Inter Dependency between Job A2 and A3
@@ -55,7 +55,7 @@ PARENT A2 CHILD A3  //Inter Dependency between Job A2 and A3
 
 The first four lines after the comment are the listing of the condor jobs  
 with name assignment:  A0, A1, A2 and A3. Here the condor job submit files are 
- namd_run_dag0.submit, namd_run_dag1.submit... that run the individual 
+ namd_run_job0.submit, namd_run_job1.submit... that run the individual 
 MD simulations.  The next three lines describe the inter relation 
 among the four jobs. 
 
@@ -63,13 +63,13 @@ The above DAGMan script and the neccessary files are available to the user
 by invoking the *tutorial* command. 
 
 ~~~
-tutorial namd-DAGMan
-cd ~/osg-namd-DAGMan
+tutorial dagman-namd
+cd tutorial-dagman-namd
 ~~~
 
-The directory "~/osg-name-DAGMan" contains all the neccessary files. The file 
-"linear.dag" is the DAGMan script. The files "namd_run_dag0.submit, ..." are the 
-HTCondor script files that execute the files "namd_run_dag0.sh,...".
+The directory "tutorial-dagman-namd" contains all the neccessary files. The file 
+"linear.dag" is the DAGMan script. The files "namd_run_job0.submit, ..." are the 
+HTCondor script files that execute the files "namd_run_job0.sh,...".
 
 
 Now we submit the DAGMan script on OSG. 
@@ -98,16 +98,16 @@ $ condor_q username
 -- Submitter: login01.osgconnect.net : <192.170.227.195:48781> : login01.osgconnect.net
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
 1317646.0   dbala          10/30 17:27   0+00:00:28 R  0   0.3  condor_dagman     
-1317647.0   dbala          10/30 17:28   0+00:00:00 I  0   0.0  namd_run_dag0.sh  
+1317647.0   dbala          10/30 17:28   0+00:00:00 I  0   0.0  namd_run_job0.sh  
 
 2 jobs; 0 completed, 0 removed, 1 idle, 1 running, 0 held, 0 suspended
 ~~~~
 
 We see two runing jobs. One is the dagman job which manages the execution of NAMD jobs.
-The other is the actual NAMD execution "namd_run_dag0.sh". Once the dag 
-completes, you will see four .tar.gz files "OutFilesFromNAMD_dag0.tar.gz, 
-OutFilesFromNAMD_dag1.tar.gz, OutFilesFromNAMD_dag2.tar.gz, 
-OutFilesFromNAMD_dag3.tar.gz". If the output files are not empty, the jobs are 
+The other is the actual NAMD execution "namd_run_job0.sh". Once the dag 
+completes, you will see four .tar.gz files "OutFilesFromNAMD_job0.tar.gz, 
+OutFilesFromNAMD_job1.tar.gz, OutFilesFromNAMD_job2.tar.gz, 
+OutFilesFromNAMD_job3.tar.gz". If the output files are not empty, the jobs are 
 successfully completed. Of course, a through check up requires looking at the ouput 
 results.  
 
