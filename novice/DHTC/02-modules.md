@@ -17,11 +17,8 @@ Commonly used software and libraries on the Open Science Grid are available in a
 central repository (known as OASIS) and accessed via the *module* command. In this lesson,
 we will see how to search for, load, and use software packages.
 
-The built-in *tutorial* command helps the users to get started on OSG. The 
-*tutorial* command sets up the input and script files for a specific example. A 
-user can experiment with these files or use them as templates to prepare their 
-own input and script files. 
-
+This lesson will also cover the usage of the built-in *tutorial* command. Using *tutorial*,
+we load a variety of job templates that cover basic usage, specific use cases, and best practices.
 
 <h2>Modules on OSG</h2> 
 
