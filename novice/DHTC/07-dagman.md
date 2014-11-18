@@ -97,8 +97,8 @@ $ condor_q username
 
 -- Submitter: login01.osgconnect.net : <192.170.227.195:48781> : login01.osgconnect.net
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
-1317646.0   dbala          10/30 17:27   0+00:00:28 R  0   0.3  condor_dagman     
-1317647.0   dbala          10/30 17:28   0+00:00:00 I  0   0.0  namd_run_job0.sh  
+1317646.0   username          10/30 17:27   0+00:00:28 R  0   0.3  condor_dagman     
+1317647.0   username          10/30 17:28   0+00:00:00 I  0   0.0  namd_run_job0.sh  
 
 2 jobs; 0 completed, 0 removed, 1 idle, 1 running, 0 held, 0 suspended
 ~~~~
