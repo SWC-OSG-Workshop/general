@@ -19,7 +19,7 @@ The Open Science Grid (OSG) is a consortium of research communities who promote
 science via sharing of computing resources. We enable a framework of distributed 
 computing and storage resources, a set of services and methods that enable better 
 access to ever increasing computing resources for researchers and communities, 
-and principles and software that enable distributed high thoroughput 
+and principles and software that enable distributed high-throughput 
 computing (DHTC) for users and communities at all scales.
 
 ## Computation that is a good match for OSG Connect 
