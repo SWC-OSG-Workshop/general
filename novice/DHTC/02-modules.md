@@ -22,7 +22,7 @@ we load a variety of job templates that cover basic usage, specific use cases, a
 
 <h2>Modules on OSG</h2> 
 
-Log in OSG with the secured shell  
+Log in OSG with secure shell  
 
 ~~~
 $ ssh username@login.osgconnect.net
