@@ -157,7 +157,7 @@ Let's wait for your job to finish – that is, for condor_q not to show the job 
 ~~~
 $ condor_submit tutorial01
 Submitting job(s). 
-1 job(s) submitted to cluster 824
+1 job(s) submitted to cluster 823
 $ watch -n2 condor_q username 
 ~~~
 
