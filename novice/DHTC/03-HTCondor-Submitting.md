@@ -20,13 +20,13 @@ the program and transfer the output data.
 
 <h2>Login to OSG Connect </h2>
 
-First, we log in to OSG connect
+First, we log in to OSG Connect:
+{:class="in"}
+
 ~~~
 $ ssh username@login.osgconnect.net  #username is your username
 $ passwd:                        # enter your password
 ~~~
-{:class="in"}
-
 
 We will get the relevant example files using the *tutorial* command. Run the quickstart tutorial:
 
