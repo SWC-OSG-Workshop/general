@@ -44,7 +44,9 @@ Inside the tutorial directory that you created or installed previously, let's cr
 
 ~~~
 $ nano short.sh
-file: short.sh
+~~~
+
+~~~
 #!/bin/bash
 # short.sh: a short discovery job
 printf "Start time: "; /bin/date
