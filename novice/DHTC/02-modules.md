@@ -8,7 +8,7 @@ title: Module Load and Tutorial Commands on OSG
 #### Objectives
 *   Get to know what are the existing applications on OSG. 
 *   Learn how to use modules.
-*   Learn how to use in build *tutorial* command. 
+*   Learn how to use the *tutorial* command. 
 
 </div>
 
