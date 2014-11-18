@@ -13,10 +13,9 @@ title: Module Load and Tutorial Commands on OSG
 </div>
 
 <h2> Overview </h2> 
-The applications on OSG are centrally managed and made available on many of the 
-worker machines. As a result, the  users have convenient access to the applications 
-and their dependent libraries. We will see how to use the centrally managed 
-applications via module command. 
+Commonly used software and libraries on the Open Science Grid are available in a
+central repository (known as OASIS) and accessed via the *module* command. In this lesson,
+we will see how to search for, load, and use software packages.
 
 The built-in *tutorial* command helps the users to get started on OSG. The 
 *tutorial* command sets up the input and script files for a specific example. A 
