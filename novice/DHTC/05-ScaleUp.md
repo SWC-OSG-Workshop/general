@@ -73,7 +73,6 @@ Error = log/campus.err.$(Cluster)-$(Process) //differs from the old script
 Output = log/campus.out.$(Cluster)-$(Process) //differs from the old script
 Log = log/campus.log.$(Cluster) //differs from the old script
 
-+ProjectName="ConnectTrain"
 Queue 25 //differs from the old script
 ~~~
 

@@ -110,9 +110,6 @@ Output = job.output
 # job's status, success, and resource consumption. 
 Log = job.log
 
-# +ProjectName is the name of the project reported to the OSG accounting system
-+ProjectName="ConnectTrain"
-
 # QUEUE is the "start button" - it launches any jobs that have been 
 # specified thus far. 
 Queue 1

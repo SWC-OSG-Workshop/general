@@ -101,9 +101,6 @@ Output = job.output
 # job's status, success, and resource consumption. 
 Log = job.log
 
-# +ProjectName is the name of the project reported to the OSG accounting system
-+ProjectName="ConnectTrain"
-
 # QUEUE is the "start button" - it launches any jobs that have been 
 # specified thus far. 
 Queue 1
@@ -148,9 +145,6 @@ Output = job.output
 # job's status, success, and resource consumption.
 Log = job.log
 
-# +ProjectName is the name of the project reported to the OSG accounting system
-+ProjectName="ConnectTrain"
-
 # Require a SL6/RHEL6 system
 Requirements = (OpSys == "LINUX" && OpSysMajorVer == 6)
 
@@ -192,9 +186,6 @@ Output = job.output
 # The LOG file is where HTCondor places information about your
 # job's status, success, and resource consumption.
 Log = job.log
-
-# +ProjectName is the name of the project reported to the OSG accounting system
-+ProjectName="ConnectTrain"
 
 # Require a SL6/RHEL6 system
 Requirements = (OpSys == "LINUX" && OpSysMajorVer == 6 && Memory >=3072)
@@ -245,9 +236,6 @@ Output = job.output
 # job's status, success, and resource consumption.
 Log = job.log
 
-# +ProjectName is the name of the project reported to the OSG accounting system
-+ProjectName="ConnectTrain"
-
 # Require a SL6/RHEL6 system
 Requirements = (GLIDEIN_ResourceName == "MWT2") && (IS_GLIDEIN == True)
 
@@ -278,9 +266,6 @@ Output = job.output
 # The LOG file is where HTCondor places information about your
 # job's status, success, and resource consumption.
 Log = job.log
-
-# +ProjectName is the name of the project reported to the OSG accounting system
-+ProjectName="ConnectTrain"
 
 # Require a SL6/RHEL6 system
 Requirements = (GLIDEIN_ResourceName != "MWT2") && (IS_GLIDEIN == True)
