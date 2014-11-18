@@ -43,14 +43,14 @@ acyclic graph. In DAGMan language, job *A0* is parent of job *A1*,  job *A1* is
 parent of *A2* and job *A3* is parent of *A4*. In DAGMan script, this is expressed as 
 
 ~~~
-######DAG file######    //comment
-Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
-Job A0 namd_run_job0.submit  //Job keyword, Job Name, Condor Job submision script.
-PARENT A0 CHILD A1  //Inter Dependency between Job A0 and A1
-PARENT A1 CHILD A2  //Inter Dependency between Job A1 and A2 
-PARENT A2 CHILD A3  //Inter Dependency between Job A2 and A3
+######DAG file######    #comment
+Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+Job A0 namd_run_job0.submit  #Job keyword, Job Name, Condor Job submision script.
+PARENT A0 CHILD A1  #Inter Dependency between Job A0 and A1
+PARENT A1 CHILD A2  #Inter Dependency between Job A1 and A2 
+PARENT A2 CHILD A3  #Inter Dependency between Job A2 and A3
 ~~~
 
 The first four lines after the comment are the listing of the condor jobs  

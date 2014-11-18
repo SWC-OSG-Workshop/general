@@ -26,9 +26,9 @@ Stash is mounted on your account at login.osgconnect.edu.  You can login with
 the  secured shell (ssh) protocol by typing 
 
 ~~~
-ssh username@login.osgconnect.net //Connect to the remote host with your username
-passwd:       // your password
-cd ~/data    // This is where the *stash* is mounted for you. You can keep the data here for a quick access by worker machines.
+ssh username@login.osgconnect.net #Connect to the remote host with your username
+passwd:       # your password
+cd ~/data    # This is where the *stash* is mounted for you. You can keep the data here for a quick access by worker machines.
 ~~~
 {:class="in"}
 
@@ -47,7 +47,7 @@ globus. Globus is the most reliable approach for transferring a large amount of 
 To transfer a file called "BigData.tar.gz" via scp from your local laptop to *stash*
 
 ~~~
-scp BigData.tar.gz username@login.osgconnect.net:~/data/.  //Transfers the file "BigData.tar.gz" using secured copy.
+scp BigData.tar.gz username@login.osgconnect.net:~/data/.  #Transfers the file "BigData.tar.gz" using secured copy.
 ~~~
 {:class="in"}
 
@@ -84,12 +84,12 @@ $ cd ~/osg-stash-namd
 ~~~
 
 ~~~
-namd_stash_run.submit //Condor job submission script file.
-namd_stash_run.sh //Job execution script file.
-ubq_gbis_eq.conf //Input configuration for NAMD.
-ubq.pdb //Input pdb file for NAMD.
-ubq.psf //Input file for NAMD.
-par_all27_prot_lipid.inp //Parameter file for NAMD.
+namd_stash_run.submit #Condor job submission script file.
+namd_stash_run.sh #Job execution script file.
+ubq_gbis_eq.conf #Input configuration for NAMD.
+ubq.pdb #Input pdb file for NAMD.
+ubq.psf #Input file for NAMD.
+par_all27_prot_lipid.inp #Parameter file for NAMD.
 ~~~
 
 The file - "par_all27_prot_lipid.inp" is the parameter file and is required for 
@@ -98,7 +98,7 @@ simulations. It is a good practice to keep the common files, like  the parameter
 in our example, in the *stash* storage.  
 
 ~~~
-mv par_all27_prot_lipid.inp ~/data/public/.  //moving the parameter file from the local directory ~/osg-namd-stash  to ~/data/public 
+mv par_all27_prot_lipid.inp ~/data/public/.  #moving the parameter file from the local directory ~/osg-namd-stash  to ~/data/public 
 ~~~
 
 You can view the parameter file appear on WWW
@@ -117,10 +117,10 @@ You can see that the job execution script "namd_stash_run.sh" has the following 
 
 ~~~
 #!/bin/bash  
-source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash //sourcing a shell specific file that adds the module command to your environment
-module load namd/2.9  //loading the namd module
-wget --no-check-certificate http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp // Getting the data from the *stash*. Insert your username. 
-namd2 ubq_gbis_eq.conf  //Executing the NAMD simulation
+source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash #sourcing a shell specific file that adds the module command to your environment
+module load namd/2.9  #loading the namd module
+wget --no-check-certificate http://stash.osgconnect.net/+username/par_all27_prot_lipid.inp # Getting the data from the *stash*. Insert your username. 
+namd2 ubq_gbis_eq.conf  #Executing the NAMD simulation
 ~~~
 
 In the above script, you will have to insert your "username" in URL address. The

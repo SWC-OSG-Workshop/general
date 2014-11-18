@@ -69,9 +69,9 @@ $ module load R
 This sets up the R package for you. Now you can do some test calculations with R. 
 
 ~~~
-$ R //invoking R package
+$ R # invoke R package
 
-> cos(45)  //simple on screen calculation with cosine function
+> cos(45)  # simple on-screen calculation with cosine function
 [1] 0.525322
 
 ~~~
@@ -88,14 +88,14 @@ The built-in *tutorial* command assists a user in getting started on
 OSG.  To see the list of existing tutorials, type
 
 ~~~
-$ tutorial //will print a list tutorials
+$ tutorial # will print a list tutorials
 ~~~
 
 Say for example, you are interested in learning how to run R scripts on OSG, the 
 tutorial command sets up the R tutorial for you. 
 
 ~~~
-$ tutorial R //prints the following message.
+$ tutorial R  # prints the following message:
 
 
 Application Example - R (statistical analysis)
@@ -113,9 +113,9 @@ Tutorial 'R' is set up.  To begin:
 The "tutorial R" command creates a directory "osg-R" containing the neccessary script and input files. 
 
 ~~~
-mciP.R     //The example R script file
-R-wrapper.sh // The job executation file 
-R.submit  // The job submission file (will discuss later in the lesson HTCondor scripts)
+mciP.R      # The example R script file
+R-wrapper.sh # The job executation file 
+R.submit  # The job submission file (will discuss later in the lesson HTCondor scripts)
 ~~~
 
 Lets focus on "mciP.R" and the "R-wrapper" scripts. The details of "R.submit" script 
@@ -126,10 +126,10 @@ method.  The R-wrapper.sh essentially loads the R module and runs the "mciP.R"
 script. 
 
 ~~~
-#!/bin/bash //Defines the shell environment.
+#!/bin/bash # Defines the shell environment.
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
-module load R    // Loads the module 
-Rscript  mcpi.R  // Executation of the R script
+module load R    # Loads the module 
+Rscript  mcpi.R  # Executation of the R script
 ~~~
 
 Similar to the R tutorial, there are other tutorials available on OSG. The available 

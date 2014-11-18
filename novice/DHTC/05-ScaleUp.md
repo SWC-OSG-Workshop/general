@@ -69,11 +69,11 @@ Universe = vanilla
 Executable = short.sh
 Arguments = 5 # to sleep 5 seconds
 
-Error = log/campus.err.$(Cluster)-$(Process) //differs from the old script
-Output = log/campus.out.$(Cluster)-$(Process) //differs from the old script
-Log = log/campus.log.$(Cluster) //differs from the old script
+Error = log/campus.err.$(Cluster)-$(Process) #differs from the old script
+Output = log/campus.out.$(Cluster)-$(Process) #differs from the old script
+Log = log/campus.log.$(Cluster) #differs from the old script
 
-Queue 25 //differs from the old script
+Queue 25 #differs from the old script
 ~~~
 
 In the above script, the value of Queue is 25, so you will see 25 jobs in the queue when 
