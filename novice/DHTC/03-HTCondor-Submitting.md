@@ -14,7 +14,7 @@ title: HTCondor scripts
 <h2>Overview</h2> 
 In this section, we will learn the basics of HTCondor scripts towards submitting and 
 monitoring the computational jobs. The jobs are submitted through the login node of 
-OSG connect. The submitted jobs are executed on the remote worker node(s) and the outputs are 
+OSG Connect. The submitted jobs are executed on the remote worker node(s) and the outputs are 
 transfered back to the login node. In the HTCondor job script, we have to describe how to execute 
 the program and transfer the output data. 
 
