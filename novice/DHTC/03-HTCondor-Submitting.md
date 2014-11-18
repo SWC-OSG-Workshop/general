@@ -22,7 +22,7 @@ the program and transfer the output data.
 
 First, we log in to OSG connect
 ~~~
-$ ssh netid@login.osgconnect.net  //netid is your username
+$ ssh username@login.osgconnect.net  //username is your username
 $ passwd:                        // enter your password
 ~~~
 {:class="in"}
@@ -72,20 +72,20 @@ job outside of Condor before submitting into the grid.
 $ ./short.sh
 ~~~
 
-```
+~~~
 Start time: Wed Aug 21 09:21:35 CDT 2013
 
 Job is running on node: login01.osgconnect.net
 
-Job running as user: uid=54161(netid) gid=1000(users) groups=1000(users),0(root),1001(osg-connect),1002(osg-staff),1003(osg-connect-test),9948(staff),19012(osgconnect)
+Job running as user: uid=54161(username) gid=1000(users) groups=1000(users),0(root),1001(osg-connect),1002(osg-staff),1003(osg-connect-test),9948(staff),19012(osgconnect)
 
-Job is running in directory: /home/netid/quickstart
+Job is running in directory: /home/username/quickstart
 
 Working hard...
 
 Science complete!
 
-```
+~~~
 
 ##Job script##
 Create an HTCondor submit file. So far, so good! Let's create a 
@@ -132,10 +132,10 @@ Submitting job(s).
 The condor_q command tells the status of currently running jobs. Generally you will want to limit it to your own jobs:
 
 ~~~
-$ condor_q netid
+$ condor_q username
 -- Submitter: login01.osgconnect.net : <128.135.158.173:43606> : login01.osgconnect.net
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
- 823.0   netid           8/21 09:46   0+00:00:06 R  0   0.0  short.sh
+ 823.0   username           8/21 09:46   0+00:00:06 R  0   0.0  short.sh
 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ~~~
 
@@ -146,7 +146,7 @@ You can also get status on a specific job cluster:
 $ condor_q 823
 -- Submitter: login01.osgconnect.net : <128.135.158.173:43606> : login01.osgconnect.net
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
- 823.0   netid           8/21 09:46   0+00:00:10 R  0   0.0  short.sh
+ 823.0   username           8/21 09:46   0+00:00:10 R  0   0.0  short.sh
 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ~~~
 
@@ -159,7 +159,7 @@ Let's wait for your job to finish – that is, for condor_q not to show the job 
 $ condor_submit tutorial01
 Submitting job(s). 
 1 job(s) submitted to cluster 824
-$ watch -n2 condor_q netid 
+$ watch -n2 condor_q username 
 ~~~
 
 When your job has completed, it will disappear from the list.  To close watch, hold down Ctrl 
@@ -171,7 +171,7 @@ Once your job has finished, you can get information about its execution from the
 ~~~
 $ condor_history 823
  ID      OWNER            SUBMITTED     RUN_TIME ST   COMPLETED CMD
- 823.0   netid            8/21 09:46   0+00:00:12 C   8/21 09:46 /home/netid/
+ 823.0   username            8/21 09:46   0+00:00:12 C   8/21 09:46 /home/username/
 ~~~
 
 You can see much more information about your job's final status using the -long option.
