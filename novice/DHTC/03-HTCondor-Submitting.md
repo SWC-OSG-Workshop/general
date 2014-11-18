@@ -35,12 +35,10 @@ $ tutorial quickstart #creates a directory "tutorial-quickstart".
 $ cd ~/tutorial-quickstart #relevant script and input files are inside this directory
 ~~~
 
-There are two script files we need to pay attention. One is the job execution file written in 
-the unix shell and the other is the job submission file written in HTCondor script.  
-
+We will look at two files in detail: "short.sh" and "tutorial01"
 
 ##Job execution script##
-Inside the tutorial directory that you created or installed previously, let's create a test script to execute as your job:
+Inside the tutorial directory that you created or installed previously, create a test script to execute as your job:
 
 ~~~
 $ nano short.sh
@@ -67,8 +65,8 @@ $ chmod +x short.sh
 ~~~
 
 Since we used the tutorial command, all files are already in your workspace. Run 
-the job locally when setting up a new job type, it's important to test your 
-job outside of Condor before submitting into the grid.
+the job locally when setting up a new job type, it is important to test your 
+job outside of HTCondor before submitting into the Open Science Grid. 
 
 ~~~
 $ ./short.sh
@@ -90,12 +88,14 @@ Science complete!
 ~~~
 
 ##Job script##
-Create an HTCondor submit file. So far, so good! Let's create a 
+Create an HTCondor submit file. So far, so good! Next we will create a 
 simple (if verbose) HTCondor submit file.
 
 ~~~
 $ nano tutorial01
-file: tutorial01
+~~~
+
+~~~
 # The UNIVERSE defines an execution environment. You will almost always use VANILLA. 
 Universe = vanilla 
 
