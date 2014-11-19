@@ -45,7 +45,7 @@ $ condor_q -better-analyze JOB-ID
 Step    Matched  Condition
 -----  --------  ---------
 [0]           0  OpSys == "LINUX"
-[1]           0  OpSysMajorVer == 10                 //Requirement is wrong and needs correction.
+[1]           0  OpSysMajorVer == 10                 \\Requirement is wrong and needs correction.
 [3]           0  TARGET.Arch == "X86_64"
 [5]           0  TARGET.Disk >= RequestDisk
 [7]           0  TARGET.Memory >= RequestMemory
