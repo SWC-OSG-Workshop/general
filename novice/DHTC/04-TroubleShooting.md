@@ -102,11 +102,11 @@ to requeue the job.  Alternatively, you can use *condor_ssh_to_job* to examine t
 
 <h3> Retries with periodic_release </h3>
 
-Often we want to automatically find out about the job failure and re-submit the failed jobs without 
-manual intervention. Condor supports this automatic deduction and retries.  This is done in two steps.
-In the first step, a job is forced to an held state if the exit code is not zero (incomplete job). The 
-last step is to re-submit the job at the held state for a specified number of times. In the condor 
-submit file, we include the following lines
+Often we want to re-submit failed jobs without manual intervention. Condor supports the automatic 
+deduction and retries of jobs in two steps.
+In the first step, a job is forced to be on the held state if the exit code is not 
+zero (incomplete job). Next, the held job is re-submitted. In the condor submit file, we include the 
+following lines
 
 ~~~
 # Send the job to Held state on failure. 
