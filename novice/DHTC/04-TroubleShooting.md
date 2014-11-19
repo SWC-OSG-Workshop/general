@@ -16,8 +16,8 @@ We will discuss how to check the job failures and ways to correct the failures.
 <h2> Troubleshooting techniques </h2> 
 
 <h3> Condor_q diagnostics </h3> 
-The condor_q command has several tools that can be used to diagnose why jobs are not running. We could use 
- -analyze and -better-analyze options that allow the users to get a detailed information. 
+The *condor_q* command has several tools that can be used to diagnose why jobs are not running. We could use 
+the options " -analyze" and "-better-analyze" that allow the users to get detailed information. 
 
 ~~~
 $ condor_q -analyze JOB-ID # JOB-ID is the job indentification number 
