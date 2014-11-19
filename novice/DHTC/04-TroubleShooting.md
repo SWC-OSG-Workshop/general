@@ -41,31 +41,16 @@ $ condor_q -better-analyze JOB-ID
 # Produces a long ouput. 
 # The following lines are part of the output regarding the job requirements.  
  
-The Requirements expression for your job reduces to these conditions:
          Slots
 Step    Matched  Condition
 -----  --------  ---------
 [0]           0  OpSys == "LINUX"
-[1]           0  OpSysMajorVer == 10   # **Incorrect Requirement**
+[1]           0  OpSysMajorVer == 10                 //Requirement is wrong and needs correction.
 [3]           0  TARGET.Arch == "X86_64"
 [5]           0  TARGET.Disk >= RequestDisk
 [7]           0  TARGET.Memory >= RequestMemory
 [9]           0  TARGET.HasFileTransfer
  
-Suggestions:
- 
-    Condition                         Machines Matched    Suggestion
-    ---------                         ----------------    ----------
-1   target.OpSys == "LINUX"           0                   REMOVE
-2   target.OpSysMajorVer == 10        0                   REMOVE # **Incorrect Requirement**  
-3   ( TARGET.Arch == "X86_64" )       0                   REMOVE
-4   ( TARGET.Disk >= 12 )             0                   REMOVE
-5   ( TARGET.Memory >= ifthenelse(MemoryUsage isnt undefined,MemoryUsage,1) )
-                                      0                   REMOVE
-6   ( TARGET.HasFileTransfer )        0                   REMOVE
- 
-WARNING:  Be advised:
-   Request did not match any resource's constraints
 
 ~~~
 
