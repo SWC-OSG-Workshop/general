@@ -38,37 +38,10 @@ indicates the failure of satisfying the job requirement.
 ~~~
 $ condor_q -better-analyze JOB-ID 
  
- 
--- Submitter: login01.osgconnect.net : <192.170.227.195:56174> : login01.osgconnect.net
-IndexSet::Init: size out of range: 0
-IndexSet::Init: IndexSet not initialized
-User priority for username@login01.osgconnect.net is not available, attempting to analyze without it.
----
-371156.008:  Run analysis summary.  Of 0 machines,
-      0 are rejected by your job's requirements
-      0 reject your job because of their own requirements
-      0 match and are already running your jobs
-      0 match but are serving other users
-      0 are available to run your job
- 
-WARNING:  Be advised:
-   No resources matched request's constraints
- 
-The Requirements expression for your job is:
- 
-    ( ( OpSys == "LINUX" && OpSysMajorVer == 10 ) ) &&
-    ( TARGET.Arch == "X86_64" ) && ( TARGET.Disk >= RequestDisk ) &&
-    ( TARGET.Memory >= RequestMemory ) && ( TARGET.HasFileTransfer )
- 
-Your job defines the following attributes:
- 
-    DiskUsage = 12
-    ImageSize = 12
-    RequestDisk = 12
-    RequestMemory = 1
+# Produces a long ouput. 
+# The following lines are part of the output regarding the job requirements.  
  
 The Requirements expression for your job reduces to these conditions:
- 
          Slots
 Step    Matched  Condition
 -----  --------  ---------
