@@ -15,7 +15,7 @@ We will discuss how to check the job failures and ways to correct the failures.
 
 <h2> Troubleshooting techniques </h2> 
 
-<h3> Condor_q diagnostics </h3> 
+<h3> Diagnostics with condor_q  </h3> 
 The *condor_q* command has several tools that can be used to diagnose why jobs are not running. We could use 
 the options " -analyze" and "-better-analyze" that allow the users to get detailed information. 
 
@@ -28,8 +28,6 @@ or
 ~~~
 $ condor_q -better-analyze JOB-ID # JOB-ID is the job indentification number 
 ~~~
-
-
 
 Sometimes the submitted jobs remain in the idle state and don't start for a very long time. In such
 a case, it is good idea to double check the job requirements. Say for example, *condor_q -better-analyze* 
@@ -50,8 +48,6 @@ Step    Matched  Condition
 [5]           0  TARGET.Disk >= RequestDisk
 [7]           0  TARGET.Memory >= RequestMemory
 [9]           0  TARGET.HasFileTransfer
- 
-
 ~~~
 
 The output clearly indicates that job did not match any resources.  Additionally, by looking through 
@@ -63,7 +59,6 @@ This can be corrected in two different ways.  The entire job is removed and re-s
 
 ~~~
 $ condor_rm JOB-ID #remove the specific job that has problem in matching the resources.
-
 $ nano file.submit # Edit the submit file and insert this line: Requirements '(OpSys == "LINUX" && OpSysMajorVer == 6)'
 $ condor_submit file.submit
 ~~~
@@ -80,7 +75,7 @@ This command allows the user to ssh to the compute node that is running a specif
 command is run, the user will be in the job's working directory and can examine the job's environment 
 and run commands.  
 
-<h3> Held jobs </h3>
+<h3> Held jobs and condor_release </h3>
 
 The jobs go to the held state for several reasons. One of them is due to the failure to transfer the output
 files. If this is the case, you might see the output of the analysis something as follows
@@ -105,10 +100,27 @@ condor_release JOB-ID
 to requeue the job.  Alternatively, you can use *condor_ssh_to_job* to examine the job environment and investigate further.
 
 
+<h3> Retries with periodic_release </h3>
 
+Often we want to automatically find out about the job failure and re-submit the failed jobs without 
+manual intervention. Condor supports this automatic deduction and retries.  This is done in two steps.
+In the first step, a job is forced to an held state if the exit code is not zero (incomplete job). The 
+last step is to re-submit the job at the held state for a specified number of times. In the condor 
+submit file, we include the following lines
+
+~~~
+# Send the job to Held state on failure. 
+on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)  
+
+# Periodically retry the jobs for 3 times with an interval 1 hour.   
+periodic_release =  (NumJobStarts < 3) && ((CurrentTime - EnteredCurrentStatus) > (60*60))
+~~~
+
+
+<div class="keypoints" markdown="1">
 #### Keypoints
-*    *condor_q* command has some in build diagnostics.    
-*    retry the filed jobs. 
+*    *condor_q -better-analyze JOB-ID* command is useful to diagnose failed jobs. 
+*    Automatically deduct and retry the filed jobs with *on_exit_old* and *periodic_release* in the job submit file. 
 </div>
 
 
