@@ -19,18 +19,17 @@ title: Introduction to Open Science Grid
 The Open Science Grid (OSG) is a consortium of research communities who promote science 
 via sharing of computing resources. OSG enables
 <ul> 
-<li> distributed computing across the nation, </li>
+<li> distributed computing on more than 120 institutions spread across US, </li>
 <li> efficient data processing and  </li>
-<li> large scale scientific computing.   </li>
+<li> large scale scientific computing of 2 million core CPU hours per day.   </li>
 </ul> 
 
-The resources accessible through the OSG are contributed by the community, organized by the OSG, and 
-governed by the OSG Consortium. At present, OSG is comprised of about 126 institutions with ~120 active 
-sites that collectively support usage of ~2,000,000 core hours per day.  
 
 OSG provides the opertunistic cycles to the users. At the time of computational demand, the cores that are 
 free in the OSG shared pool are made availabe to the users. These are opertunistic resources for the 
 users since the number of freely available cores are varying at any given time. 
+The resources accessible through the OSG are contributed by the community, organized by the OSG, and 
+governed by the OSG Consortium. 
 
 
 
