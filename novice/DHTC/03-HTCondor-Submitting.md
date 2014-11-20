@@ -8,13 +8,13 @@ title: HTCondor scripts
 #### Objectives
 *   Learn how to write HTCondor Job scripts.
 *   Learn how to submit HTCondor Jobs.   
-*   Learn how to conntrol and monitor the running Jobs.    
+*   Learn how to control and monitor the running Jobs.    
 </div>
 
 <h2>Overview</h2> 
 In this section, we will learn the basics of HTCondor scripts towards submitting and 
 monitoring the computational jobs. The jobs are submitted through the login node of 
-OSG connect. The submitted jobs are executed on the remote worker node(s) and the outputs are 
+OSG Connect. The submitted jobs are executed on the remote worker node(s) and the outputs are 
 transfered back to the login node. In the HTCondor job script, we have to describe how to execute 
 the program and transfer the output data. 
 
@@ -79,7 +79,7 @@ Job is running on node: login01.osgconnect.net
 
 Job running as user: uid=54161(username) gid=1000(users) groups=1000(users),0(root),1001(osg-connect),1002(osg-staff),1003(osg-connect-test),9948(staff),19012(osgconnect)
 
-Job is running in directory: /home/username/quickstart
+Job is running in directory: /home/username/tutorial-quickstart
 
 Working hard...
 
