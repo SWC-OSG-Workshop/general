@@ -1,38 +1,35 @@
 ---
 layout: lesson
 root: ../..
-title: Data Storage Solution - Stash 
+title: Data storage and transfer
 ---
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Understand how to utilize *stash*.  
-*   Learn the existing tools for  data transfer.    
+*   Discover how to transfer input and output data  
+*   Learn the what, why, how, and whens of using Stash
 </div>
 
 
 <h2> Overview </h2>
-We will learn how to transfer data from your laptop to OSG-Connect.  In particular, 
-our interest is to deal with big data of more than 100 GB. Say for example, you 
-want to do analytics on the data base of Chicago Tribune readers with the OSG-connect 
-resources. Doing analytics on big data is efficient when the input data base 
-resides on *stash* and not on the OSG login node.  Data on *stash* is quickly 
-accessible to the worker nodes.  A detailed description about the mechanism 
-of *stash* can be found in the OSG connectbook. Here we will focus on how to 
-transfer the files from your laptop to *stash*.  
+In this lesson, we will learn the basics of data storage and transfer on OSG Connect. 
 
-<h2> Where is stash? </h2> 
-Stash is mounted on your account at login.osgconnect.edu.  You can login with 
-the  secured shell (ssh) protocol by typing 
+<h2> Stash </h2>
+Stash is a distributed filesystem for temporary storage on OSG Connect. You can put any input or output files here.
 
+First, log in to OSG Connect:
 ~~~
-ssh username@login.osgconnect.net #Connect to the remote host with your username
+ssh username@login.osgconnect.net #Connect to the login node with your username
 passwd:       # your password
-cd ~/data    # This is where the *stash* is mounted for you. You can keep the data here for a quick access by worker machines.
+~~~
+
+Once done, you can change to the 'data' directory in your home area:
+~~~
+$ cd ~/data    # This is your *stash* directory
 ~~~
 {:class="in"}
 
-You can make the data on *stash* publically available on the WWW. The data copied or moved to the directory *~/data/public* is available on WWW as 
+You can also make data on *stash* publically available on the web. Any data copied or moved to the directory *~/data/public* can be accessed here:
 
 ~~~
 http://stash.osgconnect.net/+yourusername.
@@ -41,8 +38,9 @@ http://stash.osgconnect.net/+yourusername.
 
 <h2> File Transfer to Stash </h2> 
 
-We can transfer files from the local machine to *stash* with scp, rsync, or 
-globus. Globus is the most reliable approach for transferring a large amount of data. 
+We can transfer files from our laptop to *stash* with scp, sftp, or 
+Globus Connect. For small files (<50MB), it is fine to use scp or sftp utilities. For larger files 
+or when your access may be intermittent, we recommend using Globus.
  
 To transfer a file called "BigData.tar.gz" via scp from your local laptop to *stash*
 
@@ -51,23 +49,11 @@ scp BigData.tar.gz username@login.osgconnect.net:~/data/.  #Transfers the file "
 ~~~
 {:class="in"}
 
-You can do the same transfer via rsync, as
-
-~~~
-rsync -v -e ssh BigData.tar.gz username@login.osgconnect.net:~/data/.
-~~~
-{:class="in"}
-
-In case of broken connection, rsync would re-start the file transfer from 
-where it is stopped through recursive synchronization. This is an 
-advantage of rsync over scp. 
-
-
 <h2> Downloading data from Stash </h2> 
 
 Let us do an example calculation to understand the use of *stash* and how we download 
 the data from the web. We will peform 
-molecular dynamics simulation of a small protien in implicit water. To get the
+molecular dynamics simulation of a small protein in implicit water. To get the
 necessary files, we use the *tutorial* command on OSG. 
 
 Log in OSG
