@@ -128,7 +128,7 @@ periodic_release =  (NumJobStarts < 3) && ((CurrentTime - EnteredCurrentStatus) 
 <div class="keypoints" markdown="1">
 #### Keypoints
 *    *condor_q -better-analyze JOB-ID* command is useful to diagnose failed jobs. 
-*    Automatically deduct and retry the filed jobs with *on_exit_old* and *periodic_release* in the job submit file. 
+*    Failed jobs are automatically deducted and periodically retried  with *on_exit_old* and *periodic_release* in the condor submit files.
 </div>
 
 
