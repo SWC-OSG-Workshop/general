@@ -59,36 +59,37 @@ $ condor_q -better-analyze JOB-ID
  
 # Produces a long ouput. 
 # The following lines are part of the output regarding the job requirements.  
- 
+
+The Requirements expression for your job reduces to these conditions:
+
          Slots
 Step    Matched  Condition
 -----  --------  ---------
-[0]           0  OpSys == "LINUX"
-[1]           0  OpSysMajorVer == 10                 \\Requirement is wrong and needs correction.
-[3]           0  TARGET.Arch == "X86_64"
+[0]           0  Memory >= 51200                 ######## BIG MEMORY, NOT AVAILABLE ###### 
+[1]           0  TARGET.Arch == "X86_64"
+[3]           0  TARGET.OpSys == "LINUX"
 [5]           0  TARGET.Disk >= RequestDisk
 [7]           0  TARGET.Memory >= RequestMemory
 [9]           0  TARGET.HasFileTransfer
 ~~~
 
-If you look how many requirements are matched, you see none of the requested resources are 
-matched. Additionally, by looking through the conditions listed, it becomes apparent that the job 
-requires version Scientific Linux 10 (target.OpSysMajorVer == 10) which won't be matched by available 
-resources since the OSG pool  
-of machines have Scientific Linux 6.0 or older.  Looking at the submit file for the job shows the 
-following requirement: Requirements = (OpSys == "LINUX" && OpSysMajorVer == 10)
-This can be corrected in two different ways.  The entire job is removed and re-submited,
+
+By looking through the conditions listed, it becomes apparent that the job requesting a very 
+large memory, no machine available to meet the requirements. This is an error we introduced 
+puposefully in the script by including a line *Requirements = (Memory >= 51200)* in the file 
+"error101_job.submit".   The job is removed from the queue and re-submited after 
+correcting the requirement in the submit file. 
 
 ~~~
 $ condor_rm JOB-ID #remove the specific job that has problem in matching the resources.
-$ nano file.submit # Edit the submit file and insert this line: Requirements '(OpSys == "LINUX" && OpSysMajorVer == 6)'
+$ nano file.submit # Edit the submit file and insert this line: Requirements = (Memory >= 512)
 $ condor_submit file.submit
 ~~~
 
 or you can edit the resource requirement of a job while it is in the idle state. 
 
 ~~~
-condor_qedit JOB-ID Requirements '(OpSys == "LINUX" && OpSysMajorVer == 6)' #
+condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)' 
 ~~~
 
 
