@@ -16,7 +16,7 @@ We will discuss how to check the job failures and ways to correct the failures.
 <h2> Troubleshooting techniques </h2> 
 
 <h3> Diagnostics with condor_q  </h3> 
-The *condor_q* command shows the status of the jobs. It can also be used to diagnose why jobs are not 
+The *condor_q* command shows the status of the jobs and it can be used to diagnose why jobs are not 
 running. The *condor_q* command with  the options " -analyze" and "-better-analyze" would get detailed 
 information about the jobs. 
 
@@ -30,10 +30,29 @@ or
 $ condor_q -better-analyze JOB-ID # JOB-ID is the job indentification number 
 ~~~
 
-The detailed information about a job may help us to identify why a job is not running properly. For 
-example, the submitted jobs remain in the idle state and don't start for a very long time. In such
-a case, it is good idea to check the job requirements. The output from *condor_q -better-analyze* 
-would indicate clearly if the job requirements are not satisfied. Say for example, you probe a job by
+The detailed information about a job may help us to identify why a job is not running properly. 
+
+Let us do an example. 
+
+~~~
+$ ssh username@login.osgconnect.net   #login 
+$ passwd                              
+
+$ tutorial error101
+$ cd tutorial-erro101
+$ nano error101_job.submit
+
+$condor_submit error101_job.submit 
+~~~
+
+Let us check the job status by
+
+~~~
+condor_q username
+~~~
+
+The submitted job remains in the idle state. The job is failed to go through the queue. Now we check the 
+output from *condor_q -better-analyze* that would give us additional detail. 
 
 ~~~
 $ condor_q -better-analyze JOB-ID 
