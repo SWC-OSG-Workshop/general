@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Module Load and Tutorial Commands on OSG
+title: Software Applications on OSG
 ---
 <div class="objectives" markdown="1">
 
