@@ -6,17 +6,15 @@ title: HTCondor scripts
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn how to write HTCondor Job scripts.
 *   Learn how to submit HTCondor Jobs.   
-*   Learn how to control and monitor the running Jobs.    
+*   Learn how to monitor the running Jobs.    
 </div>
 
 <h2>Overview</h2> 
-In this section, we will learn the basics of HTCondor scripts towards submitting and 
-monitoring the computational jobs. The jobs are submitted through the login node of 
-OSG Connect. The submitted jobs are executed on the remote worker node(s) and the outputs are 
-transfered back to the login node. In the HTCondor job script, we have to describe how to execute 
-the program and transfer the output data. 
+In this section, we will learn the basics of HTCondor in submitting and monitoring jobs. The jobs are 
+submitted through the login node of OSG Connect. The submitted jobs are executed on the remote worker 
+node(s) and the outputs are transfered back to the login node. In the HTCondor job submit file, we have 
+to describe how to execute the program and transfer the output data. 
 
 <h2>Login to OSG Connect </h2>
 
@@ -24,8 +22,8 @@ First, we log in to OSG Connect:
 {:class="in"}
 
 ~~~
-$ ssh username@login.osgconnect.net  #username is your username
-$ passwd:                        # enter your password
+$ ssh username@login.osgconnect.net  # username is your username
+$ passwd:                            # enter your password
 ~~~
 
 We will get the relevant example files using the *tutorial* command. Run the quickstart tutorial:
@@ -38,7 +36,8 @@ $ cd ~/tutorial-quickstart #relevant script and input files are inside this dire
 We will look at two files in detail: "short.sh" and "tutorial01"
 
 ##Job execution script##
-Inside the tutorial directory that you created or installed previously, create a test script to execute as your job:
+Inside the tutorial directory that you created or installed previously, create a test script to 
+execute as your job:
 
 ~~~
 $ nano short.sh
@@ -87,7 +86,7 @@ Science complete!
 
 ~~~
 
-##Job script##
+##Job submission file##
 Create an HTCondor submit file. So far, so good! Next we will create a 
 simple (if verbose) HTCondor submit file.
 
