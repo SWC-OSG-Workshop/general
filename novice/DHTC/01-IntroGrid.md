@@ -80,6 +80,7 @@ OSG Connect:
     the compute clusters, but for complex software, or licensed software, 
     deployment can be a major task.</li>
 </ul>
-How to get help using OSG Connect
+##How to get help using OSG Connect##
 Please contact user support staff at [connect-support@uchicago.edu](mailto:connect-support@uchicago.edu)..
+
 
