@@ -92,7 +92,7 @@ search for, load, and use software packages.
 We will also cover the usage of the built-in *tutorial* command. Using *tutorial*,
 we load a variety of job templates that cover basic usage, specific use cases, and best practices.
 
-<h2>Modules on OSG</h2> 
+<h2Software Applications </h2> 
 
 Log in OSG with secure shell  
 
@@ -154,7 +154,7 @@ If you want to unload a module, type
 $ module unload R 
 ~~~
 
-<h2> Tutorial Command on OSG </h2> 
+<h2> Tutorial Command </h2> 
 
 The built-in *tutorial* command assists a user in getting started on 
 OSG.  To see the list of existing tutorials, type
