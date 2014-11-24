@@ -7,7 +7,7 @@ title: Introduction to Open Science Grid
 
 #### Objectives
 *   Get to know what is Open Science Grid
-*   What resources are open to acadamic researchers
+*   What resources are open to academic researchers
 *   Computation that is a good match for OSG Connect
 *   Computation that is NOT a good match for OSG Connect
 
@@ -16,19 +16,19 @@ title: Introduction to Open Science Grid
 ## Introduction to Open Science Grid (OSG)  
 
 The Open Science Grid (OSG) is a consortium of research communities who promote science 
-via sharing of computing resources. OSG enables
+via sharing of computing resources. OSG 
 <ul> 
-<li> distributed computing on more than 120 institutions spread across US, </li>
-<li> efficient data processing and  </li>
-<li> large scale scientific computing of 2 million core CPU hours per day.   </li>
+<li> enables distributed computing on more than 120 institutions, </li>
+<li> supports efficient data processing and  </li>
+<li> provides large scale scientific computing of 2 million core CPU hours per day.   </li>
 </ul> 
 
 
-OSG provides the opertunistic cycles to the users. At the time of computational demand, the cores that are 
-free in the OSG shared pool are made availabe to the users. These are opertunistic resources for the 
-users since the number of freely available cores are varying at any given time. 
-The resources accessible through the OSG are contributed by the community, organized by the OSG, and 
-governed by the OSG Consortium. 
+The resources accessible through the OSG are contributed by the community, organized by 
+the OSG, and governed by the OSG Consortium. 
+The cores in the OSG shared pool are made available to the users depending on their 
+availability. These are opportunistic resources for the users and the number of freely available 
+cores are varying at any given time. 
 
 
 
@@ -186,7 +186,7 @@ The "tutorial R" command creates a directory "osg-R" containing the neccessary s
 
 ~~~
 mciP.R      # The example R script file
-R-wrapper.sh # The job executation file 
+R-wrapper.sh # The job execution file 
 R.submit  # The job submission file (will discuss later in the lesson HTCondor scripts)
 ~~~
 
@@ -201,7 +201,7 @@ script.
 #!/bin/bash # Defines the shell environment.
 source /cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/5.6.2/init/bash
 module load R    # Loads the module 
-Rscript  mcpi.R  # Executation of the R script
+Rscript  mcpi.R  # Execution of the R script
 ~~~
 
 Similar to the R tutorial, there are other tutorials available on OSG. The available 
