@@ -79,6 +79,7 @@ OSG Connect:
     the compute clusters, but for complex software, or licensed software, 
     deployment can be a major task.</li>
 </ul>
+
 ##How to get help using OSG Connect
 
 Please contact user support staff at [connect-support@uchicago.edu](mailto:connect-support@uchicago.edu).
@@ -92,7 +93,7 @@ search for, load, and use software packages.
 We will also cover the usage of the built-in *tutorial* command. Using *tutorial*,
 we load a variety of job templates that cover basic usage, specific use cases, and best practices.
 
-<h2Software Applications </h2> 
+<h3> Software Applications </h3>
 
 Log in OSG with secure shell  
 
@@ -154,7 +155,7 @@ If you want to unload a module, type
 $ module unload R 
 ~~~
 
-<h2> Tutorial Command </h2> 
+<h3> Tutorial Command </h3> 
 
 The built-in *tutorial* command assists a user in getting started on 
 OSG.  To see the list of existing tutorials, type
