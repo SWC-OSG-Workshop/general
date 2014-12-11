@@ -17,17 +17,11 @@ We will discuss how to check the job failures and ways to correct the failures.
 
 <h3> Diagnostics with condor_q  </h3> 
 The *condor_q* command shows the status of the jobs and it can be used to diagnose why jobs are not 
-running. The *condor_q* command with  the options " -analyze" and "-better-analyze" would get detailed 
-information about the jobs. 
+running. The *condor_q* command with the option "-better-analyze" will return detailed
+information about the jobs. Since OSG Connect sends jobs to many places, we also need to specify a pool name with the "-pool" flag
 
 ~~~
-$ condor_q -analyze JOB-ID # JOB-ID is the job indentification number 
-~~~
-
-or 
-
-~~~
-$ condor_q -better-analyze JOB-ID # JOB-ID is the job indentification number 
+$ condor_q -better-analyze JOB-ID -pool osg-flock.grid.iu.edu
 ~~~
 
 The detailed information about a job may help us to identify why a job is not running properly. 
@@ -52,7 +46,7 @@ condor_q username
 ~~~
 
 The submitted job remains in the idle state. The job is failed to go through the queue. Now we check the 
-output from *condor_q -better-analyze* that would give us additional detail. 
+output from *condor_q -better-analyze* that will give us additional detail. 
 
 ~~~
 $ condor_q -better-analyze JOB-ID -pool osg-flock.grid.iu.edu
@@ -92,6 +86,12 @@ or you can edit the resource requirement of a job while it is in the idle state.
 condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)' 
 ~~~
 
+<h2> On your own </h2>
+<ol>
+  <li> Use the *connect status* command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') </li>
+  <li> Edit error101_job.submit to include "requirements = (IS_RCC_Syracuse == True)" before the 'queue' statement </li>
+  <li> Use *condor_q -better-analyze* against each pool. Does it match any slots? If so, where? </li>
+</ol>
 
 <h3> condor_ssh_to_job </h3> 
 This command allows the user to *ssh* on the compute node where the job is running.  Once the command 
