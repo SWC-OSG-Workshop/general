@@ -60,11 +60,10 @@ The Requirements expression for your job reduces to these conditions:
 Step    Matched  Condition
 -----  --------  ---------
 [0]           0  Memory >= 51200                 ######## BIG MEMORY, NOT AVAILABLE ###### 
-[1]           0  TARGET.Arch == "X86_64"
-[3]           0  TARGET.OpSys == "LINUX"
-[5]           0  TARGET.Disk >= RequestDisk
-[7]           0  TARGET.Memory >= RequestMemory
-[9]           0  TARGET.HasFileTransfer
+[1]       14727  TARGET.Arch == "X86_64"
+[2]       14727  TARGET.OpSys == "LINUX"
+[3]       14727  TARGET.Disk >= RequestDisk
+[4]       14727  TARGET.HasFileTransfer
 ~~~
 
 
