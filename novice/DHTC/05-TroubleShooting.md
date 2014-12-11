@@ -87,11 +87,10 @@ condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)'
 ~~~
 
 <h3> On your own </h3>
-<ol>
-  <li> Use the *connect status* command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') </li>
-  <li> Edit error101_job.submit to include "requirements = (IS_RCC_Syracuse == True)" before the 'queue' statement </li>
-  <li> Use *condor_q -better-analyze* against each pool. Does it match any slots? If so, where? </li>
-</ol>
+  1) Use the *connect status* command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') </li>
+  2) Edit error101_job.submit to include "requirements = (IS_RCC_Syracuse == True)" before the 'queue' statement </li>
+  3) Use *condor_q -better-analyze* against each pool. Does it match any slots? If so, where? </li>
+
 <br/>
 <br/>
 <h3> condor_ssh_to_job </h3> 
