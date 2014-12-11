@@ -1,12 +1,12 @@
 ---
 layout: lesson
 root: ../..
-title: Trouble Shooting
+title: Troubleshooting when things go wrong
 ---
 <div class="objectives" markdown="1">
 
 #### Objectives
-*   Learn how to trouble shoot failed jobs.
+*   Learn how to troubleshoot failed jobs.
 *   Learn how to periodically retry the failed jobs.
 </div>
 
@@ -55,7 +55,7 @@ The submitted job remains in the idle state. The job is failed to go through the
 output from *condor_q -better-analyze* that would give us additional detail. 
 
 ~~~
-$ condor_q -better-analyze JOB-ID 
+$ condor_q -better-analyze JOB-ID -pool osg-flock.grid.iu.edu
  
 # Produces a long ouput. 
 # The following lines are part of the output regarding the job requirements.  
