@@ -86,13 +86,14 @@ or you can edit the resource requirement of a job while it is in the idle state.
 condor_qedit JOB-ID Requirements 'Requirements = (Memory >= 512)' 
 ~~~
 
-<h2> On your own </h2>
+<h3> On your own </h3>
 <ol>
   <li> Use the *connect status* command to get a list of pools (e.g., 'uc3-mgt.mwt2.org') </li>
   <li> Edit error101_job.submit to include "requirements = (IS_RCC_Syracuse == True)" before the 'queue' statement </li>
   <li> Use *condor_q -better-analyze* against each pool. Does it match any slots? If so, where? </li>
 </ol>
-
+<br/>
+<br/>
 <h3> condor_ssh_to_job </h3> 
 This command allows the user to *ssh* on the compute node where the job is running.  Once the command 
 is run, the user will be in the job's working directory and can examine the job's environment and run 
