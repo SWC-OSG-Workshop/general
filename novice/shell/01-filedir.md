@@ -15,9 +15,15 @@ title: Files and Directories
 
 </div>
 
+Get the example data by doing 
+
+~~~
+$ git clone https://github.com/eharstad/filesystem
+~~~
+
+
 The part of the operating system responsible for managing files and directories
-is called the [file system](../../gloss.html#filesystem).
-It organizes our data into files,
+is called the [file system](../../gloss.html#filesystem). It organizes our data into files,
 which hold information,
 and directories (also called "folders"),
 which hold files or other directories.
