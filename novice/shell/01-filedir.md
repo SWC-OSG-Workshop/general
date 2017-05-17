@@ -15,7 +15,7 @@ title: Files and Directories
 
 </div>
 
-Get the example data by doing 
+Get the example data
 
 ~~~
 $ git clone https://github.com/eharstad/filesystem
