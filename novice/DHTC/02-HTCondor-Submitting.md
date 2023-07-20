@@ -151,16 +151,16 @@ $ condor_q 823
 Note the ST (state) column. Your job will be in the I state (idle) if it hasn't 
 started yet. If it's currently scheduled and running, it will have state R (running). If it has completed already, it will not appear in condor_q.
 
-Let's wait for your job to finish – that is, for condor_q not to show the job in its output. A useful tool for this is watch – it runs a program repeatedly, letting you see how the output differs at fixed time intervals. Let's submit the job again, and watch condor_q output at two-second intervals:
+Let's wait for your job to finish – that is, for condor_q not to show the job in its output. A useful tool for this is condor_watch_q – it runs a program repeatedly, letting you see how the output differs at fixed time intervals. Let's submit the job again, and look at the queue with condor_watch_q
 
 ~~~
 $ condor_submit tutorial01
 Submitting job(s). 
 1 job(s) submitted to cluster 823
-$ watch -n2 condor_q username 
+$ condor_watch_q -users username 
 ~~~
 
-When your job has completed, it will disappear from the list.  To close watch, hold down Ctrl 
+When your job has completed, it will disappear from the list.  To close condor_watch_q, hold down Ctrl 
 and press C.
 
 ##Job history##
